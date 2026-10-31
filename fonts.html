@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Directory — Font Library</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230ae448'/%3E%3Cstop offset='50%25' stop-color='%2300e5ff'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='256' height='256' rx='56' fill='%23090a0f'/%3E%3Cpath fill='url(%23g)' d='M224,152a32,32,0,0,0-30.88,23.72C179.45,127.83,134.81,96,84,96H78.63A32,32,0,1,0,48,112a31.86,31.86,0,0,0,19.35-6.56C116.51,108.66,158.85,137.9,172.1,184H168a8,8,0,0,0,0,16h24a32,32,0,1,0,32-48ZM48,96a16,16,0,1,1,16-16A16,16,0,0,1,48,96Zm176,104a16,16,0,1,1,16-16A16,16,0,0,1,224,200ZM208,64a24,24,0,1,0-24,24A24,24,0,0,0,208,64Zm-24,8a8,8,0,1,1,8-8A8,8,0,0,1,184,72Z'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%230AE448' d='M212,56V88a12,12,0,0,1-24,0V68H140V188h20a12,12,0,0,1,0,24H96a12,12,0,0,1,0-24h20V68H68V88a12,12,0,0,1-24,0V56A12,12,0,0,1,56,44H200A12,12,0,0,1,212,56Z'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&f[]=clash-display@200,300,400,500,600,700,1&f[]=clash-grotesk@200,300,400,500,600,700,1&f[]=excon@100,300,400,500,700,900,1&f[]=melodrama@300,400,500,600,700,1&display=swap" rel="stylesheet">
@@ -27,13 +27,17 @@
 
   <header class="library-header">
     <div class="header-inner">
-      <a href="index.html" class="brand-link">
-        <span class="brand-icon"><i class="ph-bold ph-bezier-curve"></i></span>
-        <span class="brand-text">Font Library</span>
-      </a>
+      <div class="brand-group">
+        <a href="index.html" class="brand-link">Font Library</a>
+        <span class="brand-sep"></span>
+        <a href="https://ayaanahmed.org" target="_blank" rel="noopener noreferrer" class="signature-link" aria-label="Ayaan Ahmed">
+          <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-sm">
+        </a>
+      </div>
 
       <div class="header-tools">
         <div class="category-tabs" id="categoryTabs">
+          <span class="tab-glider" id="tabGlider"></span>
           <button type="button" class="tab-btn active" data-cat="all">All 38</button>
           <button type="button" class="tab-btn" data-cat="sans">Sans</button>
           <button type="button" class="tab-btn" data-cat="display">Display</button>
@@ -49,7 +53,7 @@
 
         <label class="upload-btn" for="localFontFile">
           <i class="ph-bold ph-upload-simple"></i>
-          <span>Load Font File</span>
+          <span>Load Font</span>
           <input type="file" id="localFontFile" accept=".woff2,.woff,.ttf,.otf" multiple hidden>
         </label>
       </div>
@@ -59,6 +63,15 @@
   <main class="index-wrapper">
     <div id="typeIndexList" class="type-index-list"></div>
   </main>
+
+  <footer class="library-footer">
+    <div class="footer-inner">
+      <a href="https://ayaanahmed.org" target="_blank" rel="noopener noreferrer" class="signature-link">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo">
+      </a>
+      <span class="footer-meta">38 Curated Typefaces</span>
+    </div>
+  </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
