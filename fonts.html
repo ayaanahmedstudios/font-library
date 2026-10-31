@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Directory — Font Library</title>
+  <title>Index — Font Library</title>
 
-  <!-- Fontshare: Switzer, General Sans + Collection Fonts -->
+  <!-- Fontshare: Switzer, General Sans & Collection Faces -->
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&f[]=clash-display@200,300,400,500,600,700,1&f[]=clash-grotesk@200,300,400,500,600,700,1&f[]=excon@100,300,400,500,700,900,1&f[]=melodrama@300,400,500,600,700,1&display=swap" rel="stylesheet">
 
-  <!-- Google Fonts: Real Verified Collection -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Doto:wght@100..900&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ojuju:wght@200..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Sekuya&family=Stack+Sans+Headline:wght@200..700&family=Stack+Sans+Notch:wght@200..700&family=Stack+Sans+Text:wght@200..700&family=Tiny5&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
@@ -19,85 +19,40 @@
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="directory-body" data-page="directory">
+<body class="library-page" data-page="library">
 
-  <header class="minimal-header sticky-nav">
-    <a href="index.html" class="header-mark">Font Library</a>
-    <div class="header-right">
-      <label class="upload-font-btn" for="localFontInput" title="Load a local .woff2, .ttf, or .otf file into the browser">
-        + Load Local Font File
-        <input type="file" id="localFontInput" accept=".woff2,.woff,.ttf,.otf" multiple hidden>
+  <header class="site-bar sticky-bar">
+    <a href="index.html" class="bar-brand">Font Library</a>
+
+    <div class="bar-controls">
+      <div class="category-tabs" id="categoryTabs">
+        <button type="button" class="tab-btn active" data-cat="all">All</button>
+        <button type="button" class="tab-btn" data-cat="sans">Sans</button>
+        <button type="button" class="tab-btn" data-cat="display">Display</button>
+        <button type="button" class="tab-btn" data-cat="mono">Mono</button>
+        <button type="button" class="tab-btn" data-cat="serif">Serif</button>
+        <button type="button" class="tab-btn" data-cat="local">Local</button>
+      </div>
+
+      <div class="search-box">
+        <input type="search" id="fontSearch" placeholder="Filter..." autocomplete="off">
+      </div>
+
+      <label class="local-upload-trigger" for="localFontFile" title="Load local .woff2/.ttf/.otf">
+        + Local File
+        <input type="file" id="localFontFile" accept=".woff2,.woff,.ttf,.otf" multiple hidden>
       </label>
-      <a href="index.html" class="header-nav-link">Home Stage</a>
     </div>
   </header>
 
-  <section class="control-bar" aria-label="Specimen Controls">
-    <div class="control-bar-inner">
-      <div class="control-primary-row">
-        <div class="input-wrap search-wrap">
-          <input type="search" id="searchInput" placeholder="Search typeface..." autocomplete="off">
-        </div>
-
-        <div class="input-wrap preview-wrap">
-          <input type="text" id="globalPreviewInput" value="Sphinx of black quartz, judge my vow 0123456789" placeholder="Type anything to preview..." autocomplete="off">
-        </div>
-
-        <div class="sliders-wrap">
-          <div class="slider-item">
-            <div class="slider-meta">
-              <span>Size</span>
-              <output id="sizeOutput">44px</output>
-            </div>
-            <input type="range" id="sizeRange" min="18" max="96" value="44">
-          </div>
-
-          <div class="slider-item">
-            <div class="slider-meta">
-              <span>Weight</span>
-              <output id="weightOutput">400</output>
-            </div>
-            <input type="range" id="weightRange" min="100" max="900" step="50" value="400">
-          </div>
-
-          <div class="slider-item">
-            <div class="slider-meta">
-              <span>Tracking</span>
-              <output id="trackingOutput">0em</output>
-            </div>
-            <input type="range" id="trackingRange" min="-0.06" max="0.15" step="0.005" value="0">
-          </div>
-        </div>
-      </div>
-
-      <div class="control-secondary-row">
-        <div class="filter-group" id="filterGroup">
-          <button type="button" class="filter-chip active" data-category="all">All</button>
-          <button type="button" class="filter-chip" data-category="sans">Sans</button>
-          <button type="button" class="filter-chip" data-category="display">Display</button>
-          <button type="button" class="filter-chip" data-category="mono">Mono &amp; Pixel</button>
-          <button type="button" class="filter-chip" data-category="serif">Serif</button>
-          <button type="button" class="filter-chip" data-category="local">Local File Slots</button>
-        </div>
-
-        <div class="view-meta">
-          <span id="fontCounter" class="count-label">30 fonts</span>
-          <div class="layout-toggle" role="group" aria-label="Layout view">
-            <button type="button" class="layout-btn active" data-view="list">List</button>
-            <button type="button" class="layout-btn" data-view="grid">Grid</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <main class="directory-container">
-    <div id="fontGrid" class="font-list-view"></div>
+  <main class="index-wrapper">
+    <div id="typeIndexList" class="type-index-list"></div>
   </main>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <!-- GSAP 3 Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
