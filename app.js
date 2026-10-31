@@ -1,16 +1,15 @@
 /* ==========================================================================
-   Complete 38-Font Curated Dataset
-   Includes Open-Source License Verification & Direct Download/Source URLs
+   Verified Font Collection (Zero Unconfirmed Replacements, Zero Fake Fallbacks)
+   30 Open Fonts + 4 Local File Slots
    ========================================================================== */
-const FONT_COLLECTION = [
+const FONTS = [
   {
     name: "Atkinson Hyperlegible",
     family: "'Atkinson Hyperlegible', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap",
+    weights: "400, 700",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Atkinson+Hyperlegible"
   },
   {
@@ -18,9 +17,8 @@ const FONT_COLLECTION = [
     family: "'Bricolage Grotesque', sans-serif",
     category: "display",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&display=swap",
+    weights: "Variable 200–800",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque"
   },
   {
@@ -28,9 +26,8 @@ const FONT_COLLECTION = [
     family: "'Cabinet Grotesk', sans-serif",
     category: "sans",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@300,400,500,700,800&display=swap",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/cabinet-grotesk"
   },
   {
@@ -38,9 +35,8 @@ const FONT_COLLECTION = [
     family: "'Clash Display', sans-serif",
     category: "display",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,1&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/clash-display"
   },
   {
@@ -48,29 +44,17 @@ const FONT_COLLECTION = [
     family: "'Clash Grotesk', sans-serif",
     category: "sans",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=clash-grotesk@300,400,500,600,700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,1&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/clash-grotesk"
   },
   {
-    name: "CM Geom",
-    family: "'CM Geom', 'Plus Jakarta Sans', sans-serif",
-    category: "sans",
-    source: "Open Geometric",
-    status: "open",
-    note: "Free Geometric Sans (Local @font-face ready)",
-    importUrl: "/* Place CMGeom.woff2 in /fonts and declare via @font-face */",
-    downloadUrl: "https://fonts.google.com/?query=geometric"
-  },
-  {
     name: "Coconat",
-    family: "'Coconat', 'Syne', sans-serif",
+    family: "'Coconat', sans-serif",
     category: "display",
-    source: "Collletttivo Open Foundry",
-    status: "open",
-    note: "Free Open-Source Foundry Release",
-    importUrl: "/* Download Coconat WOFF2 from Collletttivo */",
+    source: "Collletttivo",
+    weights: "400, 700",
+    cssImport: "@font-face { font-family: 'Coconat'; src: url('https://cdn.jsdelivr.net/gh/collletttivo/coconat@master/fonts/webfonts/Coconat-Regular.woff2') format('woff2'); }",
     downloadUrl: "https://www.collletttivo.it/typefaces/coconat"
   },
   {
@@ -78,9 +62,8 @@ const FONT_COLLECTION = [
     family: "'Departure Mono', monospace",
     category: "mono",
     source: "Helena Zhang",
-    status: "open",
-    note: "SIL Open Font License (Loaded via CDN)",
-    importUrl: "https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@v1.422/DepartureMono-Regular.woff2",
+    weights: "400",
+    cssImport: "@font-face { font-family: 'Departure Mono'; src: url('https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@v1.422/DepartureMono-Regular.woff2') format('woff2'); }",
     downloadUrl: "https://departuremono.com/"
   },
   {
@@ -88,9 +71,8 @@ const FONT_COLLECTION = [
     family: "'DM Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..800&display=swap",
+    weights: "Variable 100–1000",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/DM+Sans"
   },
   {
@@ -98,89 +80,53 @@ const FONT_COLLECTION = [
     family: "'Doto', monospace",
     category: "mono",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Doto:wght@400..800&display=swap",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Doto"
   },
   {
-    name: "DT World Tour",
-    family: "'DT World Tour', 'Unbounded', sans-serif",
-    category: "display",
-    source: "Independent Display",
-    status: "open",
-    note: "Free Display Release (Local @font-face ready)",
-    importUrl: "/* Local @font-face slot for DT World Tour */",
-    downloadUrl: "https://fonts.google.com/specimen/Unbounded"
-  },
-  {
     name: "Elms Sans",
-    family: "'Elms Sans', 'Public Sans', sans-serif",
+    family: "'Elms Sans', sans-serif",
     category: "sans",
-    source: "Open Sans Library",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..800&display=swap",
-    downloadUrl: "https://fonts.google.com/specimen/Public+Sans"
+    source: "Google Fonts",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
+    downloadUrl: "https://fonts.google.com/specimen/Elms+Sans"
   },
   {
     name: "Excon",
     family: "'Excon', sans-serif",
     category: "sans",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=excon@300,400,500,700&display=swap",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=excon@100,300,400,500,700,900,1&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/excon"
-  },
-  {
-    name: "FTGG",
-    family: "'FTGG', 'Clash Display', sans-serif",
-    category: "display",
-    source: "Independent Foundry",
-    status: "open",
-    note: "Custom Display Slot (Local @font-face ready)",
-    importUrl: "/* Local @font-face slot for FTGG */",
-    downloadUrl: "https://www.fontshare.com/fonts/clash-display"
-  },
-  {
-    name: "Futura (Open Equivalent: Jost)",
-    family: "'Jost', sans-serif",
-    category: "open-swap",
-    source: "Google Fonts (Jost)",
-    status: "swap",
-    note: "Futura is commercial; paired with Jost (100% Free OFL Paul Renner tribute)",
-    importUrl: "https://fonts.googleapis.com/css2?family=Jost:wght@300..800&display=swap",
-    downloadUrl: "https://fonts.google.com/specimen/Jost"
   },
   {
     name: "Geist",
     family: "'Geist', sans-serif",
     category: "sans",
-    source: "Google Fonts & Vercel",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap",
+    source: "Google Fonts / Vercel",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Geist"
   },
   {
     name: "Geist Mono",
     family: "'Geist Mono', monospace",
     category: "mono",
-    source: "Google Fonts & Vercel",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300..700&display=swap",
+    source: "Google Fonts / Vercel",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Geist+Mono"
   },
   {
     name: "Geist Pixel",
-    family: "'Tiny5', 'Geist Mono', monospace",
+    family: "'Geist Pixel', monospace",
     category: "mono",
-    source: "Vercel Open Release",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://vercel.com/font",
+    source: "Vercel",
+    weights: "400",
+    cssImport: "@font-face { font-family: 'Geist Pixel'; src: url('https://cdn.jsdelivr.net/npm/geist@1.7.0/dist/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2'); }",
     downloadUrl: "https://vercel.com/font"
   },
   {
@@ -188,29 +134,17 @@ const FONT_COLLECTION = [
     family: "'General Sans', sans-serif",
     category: "sans",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700,1,2&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/general-sans"
-  },
-  {
-    name: "Lemon/Milk (Open Equivalent: Syne)",
-    family: "'Syne', sans-serif",
-    category: "open-swap",
-    source: "Google Fonts (Syne)",
-    status: "swap",
-    note: "Lemon/Milk requires commercial licensing; paired with Syne (OFL Free)",
-    importUrl: "https://fonts.googleapis.com/css2?family=Syne:wght@600..800&display=swap",
-    downloadUrl: "https://fonts.google.com/specimen/Syne"
   },
   {
     name: "Melodrama",
     family: "'Melodrama', serif",
     category: "serif",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=melodrama@400,500,600,700&display=swap",
+    weights: "Variable 300–700",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=melodrama@300,400,500,600,700,1&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/melodrama"
   },
   {
@@ -218,9 +152,8 @@ const FONT_COLLECTION = [
     family: "'Nunito', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Nunito:wght@300..800&display=swap",
+    weights: "Variable 200–1000",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Nunito"
   },
   {
@@ -228,9 +161,8 @@ const FONT_COLLECTION = [
     family: "'Ojuju', sans-serif",
     category: "display",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Ojuju:wght@300..800&display=swap",
+    weights: "Variable 200–800",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Ojuju"
   },
   {
@@ -238,9 +170,8 @@ const FONT_COLLECTION = [
     family: "'Parkinsans', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap",
+    weights: "Variable 300–800",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Parkinsans"
   },
   {
@@ -248,49 +179,26 @@ const FONT_COLLECTION = [
     family: "'Poppins', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Poppins:wght@300..800&display=swap",
+    weights: "100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Poppins"
   },
   {
     name: "Pretendard",
-    family: "'Pretendard', sans-serif",
+    family: "'Pretendard Variable', 'Pretendard', sans-serif",
     category: "sans",
-    source: "GitHub Open Release",
-    status: "open",
-    note: "SIL Open Font License (Loaded via jsDelivr)",
-    importUrl: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css",
+    source: "OFL GitHub CDN",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');",
     downloadUrl: "https://github.com/orioncactus/pretendard"
-  },
-  {
-    name: "Product Sans (Open Equivalent: Plus Jakarta Sans)",
-    family: "'Plus Jakarta Sans', sans-serif",
-    category: "open-swap",
-    source: "Google Fonts (Plus Jakarta Sans)",
-    status: "swap",
-    note: "Product Sans is Google proprietary; paired with Plus Jakarta Sans (OFL Free)",
-    importUrl: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&display=swap",
-    downloadUrl: "https://fonts.google.com/specimen/Plus+Jakarta+Sans"
-  },
-  {
-    name: "Proxima Nova (Open Equivalent: Figtree)",
-    family: "'Figtree', sans-serif",
-    category: "open-swap",
-    source: "Google Fonts (Figtree)",
-    status: "swap",
-    note: "Proxima Nova is commercial; paired with Figtree (OFL Free geometric sans)",
-    importUrl: "https://fonts.googleapis.com/css2?family=Figtree:wght@300..800&display=swap",
-    downloadUrl: "https://fonts.google.com/specimen/Figtree"
   },
   {
     name: "Public Sans",
     family: "'Public Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..800&display=swap",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Public+Sans"
   },
   {
@@ -298,29 +206,26 @@ const FONT_COLLECTION = [
     family: "'Quicksand', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap",
+    weights: "Variable 300–700",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Quicksand"
   },
   {
     name: "Sekuya",
-    family: "'Sekuya', 'Bricolage Grotesque', sans-serif",
+    family: "'Sekuya', sans-serif",
     category: "display",
-    source: "Independent Display",
-    status: "open",
-    note: "Free Display Typeface (Local @font-face ready)",
-    importUrl: "/* Local @font-face slot for Sekuya */",
-    downloadUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque"
+    source: "Google Fonts",
+    weights: "400",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap');",
+    downloadUrl: "https://fonts.google.com/specimen/Sekuya"
   },
   {
     name: "Stack Sans Headline",
     family: "'Stack Sans Headline', sans-serif",
     category: "display",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@300..700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Headline"
   },
   {
@@ -328,9 +233,8 @@ const FONT_COLLECTION = [
     family: "'Stack Sans Notch', sans-serif",
     category: "display",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@300..700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Notch"
   },
   {
@@ -338,9 +242,8 @@ const FONT_COLLECTION = [
     family: "'Stack Sans Text', sans-serif",
     category: "sans",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@300..700&display=swap",
+    weights: "Variable 200–700",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Text"
   },
   {
@@ -348,9 +251,8 @@ const FONT_COLLECTION = [
     family: "'Switzer', sans-serif",
     category: "sans",
     source: "Fontshare",
-    status: "open",
-    note: "100% Free Personal & Commercial",
-    importUrl: "https://api.fontshare.com/v2/css?f[]=switzer@300,400,500,600,700&display=swap",
+    weights: "Variable 100–900",
+    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&display=swap');",
     downloadUrl: "https://www.fontshare.com/fonts/switzer"
   },
   {
@@ -358,9 +260,8 @@ const FONT_COLLECTION = [
     family: "'Tiny5', monospace",
     category: "mono",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Tiny5&display=swap",
+    weights: "400",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Tiny5"
   },
   {
@@ -368,430 +269,655 @@ const FONT_COLLECTION = [
     family: "'Unbounded', sans-serif",
     category: "display",
     source: "Google Fonts",
-    status: "open",
-    note: "SIL Open Font License",
-    importUrl: "https://fonts.googleapis.com/css2?family=Unbounded:wght@300..800&display=swap",
+    weights: "Variable 200–900",
+    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');",
     downloadUrl: "https://fonts.google.com/specimen/Unbounded"
   },
   {
+    name: "CM Geom",
+    family: "'CM Geom'",
+    category: "local",
+    source: "Local File Slot (./fonts/CMGeom.woff2)",
+    weights: "Attach Local File",
+    cssImport: "@font-face { font-family: 'CM Geom'; src: url('fonts/CMGeom.woff2') format('woff2'); }",
+    downloadUrl: "",
+    isLocalSlot: true
+  },
+  {
+    name: "DT World Tour",
+    family: "'DT World Tour'",
+    category: "local",
+    source: "Local File Slot (./fonts/DTWorldTour.woff2)",
+    weights: "Attach Local File",
+    cssImport: "@font-face { font-family: 'DT World Tour'; src: url('fonts/DTWorldTour.woff2') format('woff2'); }",
+    downloadUrl: "",
+    isLocalSlot: true
+  },
+  {
+    name: "FTGG",
+    family: "'FTGG'",
+    category: "local",
+    source: "Local File Slot (./fonts/FTGG.woff2)",
+    weights: "Attach Local File",
+    cssImport: "@font-face { font-family: 'FTGG'; src: url('fonts/FTGG.woff2') format('woff2'); }",
+    downloadUrl: "",
+    isLocalSlot: true
+  },
+  {
     name: "Wistteria Sans",
-    family: "'Wistteria Sans', 'General Sans', sans-serif",
-    category: "sans",
-    source: "Open Foundry",
-    status: "open",
-    note: "Free Sans Release (Local @font-face ready)",
-    importUrl: "/* Local @font-face slot for Wistteria Sans */",
-    downloadUrl: "https://www.fontshare.com/fonts/general-sans"
+    family: "'Wistteria Sans'",
+    category: "local",
+    source: "Local File Slot (./fonts/WistteriaSans.woff2)",
+    weights: "Attach Local File",
+    cssImport: "@font-face { font-family: 'Wistteria Sans'; src: url('fonts/WistteriaSans.woff2') format('woff2'); }",
+    downloadUrl: "",
+    isLocalSlot: true
   }
 ];
 
-/* ==========================================================================
-   Shared Utilities: Theme Toggle & Toast Feedback
-   ========================================================================== */
-function initTheme() {
-  const saved = localStorage.getItem("typeArchiveTheme") || "light";
-  const btn = document.getElementById("themeToggle");
-  if (saved === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    if (btn) btn.textContent = "Light Mode";
-  }
-
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (isDark) {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("typeArchiveTheme", "light");
-        btn.textContent = "Dark Mode";
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("typeArchiveTheme", "dark");
-        btn.textContent = "Light Mode";
-      }
-    });
-  }
-}
-
-function showToast(message) {
+function notify(msg) {
   const toast = document.getElementById("toast");
   if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add("visible");
-  clearTimeout(window.__toastTimer);
-  window.__toastTimer = setTimeout(() => {
-    toast.classList.remove("visible");
-  }, 2400);
-}
-
-function splitTextIntoChars(element, className = "char") {
-  const text = element.textContent;
-  element.innerHTML = "";
-  for (const ch of text) {
-    const span = document.createElement("span");
-    span.className = className;
-    span.textContent = ch === " " ? "\u00A0" : ch;
-    element.appendChild(span);
-  }
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(window.__toastTimeout);
+  window.__toastTimeout = setTimeout(() => toast.classList.remove("show"), 2200);
 }
 
 /* ==========================================================================
-   Home Page (`index.html`): Anime.js Kinetic Typography & Pairing Studio
+   HOME PAGE (`index.html`):
+   Complex Multi-Phase Anime.js Variable-Font Choreography on "Font Library"
    ========================================================================== */
-function initHomePage() {
-  // 1. Split hero headline words into individual characters and animate with Anime.js
-  const words = document.querySelectorAll(".kinetic-word");
-  words.forEach(w => splitTextIntoChars(w, "char"));
+function initHomeStage() {
+  const heading = document.getElementById("heroHeading");
+  if (!heading) return;
 
-  anime.timeline({ easing: "easeOutExpo" })
-    .add({
-      targets: ".kinetic-word .char",
-      translateY: ["110%", "0%"],
-      rotateZ: [6, 0],
-      opacity: [0, 1],
-      duration: 1100,
-      delay: anime.stagger(32)
-    })
-    .add({
-      targets: ".fade-up",
-      translateY: [20, 0],
-      opacity: [0, 1],
-      duration: 800,
-      delay: anime.stagger(120)
-    }, "-=700");
+  // Build 3D multi-layered DOM structure for "Font" and "Library"
+  const words = ["Font", "Library"];
+  heading.innerHTML = "";
 
-  // 2. Live Anime.js Rotating Specimen Showcase
-  const showcaseSamples = [
-    {
-      name: "Clash Display",
-      source: "Fontshare • Free Commercial & Personal",
-      family: "'Clash Display', sans-serif",
-      phrase: "Editorial poise meets geometric clarity"
-    },
-    {
-      name: "Bricolage Grotesque",
-      source: "Google Fonts • SIL Open Font License",
-      family: "'Bricolage Grotesque', sans-serif",
-      phrase: "Expressive character across every weight"
-    },
-    {
-      name: "Melodrama",
-      source: "Fontshare • Free Commercial & Personal",
-      family: "'Melodrama', serif",
-      phrase: "High-contrast rhythm for modern headlines"
-    },
-    {
-      name: "Departure Mono",
-      source: "Helena Zhang • Free Open Font License",
-      family: "'Departure Mono', monospace",
-      phrase: "Precision pixel geometry at 11px increments"
-    },
-    {
-      name: "Unbounded",
-      source: "Google Fonts • SIL Open Font License",
-      family: "'Unbounded', sans-serif",
-      phrase: "Expansive proportions built for impact"
-    },
-    {
-      name: "Cabinet Grotesk",
-      source: "Fontshare • Free Commercial & Personal",
-      family: "'Cabinet Grotesk', sans-serif",
-      phrase: "Clean architectural structure in motion"
+  const letterUnits = [];
+  const letterProxies = [];
+
+  words.forEach((wordText) => {
+    const wordSpan = document.createElement("span");
+    wordSpan.className = "word-cluster";
+
+    for (const ch of wordText) {
+      const idx = letterUnits.length;
+      const unit = document.createElement("span");
+      unit.className = "letter-unit";
+      unit.dataset.index = idx;
+      unit.dataset.char = ch;
+
+      unit.innerHTML = `
+        <span class="glyph-metric">700</span>
+        <span class="glyph-echo echo-1" aria-hidden="true">${ch}</span>
+        <span class="glyph-echo echo-2" aria-hidden="true">${ch}</span>
+        <span class="glyph-core">${ch}</span>
+      `;
+
+      wordSpan.appendChild(unit);
+      letterUnits.push(unit);
+
+      // Per-letter state proxy for smooth variable font weight & 3D transforms
+      letterProxies.push({
+        index: idx,
+        el: unit,
+        core: unit.querySelector(".glyph-core"),
+        echo1: unit.querySelector(".echo-1"),
+        echo2: unit.querySelector(".echo-2"),
+        metric: unit.querySelector(".glyph-metric"),
+        wght: 700
+      });
     }
-  ];
 
-  let currentSampleIndex = 0;
-  const stageEl = document.getElementById("kineticStage");
-  const nameEl = document.getElementById("activeFontLabel");
-  const sourceEl = document.getElementById("activeFontSource");
-  const barEl = document.getElementById("rotatorBar");
+    heading.appendChild(wordSpan);
+  });
 
-  function runSpecimenCycle() {
-    const item = showcaseSamples[currentSampleIndex];
-    nameEl.textContent = item.name;
-    sourceEl.textContent = item.source;
-    stageEl.style.fontFamily = item.family;
-    stageEl.textContent = item.phrase;
-    splitTextIntoChars(stageEl, "stage-char");
+  let activeTimeline = null;
+  let waveLoopFrame = null;
+  let currentMode = "symphony";
 
-    anime({
-      targets: "#kineticStage .stage-char",
-      translateY: [28, 0],
-      opacity: [0, 1],
-      easing: "easeOutQuart",
-      duration: 650,
-      delay: anime.stagger(18)
-    });
+  // Helper to sync proxy variable weight to DOM
+  function applyWeight(proxy, weightVal) {
+    const rounded = Math.round(weightVal);
+    proxy.core.style.fontWeight = rounded;
+    proxy.core.style.fontVariationSettings = `'wght' ${rounded}`;
+    proxy.echo1.style.fontWeight = rounded;
+    proxy.echo2.style.fontWeight = rounded;
+    proxy.metric.textContent = rounded;
+  }
 
-    anime({
-      targets: barEl,
-      width: ["0%", "100%"],
-      easing: "linear",
-      duration: 4200,
+  // Distinct per-letter bespoke stunts for each of the 11 letters in "Font Library"
+  function triggerIndividualLetterStunts(tl, offsetTime) {
+    // 0: 'F' — Architectural cantilever slam + weight surge 100 -> 900
+    tl.add({
+      targets: letterUnits[0],
+      translateX: [0, -26, 0],
+      rotateY: [0, -35, 0],
+      scaleX: [1, 1.28, 1],
+      duration: 950,
+      easing: "easeOutElastic(1, .5)"
+    }, offsetTime);
+
+    // 1: 'o' — 360-degree 3D orbital coin spin + echo expansion
+    tl.add({
+      targets: letterUnits[1],
+      rotateY: [0, 360],
+      scale: [1, 1.32, 1],
+      duration: 1050,
+      easing: "easeInOutCubic"
+    }, offsetTime + 70);
+
+    // 2: 'n' — High-arch elastic spring stretch
+    tl.add({
+      targets: letterUnits[2],
+      scaleY: [1, 1.85, 0.72, 1],
+      translateY: [0, -34, 8, 0],
+      duration: 1000,
+      easing: "easeOutElastic(1.2, .45)"
+    }, offsetTime + 140);
+
+    // 3: 't' — Crossbar vertical 180X flip
+    tl.add({
+      targets: letterUnits[3],
+      rotateX: [0, 360],
+      translateZ: [0, 90, 0],
+      duration: 950,
+      easing: "easeInOutExpo"
+    }, offsetTime + 210);
+
+    // 4: 'L' — 90-degree geometric corner pivot & drop
+    tl.add({
+      targets: letterUnits[4],
+      rotateZ: [0, -24, 6, 0],
+      scale: [1, 1.35, 1],
+      duration: 1000,
+      easing: "easeOutElastic(1, .5)"
+    }, offsetTime + 300);
+
+    // 5: 'i' — Zero-gravity vertical levitation & snap
+    tl.add({
+      targets: letterUnits[5],
+      translateY: [0, -52, 0],
+      scaleY: [1, 0.65, 1.25, 1],
+      duration: 950,
+      easing: "easeOutBack(2.4)"
+    }, offsetTime + 360);
+
+    // 6: 'b' — 3D bowl pendulum flip
+    tl.add({
+      targets: letterUnits[6],
+      rotateY: [0, -180, -360],
+      skewY: [0, 14, 0],
+      duration: 1050,
+      easing: "easeInOutQuart"
+    }, offsetTime + 420);
+
+    // 7: 'r' — Kinetic shear & ghost slice fan
+    tl.add({
+      targets: letterUnits[7],
+      skewX: [0, -28, 14, 0],
+      translateX: [0, 14, -6, 0],
+      duration: 900,
+      easing: "easeOutElastic(1, .5)"
+    }, offsetTime + 480);
+
+    // 8: 'a' — Variable optical width expansion
+    tl.add({
+      targets: letterUnits[8],
+      scaleX: [1, 1.45, 0.82, 1],
+      rotateZ: [0, 10, -5, 0],
+      duration: 980,
+      easing: "easeOutElastic(1.1, .45)"
+    }, offsetTime + 540);
+
+    // 9: 'r' — Inverted X-axis tumble
+    tl.add({
+      targets: letterUnits[9],
+      rotateX: [0, -360],
+      scale: [1, 1.24, 1],
+      duration: 980,
+      easing: "easeInOutQuint"
+    }, offsetTime + 600);
+
+    // 10: 'y' — Descender whip & elastic rebound
+    tl.add({
+      targets: letterUnits[10],
+      translateY: [0, 44, -18, 0],
+      rotateZ: [0, 18, -8, 0],
+      scaleY: [1, 1.38, 0.88, 1],
+      duration: 1150,
+      easing: "easeOutElastic(1.2, .4)"
+    }, offsetTime + 660);
+  }
+
+  function runMasterChoreography() {
+    if (activeTimeline) activeTimeline.pause();
+    cancelAnimationFrame(waveLoopFrame);
+    anime.remove([
+      letterUnits,
+      ".glyph-core",
+      ".echo-1",
+      ".echo-2",
+      ".glyph-metric",
+      letterProxies
+    ]);
+
+    activeTimeline = anime.timeline({
+      autoplay: true,
       complete: () => {
-        anime({
-          targets: "#kineticStage .stage-char",
-          translateY: [0, -22],
-          opacity: [1, 0],
-          easing: "easeInQuad",
-          duration: 320,
-          delay: anime.stagger(10),
-          complete: () => {
-            currentSampleIndex = (currentSampleIndex + 1) % showcaseSamples.length;
-            runSpecimenCycle();
-          }
-        });
+        startContinuousHarmonicWave();
       }
     });
-  }
 
-  runSpecimenCycle();
+    // ACT I: 3D Dimensional Deconstruction & Wireframe Echo Fan-In
+    activeTimeline
+      .add({
+        targets: letterUnits,
+        translateZ: [-520, 0],
+        translateY: (el, i) => [i % 2 === 0 ? -90 : 90, 0],
+        rotateX: (el, i) => [i % 2 === 0 ? 88 : -88, 0],
+        rotateY: [-40, 0],
+        scale: [0.35, 1],
+        opacity: [0, 1],
+        duration: 1350,
+        delay: anime.stagger(55, { from: "center" }),
+        easing: "easeOutElastic(1.05, .55)"
+      }, 0)
+      .add({
+        targets: ".echo-1",
+        opacity: [0, 0.85, 0],
+        translateY: [0, -32, 0],
+        translateX: [0, -16, 0],
+        scale: [1, 1.14, 1],
+        duration: 1150,
+        delay: anime.stagger(55, { from: "center" }),
+        easing: "easeOutQuart"
+      }, 60)
+      .add({
+        targets: ".echo-2",
+        opacity: [0, 0.6, 0],
+        translateY: [0, 36, 0],
+        translateX: [0, 18, 0],
+        scale: [1, 1.24, 1],
+        duration: 1250,
+        delay: anime.stagger(55, { from: "center" }),
+        easing: "easeOutQuart"
+      }, 100);
 
-  // 3. Populate & Animate the Kinetic Glyph Study Grid
-  const glyphGrid = document.getElementById("glyphGrid");
-  const featuredGlyphs = [
-    { glyph: "Aa", font: FONT_COLLECTION[3] },  // Clash Display
-    { glyph: "Gg", font: FONT_COLLECTION[1] },  // Bricolage Grotesque
-    { glyph: "Rr", font: FONT_COLLECTION[20] }, // Melodrama
-    { glyph: "01", font: FONT_COLLECTION[7] },  // Departure Mono
-    { glyph: "Qq", font: FONT_COLLECTION[22] }, // Ojuju
-    { glyph: "&",  font: FONT_COLLECTION[36] }  // Unbounded
-  ];
-
-  featuredGlyphs.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "glyph-card";
-    card.innerHTML = `
-      <div class="glyph-letter" style="font-family: ${item.font.family}">${item.glyph}</div>
-      <div class="glyph-title">${item.font.name}</div>
-      <div class="glyph-sub">${item.font.source}</div>
-    `;
-
-    const letterEl = card.querySelector(".glyph-letter");
-    card.addEventListener("mouseenter", () => {
-      anime.remove(letterEl);
-      anime({
-        targets: letterEl,
-        scale: [1, 1.18],
-        rotateZ: [-4, 0],
-        duration: 450,
-        easing: "easeOutElastic(1, .6)"
-      });
-    });
-
-    card.addEventListener("mouseleave", () => {
-      anime.remove(letterEl);
-      anime({
-        targets: letterEl,
-        scale: 1,
-        rotateZ: 0,
-        duration: 300,
+    // ACT II: Variable Weight Sweep (100 -> 900 -> 200 -> 750) with Live Metric Readouts
+    activeTimeline
+      .add({
+        targets: ".glyph-metric",
+        opacity: [0, 0.85],
+        translateY: [8, 0],
+        duration: 400,
+        delay: anime.stagger(35),
         easing: "easeOutQuad"
+      }, 950)
+      .add({
+        targets: letterProxies,
+        wght: [100, 900, 200, 750],
+        duration: 2100,
+        delay: anime.stagger(75, { from: "first" }),
+        easing: "easeInOutSine",
+        update: () => {
+          letterProxies.forEach((p) => applyWeight(p, p.wght));
+        }
+      }, 950);
+
+    // ACT III: Bespoke Per-Letter Kinetic Stunts + Ghost Echo Burst
+    triggerIndividualLetterStunts(activeTimeline, 1300);
+
+    activeTimeline
+      .add({
+        targets: ".echo-1",
+        opacity: [0, 0.7, 0],
+        translateY: (el, i) => [0, i % 2 === 0 ? -24 : 24, 0],
+        duration: 950,
+        delay: anime.stagger(65),
+        easing: "easeInOutQuad"
+      }, 1350)
+      .add({
+        targets: ".glyph-metric",
+        opacity: 0,
+        duration: 500,
+        easing: "easeOutQuad"
+      }, 2800);
+  }
+
+  // Continuous Variable-Font & 3D Wave Loop after Intro Sequence
+  function startContinuousHarmonicWave() {
+    let startTime = performance.now();
+
+    function frame(now) {
+      const t = (now - startTime) * 0.0022;
+
+      letterProxies.forEach((p, i) => {
+        if (p.el.dataset.hovered === "true") return;
+
+        if (currentMode === "symphony") {
+          const wave = Math.sin(t - i * 0.48);
+          const secondary = Math.cos(t * 0.7 + i * 0.35);
+          const dynamicWeight = 500 + wave * 380; // Oscillates smoothly 120..880
+          applyWeight(p, dynamicWeight);
+
+          const y = wave * 10;
+          const rotY = secondary * 14;
+          const skew = wave * -6;
+
+          p.el.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) rotateY(${rotY.toFixed(2)}deg) skewX(${skew.toFixed(2)}deg)`;
+          p.echo1.style.opacity = (Math.abs(wave) * 0.42).toFixed(2);
+          p.echo1.style.transform = `translate3d(${(wave * -8).toFixed(1)}px, ${(wave * -14).toFixed(1)}px, -30px)`;
+          p.echo2.style.opacity = (Math.abs(secondary) * 0.25).toFixed(2);
+          p.echo2.style.transform = `translate3d(${(secondary * 12).toFixed(1)}px, ${(secondary * 18).toFixed(1)}px, -60px)`;
+        } else if (currentMode === "variable") {
+          const wave = Math.sin(t * 1.4 - i * 0.55);
+          const dynamicWeight = 500 + wave * 400;
+          applyWeight(p, dynamicWeight);
+          const scaleX = 1 + wave * 0.16;
+          p.el.style.transform = `scaleX(${scaleX.toFixed(3)})`;
+          p.metric.style.opacity = "0.75";
+        } else if (currentMode === "deconstruct") {
+          const s1 = Math.sin(t * 1.1 + i * 0.6);
+          const s2 = Math.cos(t * 0.9 - i * 0.4);
+          applyWeight(p, 650 + s1 * 220);
+          p.el.style.transform = `translate3d(0, ${(s1 * 16).toFixed(1)}px, ${(s2 * 60).toFixed(1)}px) rotateX(${(s1 * 28).toFixed(1)}deg) rotateZ(${(s2 * 8).toFixed(1)}deg)`;
+          p.echo1.style.opacity = "0.65";
+          p.echo1.style.transform = `translate3d(0, ${(s1 * -26).toFixed(1)}px, -40px)`;
+          p.echo2.style.opacity = "0.45";
+          p.echo2.style.transform = `translate3d(0, ${(s2 * 28).toFixed(1)}px, -80px)`;
+        }
+      });
+
+      waveLoopFrame = requestAnimationFrame(frame);
+    }
+
+    waveLoopFrame = requestAnimationFrame(frame);
+  }
+
+  // Per-Letter Pointer Hover & Click Shockwave Physics
+  letterProxies.forEach((p, idx) => {
+    p.el.addEventListener("pointerenter", () => {
+      p.el.dataset.hovered = "true";
+      p.metric.style.opacity = "1";
+      applyWeight(p, 900);
+
+      anime.remove(p.el);
+      anime({
+        targets: p.el,
+        translateY: -22,
+        scale: 1.24,
+        rotateZ: idx % 2 === 0 ? -6 : 6,
+        duration: 420,
+        easing: "easeOutElastic(1.2, .45)"
       });
     });
 
-    card.addEventListener("click", () => {
-      navigator.clipboard.writeText(`font-family: ${item.font.family};`);
-      showToast(`Copied ${item.font.name} CSS rule`);
+    p.el.addEventListener("pointerleave", () => {
+      p.el.dataset.hovered = "false";
+      p.metric.style.opacity = "0";
     });
 
-    glyphGrid.appendChild(card);
+    p.el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // Shockwave ripple radiating from the clicked character
+      anime({
+        targets: letterUnits,
+        translateY: [0, -36, 0],
+        scale: [1, 1.28, 1],
+        rotateY: [0, 180, 360],
+        duration: 850,
+        delay: anime.stagger(55, { from: idx }),
+        easing: "easeOutElastic(1, .5)"
+      });
+    });
   });
 
-  // 4. Live Type Pairing Studio
-  const displaySelect = document.getElementById("displaySelect");
-  const bodySelect = document.getElementById("bodySelect");
-  const pairHeading = document.getElementById("pairPreviewHeading");
-  const pairBody = document.getElementById("pairPreviewBody");
-  const pairMetaTag = document.getElementById("pairMetaTag");
+  // Dock Controls
+  const replayBtn = document.getElementById("replayAnimBtn");
+  if (replayBtn) {
+    replayBtn.addEventListener("click", runMasterChoreography);
+  }
 
-  FONT_COLLECTION.forEach((f, idx) => {
-    const opt1 = new Option(f.name, idx);
-    const opt2 = new Option(f.name, idx);
-    displaySelect.add(opt1);
-    bodySelect.add(opt2);
-  });
+  const modeBtn = document.getElementById("cycleModeBtn");
+  const modes = [
+    { id: "symphony", label: "Mode: Full Choreography" },
+    { id: "variable", label: "Mode: Variable Axis Wave" },
+    { id: "deconstruct", label: "Mode: 3D Echo Slice" }
+  ];
+  let modeIdx = 0;
 
-  displaySelect.value = 3; // Clash Display
-  bodySelect.value = 18;   // General Sans
+  if (modeBtn) {
+    modeBtn.addEventListener("click", () => {
+      modeIdx = (modeIdx + 1) % modes.length;
+      currentMode = modes[modeIdx].id;
+      modeBtn.textContent = modes[modeIdx].label;
 
-  function updatePairing() {
-    const dFont = FONT_COLLECTION[displaySelect.value];
-    const bFont = FONT_COLLECTION[bodySelect.value];
-    pairHeading.style.fontFamily = dFont.family;
-    pairBody.style.fontFamily = bFont.family;
-    pairMetaTag.textContent = `${dFont.name} + ${bFont.name}`;
-
-    anime({
-      targets: [pairHeading, pairBody],
-      opacity: [0.4, 1],
-      translateY: [6, 0],
-      duration: 350,
-      easing: "easeOutQuad"
+      letterProxies.forEach((p) => {
+        p.metric.style.opacity = currentMode === "variable" ? "0.75" : "0";
+        p.echo1.style.opacity = "0";
+        p.echo2.style.opacity = "0";
+      });
     });
   }
 
-  displaySelect.addEventListener("change", updatePairing);
-  bodySelect.addEventListener("change", updatePairing);
-  updatePairing();
-
-  document.getElementById("randomPairBtn").addEventListener("click", () => {
-    displaySelect.value = Math.floor(Math.random() * FONT_COLLECTION.length);
-    bodySelect.value = Math.floor(Math.random() * FONT_COLLECTION.length);
-    updatePairing();
-  });
-
-  document.getElementById("copyPairCssBtn").addEventListener("click", () => {
-    const dFont = FONT_COLLECTION[displaySelect.value];
-    const bFont = FONT_COLLECTION[bodySelect.value];
-    const snippet = `/* Heading: ${dFont.name} */\n--font-heading: ${dFont.family};\n/* Body: ${bFont.name} */\n--font-body: ${bFont.family};`;
-    navigator.clipboard.writeText(snippet);
-    showToast("Copied Pairing CSS Variables");
-  });
+  runMasterChoreography();
 }
 
 /* ==========================================================================
-   Font Directory Page (`fonts.html`): Live Specimen Tester & 38-Font List
+   DIRECTORY PAGE (`fonts.html`):
+   Live Specimen Tester, Inspector Drawer, CSS Copy & Local Font File Loader
    ========================================================================== */
 function initDirectoryPage() {
-  const listContainer = document.getElementById("fontDirectoryGrid");
-  const searchInput = document.getElementById("searchFonts");
-  const specimenInput = document.getElementById("specimenInput");
-  const sizeSlider = document.getElementById("sizeSlider");
-  const weightSlider = document.getElementById("weightSlider");
-  const trackingSlider = document.getElementById("trackingSlider");
-  const sizeValue = document.getElementById("sizeValue");
-  const weightValue = document.getElementById("weightValue");
-  const trackingValue = document.getElementById("trackingValue");
-  const resultCount = document.getElementById("resultCount");
-  const filterButtons = document.querySelectorAll("#categoryFilters .pill");
+  const fontGrid = document.getElementById("fontGrid");
+  const searchInput = document.getElementById("searchInput");
+  const previewInput = document.getElementById("globalPreviewInput");
+  const sizeRange = document.getElementById("sizeRange");
+  const weightRange = document.getElementById("weightRange");
+  const trackingRange = document.getElementById("trackingRange");
+  const sizeOutput = document.getElementById("sizeOutput");
+  const weightOutput = document.getElementById("weightOutput");
+  const trackingOutput = document.getElementById("trackingOutput");
+  const fontCounter = document.getElementById("fontCounter");
+  const filterChips = document.querySelectorAll(".filter-chip");
+  const layoutBtns = document.querySelectorAll(".layout-btn");
+  const localFontInput = document.getElementById("localFontInput");
 
   let activeCategory = "all";
 
-  function renderFontCards() {
+  function renderDirectory() {
     const query = searchInput.value.trim().toLowerCase();
-    const filtered = FONT_COLLECTION.filter(font => {
-      const matchesCategory = activeCategory === "all" || font.category === activeCategory;
-      const matchesSearch =
-        font.name.toLowerCase().includes(query) ||
-        font.source.toLowerCase().includes(query) ||
-        font.note.toLowerCase().includes(query);
-      return matchesCategory && matchesSearch;
+
+    const filtered = FONTS.filter((f) => {
+      const catMatch =
+        activeCategory === "all"
+          ? !f.isLocalSlot || activeCategory === "local"
+          : f.category === activeCategory;
+      const searchMatch =
+        f.name.toLowerCase().includes(query) ||
+        f.source.toLowerCase().includes(query);
+      return catMatch && searchMatch;
     });
 
-    listContainer.innerHTML = "";
-    resultCount.textContent = `Showing ${filtered.length} of ${FONT_COLLECTION.length} typefaces`;
+    fontGrid.innerHTML = "";
+    fontCounter.textContent = `${filtered.length} ${filtered.length === 1 ? "font" : "fonts"}`;
 
-    filtered.forEach(font => {
+    filtered.forEach((font) => {
       const card = document.createElement("article");
-      card.className = "font-card";
+      card.className = "specimen-card";
 
-      const badgeClass = font.status === "swap" ? "swap-notice" : "open-verified";
+      const actionHtml = font.isLocalSlot
+        ? `<button type="button" class="util-btn attach-local-btn">Load .woff2/.ttf File</button>`
+        : `<a href="${font.downloadUrl}" target="_blank" rel="noopener noreferrer" class="util-btn">Download &nearr;</a>`;
 
       card.innerHTML = `
-        <div class="font-card-header">
-          <div class="font-title-group">
-            <h2 class="font-name-label">${font.name}</h2>
-            <span class="badge">${font.source}</span>
-            <span class="badge ${badgeClass}">${font.note}</span>
+        <div class="card-top">
+          <div class="card-identity">
+            <h2 class="card-font-title">${font.name}</h2>
+            <span class="meta-pill">${font.source}</span>
+            <span class="meta-pill">${font.weights}</span>
           </div>
-          <div class="font-actions">
-            <button class="action-btn copy-css-btn" type="button">Copy CSS Rule</button>
-            <button class="action-btn copy-import-btn" type="button">Copy @import</button>
-            <button class="action-btn toggle-glyphs-btn" type="button">Glyphs</button>
-            <a href="${font.downloadUrl}" target="_blank" rel="noopener noreferrer" class="action-btn">Source &amp; Download &nearr;</a>
+          <div class="card-utilities">
+            <button type="button" class="util-btn copy-family-btn">Copy CSS</button>
+            <button type="button" class="util-btn copy-import-btn">Copy @import</button>
+            <button type="button" class="util-btn inspect-btn">Inspect</button>
+            ${actionHtml}
           </div>
         </div>
-        <div class="font-preview-line" contenteditable="true" spellcheck="false" style="
+
+        <div class="specimen-editable" contenteditable="true" spellcheck="false" style="
           font-family: ${font.family};
-          font-size: ${sizeSlider.value}px;
-          font-weight: ${weightSlider.value};
-          letter-spacing: ${trackingSlider.value}em;
-        ">${specimenInput.value}</div>
-        <div class="charmap-drawer" style="font-family: ${font.family};">
-          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
-          abcdefghijklmnopqrstuvwxyz<br>
-          0123456789 !@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;?
+          font-size: ${sizeRange.value}px;
+          font-weight: ${weightRange.value};
+          letter-spacing: ${trackingRange.value}em;
+        ">${previewInput.value}</div>
+
+        <div class="inspector-drawer" style="font-family: ${font.family};">
+          <div>
+            <div class="drawer-label" style="font-family: var(--font-ui);">Weight Waterfall</div>
+            <div class="weight-waterfall">
+              <div class="waterfall-row" style="font-weight: 300;"><span class="waterfall-tag">300</span> Pack my box with five dozen liquor jugs</div>
+              <div class="waterfall-row" style="font-weight: 400;"><span class="waterfall-tag">400</span> Pack my box with five dozen liquor jugs</div>
+              <div class="waterfall-row" style="font-weight: 500;"><span class="waterfall-tag">500</span> Pack my box with five dozen liquor jugs</div>
+              <div class="waterfall-row" style="font-weight: 700;"><span class="waterfall-tag">700</span> Pack my box with five dozen liquor jugs</div>
+              <div class="waterfall-row" style="font-weight: 800;"><span class="waterfall-tag">800</span> Pack my box with five dozen liquor jugs</div>
+            </div>
+          </div>
+          <div>
+            <div class="drawer-label" style="font-family: var(--font-ui);">Character Map</div>
+            <div class="glyph-matrix">
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+              abcdefghijklmnopqrstuvwxyz<br>
+              0123456789 !@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;?
+            </div>
+          </div>
         </div>
       `;
 
-      // Button events
-      card.querySelector(".copy-css-btn").addEventListener("click", () => {
+      card.querySelector(".copy-family-btn").addEventListener("click", () => {
         navigator.clipboard.writeText(`font-family: ${font.family};`);
-        showToast(`Copied font-family for ${font.name}`);
+        notify(`Copied font-family: ${font.name}`);
       });
 
       card.querySelector(".copy-import-btn").addEventListener("click", () => {
-        const importStatement = font.importUrl.startsWith("http")
-          ? `@import url('${font.importUrl}');`
-          : font.importUrl;
-        navigator.clipboard.writeText(importStatement);
-        showToast(`Copied import URL for ${font.name}`);
+        navigator.clipboard.writeText(font.cssImport);
+        notify(`Copied import rule for ${font.name}`);
       });
 
-      const drawer = card.querySelector(".charmap-drawer");
-      card.querySelector(".toggle-glyphs-btn").addEventListener("click", () => {
+      const drawer = card.querySelector(".inspector-drawer");
+      card.querySelector(".inspect-btn").addEventListener("click", () => {
         drawer.classList.toggle("open");
       });
 
-      listContainer.appendChild(card);
-    });
+      const attachBtn = card.querySelector(".attach-local-btn");
+      if (attachBtn) {
+        attachBtn.addEventListener("click", () => {
+          localFontInput.dataset.targetFont = font.name;
+          localFontInput.click();
+        });
+      }
 
-    // Smooth Anime.js card entrance
-    anime({
-      targets: ".font-card",
-      translateY: [16, 0],
-      opacity: [0, 1],
-      duration: 420,
-      easing: "easeOutQuad",
-      delay: anime.stagger(25, { start: 0 })
+      fontGrid.appendChild(card);
     });
   }
 
-  // Live Updates for Sliders & Global Specimen Input
-  function applyLiveTypographyStyles() {
-    sizeValue.textContent = `${sizeSlider.value}px`;
-    weightValue.textContent = weightSlider.value;
-    trackingValue.textContent = `${trackingSlider.value}em`;
+  // Real-Time Sliders & Text Sync
+  function updateLiveSpecimens() {
+    sizeOutput.textContent = `${sizeRange.value}px`;
+    weightOutput.textContent = weightRange.value;
+    trackingOutput.textContent = `${trackingRange.value}em`;
 
-    document.querySelectorAll(".font-preview-line").forEach(el => {
-      el.style.fontSize = `${sizeSlider.value}px`;
-      el.style.fontWeight = weightSlider.value;
-      el.style.letterSpacing = `${trackingSlider.value}em`;
+    document.querySelectorAll(".specimen-editable").forEach((el) => {
+      el.style.fontSize = `${sizeRange.value}px`;
+      el.style.fontWeight = weightRange.value;
+      el.style.letterSpacing = `${trackingRange.value}em`;
     });
   }
 
-  specimenInput.addEventListener("input", () => {
-    const val = specimenInput.value || " ";
-    document.querySelectorAll(".font-preview-line").forEach(el => {
-      el.textContent = val;
+  previewInput.addEventListener("input", () => {
+    const text = previewInput.value || " ";
+    document.querySelectorAll(".specimen-editable").forEach((el) => {
+      el.textContent = text;
     });
   });
 
-  sizeSlider.addEventListener("input", applyLiveTypographyStyles);
-  weightSlider.addEventListener("input", applyLiveTypographyStyles);
-  trackingSlider.addEventListener("input", applyLiveTypographyStyles);
-  searchInput.addEventListener("input", renderFontCards);
+  sizeRange.addEventListener("input", updateLiveSpecimens);
+  weightRange.addEventListener("input", updateLiveSpecimens);
+  trackingRange.addEventListener("input", updateLiveSpecimens);
+  searchInput.addEventListener("input", renderDirectory);
 
-  filterButtons.forEach(btn => {
+  filterChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      filterChips.forEach((c) => c.classList.remove("active"));
+      chip.classList.add("active");
+      activeCategory = chip.dataset.category;
+      renderDirectory();
+    });
+  });
+
+  layoutBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      filterButtons.forEach(b => b.classList.remove("active"));
+      layoutBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
-      activeCategory = btn.getAttribute("data-filter");
-      renderFontCards();
+      const view = btn.dataset.view;
+      fontGrid.className = view === "grid" ? "font-grid-view" : "font-list-view";
     });
   });
 
-  renderFontCards();
+  // Load any local .woff2 / .ttf / .otf file directly into the browser via FontFace API
+  if (localFontInput) {
+    localFontInput.addEventListener("change", async (e) => {
+      const files = Array.from(e.target.files || []);
+      const targetFontName = localFontInput.dataset.targetFont || "";
+      delete localFontInput.dataset.targetFont;
+
+      for (const file of files) {
+        try {
+          const buffer = await file.arrayBuffer();
+          const cleanName = targetFontName || file.name.replace(/\.(woff2?|ttf|otf)$/i, "");
+          const fontFace = new FontFace(cleanName, buffer);
+          await fontFace.load();
+          document.fonts.add(fontFace);
+
+          const existing = FONTS.find((f) => f.name.toLowerCase() === cleanName.toLowerCase());
+          if (existing) {
+            existing.isLocalSlot = false;
+            existing.category = "display";
+            existing.source = "Loaded Local File";
+            existing.weights = file.name;
+          } else {
+            FONTS.unshift({
+              name: cleanName,
+              family: `'${cleanName}', sans-serif`,
+              category: "display",
+              source: "Loaded Local File",
+              weights: file.name,
+              cssImport: `@font-face { font-family: '${cleanName}'; src: url('fonts/${file.name}'); }`,
+              downloadUrl: "#"
+            });
+          }
+          notify(`Loaded ${cleanName}`);
+        } catch (err) {
+          notify(`Failed to load ${file.name}`);
+        }
+      }
+      renderDirectory();
+    });
+  }
+
+  renderDirectory();
 }
 
 /* ==========================================================================
-   Bootstrap by Page Context
+   Initialize Page
    ========================================================================== */
 document.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  const page = document.body.getAttribute("data-page");
+  const page = document.body.dataset.page;
   if (page === "home") {
-    initHomePage();
+    initHomeStage();
   } else if (page === "directory") {
     initDirectoryPage();
   }
