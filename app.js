@@ -331,20 +331,13 @@ function initGsapHome() {
   const readout = document.getElementById("activeFontReadout");
   if (!hero || typeof gsap === "undefined") return;
 
-  const showcaseFonts = [
-    { name: "Switzer", family: "'Switzer', sans-serif", color: "#F8F9FA" },
-    { name: "Clash Display", family: "'Clash Display', sans-serif", color: "#0AE448" },
-    { name: "Melodrama", family: "'Melodrama', serif", color: "#00E5FF" },
-    { name: "Departure Mono", family: "'Departure Mono', monospace", color: "#A855F7" },
-    { name: "Unbounded", family: "'Unbounded', sans-serif", color: "#0AE448" },
-    { name: "Doto", family: "'Doto', monospace", color: "#00E5FF" },
-    { name: "Bricolage Grotesque", family: "'Bricolage Grotesque', sans-serif", color: "#F8F9FA" },
-    { name: "Ojuju", family: "'Ojuju', sans-serif", color: "#0AE448" },
-    { name: "Tiny5", family: "'Tiny5', monospace", color: "#00E5FF" },
-    { name: "Coconat", family: "'Coconat', sans-serif", color: "#A855F7" },
-    { name: "Stack Sans Notch", family: "'Stack Sans Notch', sans-serif", color: "#0AE448" },
-    { name: "Sekuya", family: "'Sekuya', sans-serif", color: "#00E5FF" },
-    { name: "Cabinet Grotesk", family: "'Cabinet Grotesk', sans-serif", color: "#F8F9FA" }
+  const showcaseWave = [
+    { name: "Clash Display", family: "'Clash Display', sans-serif" },
+    { name: "Melodrama", family: "'Melodrama', serif" },
+    { name: "Bricolage Grotesque", family: "'Bricolage Grotesque', sans-serif" },
+    { name: "Unbounded", family: "'Unbounded', sans-serif" },
+    { name: "Cabinet Grotesk", family: "'Cabinet Grotesk', sans-serif" },
+    { name: "Switzer", family: "'Switzer', sans-serif" }
   ];
 
   const words = ["Font", "Library"];
@@ -375,182 +368,152 @@ function initGsapHome() {
     hero.appendChild(wordSpan);
   });
 
+  function lockCellWidths() {
+    cells.forEach((cell) => {
+      cell.style.width = "auto";
+    });
+    glyphs.forEach((g) => {
+      g.style.fontFamily = "'Switzer', sans-serif";
+      g.style.fontWeight = "700";
+    });
+    cells.forEach((cell) => {
+      const rect = cell.getBoundingClientRect();
+      cell.style.width = `${Math.ceil(rect.width)}px`;
+    });
+  }
+
   let masterTl;
 
-  function buildGsapChoreography() {
+  function runSmoothShowcase() {
     if (masterTl) masterTl.kill();
+    lockCellWidths();
 
-    gsap.set(cells, { x: 0, y: 0, z: 0, rotationX: 0, rotationY: 0, rotationZ: 0 });
     gsap.set(glyphs, {
       fontFamily: "'Switzer', sans-serif",
       fontWeight: 700,
-      color: "#F8F9FA",
-      scaleX: 1,
-      scaleY: 1,
-      rotationZ: 0,
-      y: 0
+      color: "#F5F7FA",
+      y: 0,
+      rotationX: 0,
+      rotationY: 0,
+      scale: 1,
+      opacity: 1
     });
+
     if (readout) readout.textContent = "Switzer";
 
-    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.1 });
+    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.8 });
 
     masterTl.fromTo(
       glyphs,
       {
-        y: (i) => (i % 2 === 0 ? -70 : 70),
-        rotationX: -90,
-        scaleY: 1.8,
+        y: 48,
+        rotationX: -75,
         opacity: 0
       },
       {
         y: 0,
         rotationX: 0,
-        scaleY: 1,
         opacity: 1,
-        duration: 1.1,
-        stagger: { each: 0.045, from: "center" },
-        ease: "elastic.out(1.1, 0.5)"
+        duration: 1.0,
+        stagger: { each: 0.04, from: "start" },
+        ease: "expo.out"
       }
     );
 
-    const morphRounds = [1, 2, 3, 4, 5, 7, 8, 9, 10, 11];
-
-    morphRounds.forEach((fontIdx, step) => {
-      const targetFont = showcaseFonts[fontIdx];
-      const startTime = 1.25 + step * 0.42;
+    showcaseWave.forEach((stageFont, roundIdx) => {
+      const start = 1.3 + roundIdx * 1.15;
 
       masterTl.add(() => {
-        if (readout) readout.textContent = targetFont.name;
-      }, startTime);
+        if (readout) readout.textContent = stageFont.name;
+      }, start + 0.15);
 
-      glyphs.forEach((glyph, charIdx) => {
-        const individualFont = showcaseFonts[(fontIdx + charIdx) % showcaseFonts.length];
-        masterTl.to(
-          glyph,
-          {
-            y: charIdx % 2 === 0 ? -18 : 18,
-            scaleY: 1.22,
-            scaleX: 0.88,
-            rotationZ: charIdx % 2 === 0 ? -5 : 5,
-            duration: 0.16,
-            ease: "power2.out",
-            onComplete: () => {
-              glyph.style.fontFamily = individualFont.family;
-              glyph.style.color = charIdx === (step % glyphs.length) ? individualFont.color : "#F8F9FA";
-            }
-          },
-          startTime + charIdx * 0.018
-        );
+      masterTl.to(
+        glyphs,
+        {
+          y: -16,
+          rotationX: 70,
+          opacity: 0,
+          duration: 0.28,
+          stagger: { each: 0.032, from: "start" },
+          ease: "power2.in",
+          onComplete: function () {
+            glyphs.forEach((g) => {
+              g.style.fontFamily = stageFont.family;
+            });
+          }
+        },
+        start
+      );
 
-        masterTl.to(
-          glyph,
-          {
-            y: 0,
-            scaleY: 1,
-            scaleX: 1,
-            rotationZ: 0,
-            duration: 0.24,
-            ease: "back.out(2)"
-          },
-          startTime + 0.16 + charIdx * 0.018
-        );
-      });
+      masterTl.fromTo(
+        glyphs,
+        {
+          y: 16,
+          rotationX: -70,
+          opacity: 0
+        },
+        {
+          y: 0,
+          rotationX: 0,
+          opacity: 1,
+          color: stageFont.name === "Switzer" ? "#F5F7FA" : "#0AE448",
+          duration: 0.52,
+          stagger: { each: 0.032, from: "start" },
+          ease: "expo.out"
+        },
+        start + 0.28
+      );
     });
 
-    const lockTime = 1.25 + morphRounds.length * 0.42 + 0.3;
-
-    masterTl.add(() => {
-      if (readout) readout.textContent = "Switzer";
-    }, lockTime);
-
-    masterTl.to(
-      cells,
-      {
-        rotationY: 360,
-        duration: 0.85,
-        stagger: { each: 0.04, from: "start" },
-        ease: "expo.out"
-      },
-      lockTime
-    );
-
-    masterTl.to(
-      glyphs,
-      {
-        fontWeight: 700,
-        color: "#F8F9FA",
-        scaleX: 1,
-        scaleY: 1,
-        y: 0,
-        rotationZ: 0,
-        duration: 0.4,
-        stagger: { each: 0.04, from: "start" },
-        onStart: function () {
-          glyphs.forEach((g) => {
-            g.style.fontFamily = "'Switzer', sans-serif";
-          });
-        }
-      },
-      lockTime + 0.15
-    );
+    const finaleStart = 1.3 + showcaseWave.length * 1.15 + 0.2;
 
     masterTl.to(
       glyphs,
       {
         fontWeight: 200,
-        scaleY: 1.12,
-        duration: 0.5,
-        stagger: { each: 0.035, from: "center" },
+        y: -10,
+        duration: 0.65,
+        stagger: { each: 0.04, from: "center" },
         yoyo: true,
         repeat: 1,
         ease: "sine.inOut"
       },
-      lockTime + 1.1
+      finaleStart
     );
   }
 
-  buildGsapChoreography();
+  document.fonts.ready.then(() => {
+    runSmoothShowcase();
+  });
 
-  glyphs.forEach((glyph, idx) => {
+  window.addEventListener("resize", () => {
+    lockCellWidths();
+  });
+
+  glyphs.forEach((glyph) => {
     glyph.addEventListener("pointerenter", () => {
-      const randomFont = showcaseFonts[(idx + Math.floor(Math.random() * (showcaseFonts.length - 1)) + 1) % showcaseFonts.length];
-      glyph.style.fontFamily = randomFont.family;
-      glyph.style.color = randomFont.color;
-      if (readout) readout.textContent = randomFont.name;
-
-      gsap.fromTo(
-        glyph,
-        { scale: 0.8, rotationZ: -8 },
-        {
-          scale: 1.22,
-          y: -16,
-          rotationZ: 0,
-          duration: 0.5,
-          overwrite: "auto",
-          ease: "elastic.out(1.2, 0.4)"
-        }
-      );
+      gsap.to(glyph, {
+        y: -12,
+        color: "#0AE448",
+        duration: 0.3,
+        overwrite: "auto",
+        ease: "power3.out"
+      });
     });
 
     glyph.addEventListener("pointerleave", () => {
       gsap.to(glyph, {
-        scale: 1,
         y: 0,
-        rotationZ: 0,
-        duration: 0.45,
+        color: "#F5F7FA",
+        duration: 0.4,
         overwrite: "auto",
-        ease: "power3.out",
-        onComplete: () => {
-          glyph.style.fontFamily = "'Switzer', sans-serif";
-          glyph.style.color = "#F8F9FA";
-          if (readout) readout.textContent = "Switzer";
-        }
+        ease: "power3.out"
       });
     });
   });
 
   hero.addEventListener("click", () => {
-    buildGsapChoreography();
+    runSmoothShowcase();
   });
 }
 
@@ -558,14 +521,72 @@ function initLibraryIndex() {
   const listEl = document.getElementById("typeIndexList");
   const searchInput = document.getElementById("fontSearch");
   const tabBtns = document.querySelectorAll(".tab-btn");
+  const tabGlider = document.getElementById("tabGlider");
   const localFileInput = document.getElementById("localFontFile");
 
   if (!listEl) return;
 
   let activeCat = "all";
   let openRowElement = null;
+  let typingTimers = [];
 
-  function renderIndex() {
+  function moveTabGlider(targetBtn, immediate = false) {
+    if (!tabGlider || !targetBtn) return;
+    const x = targetBtn.offsetLeft;
+    const w = targetBtn.offsetWidth;
+    if (immediate) {
+      gsap.set(tabGlider, { x, width: w });
+    } else {
+      gsap.to(tabGlider, {
+        x,
+        width: w,
+        duration: 0.45,
+        ease: "expo.out"
+      });
+    }
+  }
+
+  const initialActiveTab = document.querySelector(".tab-btn.active");
+  if (initialActiveTab) {
+    moveTabGlider(initialActiveTab, true);
+  }
+
+  window.addEventListener("resize", () => {
+    const currentActive = document.querySelector(".tab-btn.active");
+    if (currentActive) moveTabGlider(currentActive, true);
+  });
+
+  function clearTypingTimers() {
+    typingTimers.forEach((id) => clearTimeout(id));
+    typingTimers = [];
+  }
+
+  function typeTextWithCursor(textNode, cursorNode, fullText, startDelay) {
+    let charIndex = 0;
+    const stepMs = Math.max(16, Math.min(32, Math.floor(340 / Math.max(1, fullText.length))));
+
+    const startId = setTimeout(() => {
+      function step() {
+        charIndex++;
+        textNode.textContent = fullText.slice(0, charIndex);
+        if (charIndex < fullText.length) {
+          const nextId = setTimeout(step, stepMs);
+          typingTimers.push(nextId);
+        } else {
+          const endId = setTimeout(() => {
+            cursorNode.classList.add("done");
+          }, 420);
+          typingTimers.push(endId);
+        }
+      }
+      step();
+    }, startDelay);
+
+    typingTimers.push(startId);
+  }
+
+  function renderIndex(animateTypewriter = true) {
+    clearTypingTimers();
     const query = (searchInput.value || "").trim().toLowerCase();
 
     const visibleFonts = FONTS.filter((font) => {
@@ -584,7 +605,7 @@ function initLibraryIndex() {
     listEl.innerHTML = "";
     openRowElement = null;
 
-    visibleFonts.forEach((font) => {
+    visibleFonts.forEach((font, idx) => {
       const row = document.createElement("div");
       row.className = "type-row";
 
@@ -598,7 +619,9 @@ function initLibraryIndex() {
 
       row.innerHTML = `
         <button type="button" class="row-trigger" aria-expanded="false">
-          <span class="row-display-name" style="font-family: ${font.family};">${font.name}</span>
+          <span class="row-display-name" style="font-family: ${font.family};">
+            <span class="typed-text"></span><span class="typed-cursor"></span>
+          </span>
           <span class="row-meta">
             <span class="row-badge">${font.source}</span>
             <span class="row-toggle-icon"><i class="ph-bold ph-plus"></i></span>
@@ -675,6 +698,16 @@ function initLibraryIndex() {
         </div>
       `;
 
+      const typedTextEl = row.querySelector(".typed-text");
+      const typedCursorEl = row.querySelector(".typed-cursor");
+
+      if (animateTypewriter) {
+        typeTextWithCursor(typedTextEl, typedCursorEl, font.name, idx * 28);
+      } else {
+        typedTextEl.textContent = font.name;
+        typedCursorEl.classList.add("done");
+      }
+
       const trigger = row.querySelector(".row-trigger");
       const drawer = row.querySelector(".row-drawer");
       const foxSpecimen = row.querySelector(".fox-specimen");
@@ -687,6 +720,9 @@ function initLibraryIndex() {
       const weightPills = row.querySelectorAll(".weight-pill");
 
       trigger.addEventListener("click", () => {
+        typedTextEl.textContent = font.name;
+        typedCursorEl.classList.add("done");
+
         const isOpen = row.classList.contains("is-open");
 
         if (openRowElement && openRowElement !== row) {
@@ -696,7 +732,7 @@ function initLibraryIndex() {
           gsap.to(prevDrawer, {
             height: 0,
             opacity: 0,
-            duration: 0.38,
+            duration: 0.36,
             ease: "power3.inOut"
           });
         }
@@ -707,7 +743,7 @@ function initLibraryIndex() {
           gsap.to(drawer, {
             height: 0,
             opacity: 0,
-            duration: 0.38,
+            duration: 0.36,
             ease: "power3.inOut"
           });
           openRowElement = null;
@@ -722,15 +758,15 @@ function initLibraryIndex() {
             {
               height: targetHeight,
               opacity: 1,
-              duration: 0.48,
+              duration: 0.46,
               ease: "expo.out",
               onComplete: () => gsap.set(drawer, { height: "auto" })
             }
           );
           gsap.fromTo(
             foxSpecimen,
-            { y: 12, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.4, delay: 0.06, ease: "power3.out" }
+            { y: 10, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.38, delay: 0.05, ease: "power3.out" }
           );
           openRowElement = row;
         }
@@ -783,22 +819,17 @@ function initLibraryIndex() {
 
       listEl.appendChild(row);
     });
-
-    gsap.fromTo(
-      ".type-row",
-      { y: 16, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.4, stagger: 0.015, ease: "power2.out" }
-    );
   }
 
-  searchInput.addEventListener("input", renderIndex);
+  searchInput.addEventListener("input", () => renderIndex(false));
 
   tabBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       tabBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
+      moveTabGlider(btn, false);
       activeCat = btn.dataset.cat;
-      renderIndex();
+      renderIndex(true);
     });
   });
 
@@ -836,11 +867,11 @@ function initLibraryIndex() {
           showToast(`Could not load ${file.name}`);
         }
       }
-      renderIndex();
+      renderIndex(false);
     });
   }
 
-  renderIndex();
+  renderIndex(true);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
