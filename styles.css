@@ -1,0 +1,721 @@
+/* ==========================================================================
+   Webfont Declarations for Independent & Open-Foundry Faces
+   ========================================================================== */
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@v1.422/DepartureMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Design Tokens — Warm Editorial Studio Aesthetic
+   ========================================================================== */
+:root {
+  --bg-primary: #FAF8F5;
+  --bg-elevated: #FFFFFF;
+  --bg-subtle: #F2EFE9;
+  --text-primary: #161615;
+  --text-secondary: #5C5A55;
+  --text-muted: #8C8881;
+  --border-color: #E5E1D8;
+  --accent-color: #2A4B3C;
+  --accent-soft: #E8F0EC;
+  --warn-bg: #FDF6EA;
+  --warn-text: #8A5A19;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 4px 20px rgba(22, 22, 21, 0.04);
+  --shadow-hover: 0 12px 32px rgba(22, 22, 21, 0.08);
+  --font-ui: 'General Sans', 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #111110;
+  --bg-elevated: #1A1A18;
+  --bg-subtle: #242421;
+  --text-primary: #F4F2ED;
+  --text-secondary: #A6A39B;
+  --text-muted: #6E6C66;
+  --border-color: #2C2C28;
+  --accent-color: #72B596;
+  --accent-soft: #1D2E26;
+  --warn-bg: #2B2214;
+  --warn-text: #E5B567;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg-primary) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.brand-logo {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.theme-btn {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.theme-btn:hover {
+  background: var(--border-color);
+}
+
+/* ==========================================================================
+   Home Page: Anime.js Kinetic Hero
+   ========================================================================== */
+.hero-stage {
+  padding: 84px 0 72px;
+}
+
+.eyebrow {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.kinetic-headline {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(3.4rem, 8vw, 6.8rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+}
+
+.line-wrap {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-right: 0.22em;
+}
+
+.kinetic-word {
+  display: inline-block;
+}
+
+.kinetic-word .char {
+  display: inline-block;
+  transform-origin: 50% 100%;
+}
+
+.accent-serif {
+  font-family: 'Melodrama', serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Specimen Rotator Card */
+.specimen-rotator {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 40px;
+}
+
+.rotator-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+}
+
+.meta-label {
+  color: var(--text-muted);
+}
+
+.rotator-font-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.rotator-source {
+  color: var(--text-secondary);
+}
+
+.rotator-display {
+  font-size: clamp(2rem, 4.5vw, 3.75rem);
+  line-height: 1.15;
+  min-height: 1.3em;
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+
+.rotator-display .stage-char {
+  display: inline-block;
+  white-space: pre;
+}
+
+.rotator-progress {
+  height: 3px;
+  background: var(--bg-subtle);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.rotator-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-color);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border: 1px solid var(--text-primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-subtle);
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Home Page: Kinetic Glyph Study Grid
+   ========================================================================== */
+.glyph-showcase,
+.pairing-section {
+  padding: 72px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+
+.section-header h2 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.glyph-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.glyph-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px 20px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glyph-card:hover {
+  border-color: var(--text-muted);
+  box-shadow: var(--shadow-hover);
+}
+
+.glyph-letter {
+  font-size: 4.5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.glyph-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.glyph-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Home Page: Pairing Studio
+   ========================================================================== */
+.pairing-workbench {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.pairing-controls {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.control-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.select-input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+}
+
+.pairing-canvas {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-soft);
+}
+
+.canvas-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  background: var(--accent-soft);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+#pairPreviewHeading {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+#pairPreviewBody {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 68ch;
+  outline: none;
+}
+
+/* ==========================================================================
+   Font Directory Page (`fonts.html`)
+   ========================================================================== */
+.directory-intro {
+  padding: 56px 0 36px;
+}
+
+.directory-intro h1 {
+  font-family: 'Clash Display', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.directory-intro .subtitle {
+  color: var(--text-secondary);
+  max-width: 74ch;
+  font-size: 1.05rem;
+}
+
+.tester-toolbar {
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  background: color-mix(in srgb, var(--bg-primary) 92%, transparent);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 18px 0;
+}
+
+.toolbar-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: end;
+}
+
+.toolbar-field label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.toolbar-field input[type="search"],
+.toolbar-field input[type="text"] {
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+}
+
+.toolbar-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--text-primary);
+  cursor: pointer;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill:hover,
+.pill.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+}
+
+.result-count {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Specimen Cards */
+.directory-list-section {
+  padding: 40px 0 80px;
+}
+
+.specimen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.font-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.font-card:hover {
+  border-color: var(--text-muted);
+  box-shadow: var(--shadow-hover);
+}
+
+.font-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.font-title-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.font-name-label {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.badge {
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+}
+
+.badge.open-verified {
+  background: var(--accent-soft);
+  color: var(--accent-color);
+}
+
+.badge.swap-notice {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+}
+
+.font-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.action-btn {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 6px 13px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.action-btn:hover {
+  background: var(--bg-subtle);
+  border-color: var(--text-muted);
+}
+
+.font-preview-line {
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.25;
+  padding: 12px 0;
+  outline: none;
+  word-break: break-word;
+}
+
+.charmap-drawer {
+  display: none;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-color);
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.charmap-drawer.open {
+  display: block;
+}
+
+/* ==========================================================================
+   Footer & Toast Notification
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 36px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-hover);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 200;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 960px) {
+  .toolbar-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pairing-workbench {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .toolbar-grid {
+    grid-template-columns: 1fr;
+  }
+  .pairing-canvas {
+    padding: 28px;
+  }
+}
