@@ -7,17 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%230AE448' d='M212,56V88a12,12,0,0,1-24,0V68H140V188h20a12,12,0,0,1,0,24H96a12,12,0,0,1,0-24h20V68H68V88a12,12,0,0,1-24,0V56A12,12,0,0,1,56,44H200A12,12,0,0,1,212,56Z'/%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&f[]=clash-display@200,300,400,500,600,700,1&f[]=clash-grotesk@200,300,400,500,600,700,1&f[]=excon@100,300,400,500,700,900,1&f[]=melodrama@300,400,500,600,700,1&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Doto:wght@100..900&family=Elms+Sans:ital,wght@0,100..900;1,100..900&family=Geist+Mono:wght@100..900&family=Geist:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ojuju:wght@200..800&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Sekuya&family=Stack+Sans+Headline:wght@200..700&family=Stack+Sans+Notch:wght@200..700&family=Stack+Sans+Text:wght@200..700&family=Tiny5&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link href="https://fonts.cdnfonts.com/css/futura-std-4" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/google-sans" rel="stylesheet">
-  <link href="https://fonts.cdnfonts.com/css/proxima-nova-2" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
@@ -31,31 +21,31 @@
         <a href="index.html" class="brand-link">Font Library</a>
         <span class="brand-sep"></span>
         <a href="https://www.instagram.com/bluetigerincstudios/" target="_blank" rel="noopener noreferrer" class="signature-link" aria-label="Ayaan Ahmed Instagram">
-          <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-sm">
+          <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-header">
         </a>
       </div>
 
       <div class="header-tools">
         <div class="category-tabs" id="categoryTabs">
           <span class="tab-glider" id="tabGlider"></span>
-          <button type="button" class="tab-btn active" data-cat="all">All 38</button>
+          <button type="button" class="tab-btn active" data-cat="all">All 102</button>
+          <button type="button" class="tab-btn" data-cat="variable">Variable</button>
           <button type="button" class="tab-btn" data-cat="sans">Sans</button>
           <button type="button" class="tab-btn" data-cat="display">Display</button>
-          <button type="button" class="tab-btn" data-cat="mono">Mono &amp; Pixel</button>
           <button type="button" class="tab-btn" data-cat="serif">Serif</button>
-          <button type="button" class="tab-btn" data-cat="custom">Local &amp; Custom</button>
+          <button type="button" class="tab-btn" data-cat="mono">Mono &amp; Pixel</button>
+        </div>
+
+        <div class="license-filter" id="licenseFilter">
+          <button type="button" class="lic-btn active" data-lic="all">All Licenses</button>
+          <button type="button" class="lic-btn" data-lic="open">Open Source / Free</button>
+          <button type="button" class="lic-btn" data-lic="restricted">Restricted</button>
         </div>
 
         <div class="search-field">
           <i class="ph ph-magnifying-glass"></i>
-          <input type="search" id="fontSearch" placeholder="Search 38 fonts..." autocomplete="off">
+          <input type="search" id="fontSearch" placeholder="Search 102 typefaces..." autocomplete="off">
         </div>
-
-        <label class="upload-btn" for="localFontFile">
-          <i class="ph-bold ph-upload-simple"></i>
-          <span>Load Font</span>
-          <input type="file" id="localFontFile" accept=".woff2,.woff,.ttf,.otf" multiple hidden>
-        </label>
       </div>
     </div>
   </header>
@@ -67,9 +57,9 @@
   <footer class="library-footer">
     <div class="footer-inner">
       <a href="https://www.instagram.com/bluetigerincstudios/" target="_blank" rel="noopener noreferrer" class="signature-link">
-        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo">
+        <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-footer">
       </a>
-      <span class="footer-meta">38 Curated Typefaces</span>
+      <span class="footer-meta" id="footerCountMeta">102 Typeface Families &bull; Local Archive</span>
     </div>
   </footer>
 
