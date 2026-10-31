@@ -1,7 +1,7 @@
 const FONTS = [
   {
     name: "Atkinson Hyperlegible",
-    family: "'Atkinson Hyperlegible', sans-serif",
+    family: "'Atkinson Hyperlegible', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');",
@@ -9,7 +9,7 @@ const FONTS = [
   },
   {
     name: "Bricolage Grotesque",
-    family: "'Bricolage Grotesque', sans-serif",
+    family: "'Bricolage Grotesque', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');",
@@ -17,7 +17,7 @@ const FONTS = [
   },
   {
     name: "Cabinet Grotesk",
-    family: "'Cabinet Grotesk', sans-serif",
+    family: "'Cabinet Grotesk', 'General Sans', sans-serif",
     category: "sans",
     source: "Fontshare",
     cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap');",
@@ -25,7 +25,7 @@ const FONTS = [
   },
   {
     name: "Clash Display",
-    family: "'Clash Display', sans-serif",
+    family: "'Clash Display', 'General Sans', sans-serif",
     category: "display",
     source: "Fontshare",
     cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,1&display=swap');",
@@ -33,7 +33,7 @@ const FONTS = [
   },
   {
     name: "Clash Grotesk",
-    family: "'Clash Grotesk', sans-serif",
+    family: "'Clash Grotesk', 'General Sans', sans-serif",
     category: "sans",
     source: "Fontshare",
     cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,1&display=swap');",
@@ -41,7 +41,7 @@ const FONTS = [
   },
   {
     name: "CM Geom",
-    family: "'CM Geom', sans-serif",
+    family: "'CM Geom', 'General Sans', sans-serif",
     category: "custom",
     source: "Custom / Local Font",
     cssImport: "@font-face { font-family: 'CM Geom'; src: url('fonts/CMGeom.woff2') format('woff2'); }",
@@ -50,7 +50,7 @@ const FONTS = [
   },
   {
     name: "Coconat",
-    family: "'Coconat', sans-serif",
+    family: "'Coconat', 'General Sans', sans-serif",
     category: "display",
     source: "Collletttivo Foundry",
     cssImport: "@font-face { font-family: 'Coconat'; src: url('https://cdn.jsdelivr.net/gh/collletttivo/coconat@master/fonts/webfonts/Coconat-Regular.woff2') format('woff2'); }",
@@ -59,7 +59,7 @@ const FONTS = [
   },
   {
     name: "Departure Mono",
-    family: "'Departure Mono', monospace",
+    family: "'Departure Mono', 'Geist Mono', monospace",
     category: "mono",
     source: "Helena Zhang",
     cssImport: "@font-face { font-family: 'Departure Mono'; src: url('https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@v1.422/DepartureMono-Regular.woff2') format('woff2'); }",
@@ -68,7 +68,7 @@ const FONTS = [
   },
   {
     name: "DM Sans",
-    family: "'DM Sans', sans-serif",
+    family: "'DM Sans', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');",
@@ -76,7 +76,7 @@ const FONTS = [
   },
   {
     name: "Doto",
-    family: "'Doto', monospace",
+    family: "'Doto', 'Geist Mono', monospace",
     category: "mono",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');",
@@ -84,7 +84,7 @@ const FONTS = [
   },
   {
     name: "DT World Tour",
-    family: "'DT World Tour', sans-serif",
+    family: "'DT World Tour', 'General Sans', sans-serif",
     category: "custom",
     source: "Custom / Local Font",
     cssImport: "@font-face { font-family: 'DT World Tour'; src: url('fonts/DTWorldTour.woff2') format('woff2'); }",
@@ -93,7 +93,7 @@ const FONTS = [
   },
   {
     name: "Elms Sans",
-    family: "'Elms Sans', sans-serif",
+    family: "'Elms Sans', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
@@ -101,7 +101,7 @@ const FONTS = [
   },
   {
     name: "Excon",
-    family: "'Excon', sans-serif",
+    family: "'Excon', 'General Sans', sans-serif",
     category: "sans",
     source: "Fontshare",
     cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=excon@100,300,400,500,700,900,1&display=swap');",
@@ -109,7 +109,7 @@ const FONTS = [
   },
   {
     name: "FTGG",
-    family: "'FTGG', sans-serif",
+    family: "'FTGG', 'General Sans', sans-serif",
     category: "custom",
     source: "Custom / Local Font",
     cssImport: "@font-face { font-family: 'FTGG'; src: url('fonts/FTGG.woff2') format('woff2'); }",
@@ -118,7 +118,7 @@ const FONTS = [
   },
   {
     name: "Futura",
-    family: "'Futura Std', 'Futura', sans-serif",
+    family: "'Futura Std', 'Futura', 'General Sans', sans-serif",
     category: "custom",
     source: "Web CDN / Local",
     cssImport: "@import url('https://fonts.cdnfonts.com/css/futura-std-4');",
@@ -127,7 +127,7 @@ const FONTS = [
   },
   {
     name: "Geist",
-    family: "'Geist', sans-serif",
+    family: "'Geist', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts / Vercel",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');",
@@ -143,7 +143,7 @@ const FONTS = [
   },
   {
     name: "Geist Pixel",
-    family: "'Geist Pixel', monospace",
+    family: "'Geist Pixel', 'Geist Mono', monospace",
     category: "mono",
     source: "Vercel",
     cssImport: "@font-face { font-family: 'Geist Pixel'; src: url('https://cdn.jsdelivr.net/npm/geist@1.7.0/dist/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2'); }",
@@ -160,7 +160,7 @@ const FONTS = [
   },
   {
     name: "Lemon/Milk",
-    family: "'LEMON MILK', sans-serif",
+    family: "'LEMON MILK', 'General Sans', sans-serif",
     category: "custom",
     source: "Web CDN / Local",
     cssImport: "@import url('https://fonts.cdnfonts.com/css/lemonmilk');",
@@ -177,7 +177,7 @@ const FONTS = [
   },
   {
     name: "Nunito",
-    family: "'Nunito', sans-serif",
+    family: "'Nunito', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');",
@@ -185,7 +185,7 @@ const FONTS = [
   },
   {
     name: "Ojuju",
-    family: "'Ojuju', sans-serif",
+    family: "'Ojuju', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');",
@@ -193,7 +193,7 @@ const FONTS = [
   },
   {
     name: "Parkinsans",
-    family: "'Parkinsans', sans-serif",
+    family: "'Parkinsans', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');",
@@ -201,7 +201,7 @@ const FONTS = [
   },
   {
     name: "Poppins",
-    family: "'Poppins', sans-serif",
+    family: "'Poppins', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');",
@@ -209,7 +209,7 @@ const FONTS = [
   },
   {
     name: "Pretendard",
-    family: "'Pretendard Variable', 'Pretendard', sans-serif",
+    family: "'Pretendard Variable', 'Pretendard', 'General Sans', sans-serif",
     category: "sans",
     source: "GitHub CDN",
     cssImport: "@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');",
@@ -218,7 +218,7 @@ const FONTS = [
   },
   {
     name: "Product Sans",
-    family: "'Product Sans', sans-serif",
+    family: "'Product Sans', 'General Sans', sans-serif",
     category: "custom",
     source: "Web CDN / Local",
     cssImport: "@import url('https://fonts.cdnfonts.com/css/google-sans');",
@@ -227,7 +227,7 @@ const FONTS = [
   },
   {
     name: "Proxima Nova",
-    family: "'Proxima Nova', sans-serif",
+    family: "'Proxima Nova', 'General Sans', sans-serif",
     category: "custom",
     source: "Web CDN / Local",
     cssImport: "@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');",
@@ -236,7 +236,7 @@ const FONTS = [
   },
   {
     name: "Public Sans",
-    family: "'Public Sans', sans-serif",
+    family: "'Public Sans', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
@@ -244,7 +244,7 @@ const FONTS = [
   },
   {
     name: "Quicksand",
-    family: "'Quicksand', sans-serif",
+    family: "'Quicksand', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');",
@@ -252,7 +252,7 @@ const FONTS = [
   },
   {
     name: "Sekuya",
-    family: "'Sekuya', sans-serif",
+    family: "'Sekuya', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap');",
@@ -260,7 +260,7 @@ const FONTS = [
   },
   {
     name: "Stack Sans Headline",
-    family: "'Stack Sans Headline', sans-serif",
+    family: "'Stack Sans Headline', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');",
@@ -268,7 +268,7 @@ const FONTS = [
   },
   {
     name: "Stack Sans Notch",
-    family: "'Stack Sans Notch', sans-serif",
+    family: "'Stack Sans Notch', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap');",
@@ -276,7 +276,7 @@ const FONTS = [
   },
   {
     name: "Stack Sans Text",
-    family: "'Stack Sans Text', sans-serif",
+    family: "'Stack Sans Text', 'General Sans', sans-serif",
     category: "sans",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');",
@@ -292,7 +292,7 @@ const FONTS = [
   },
   {
     name: "Tiny5",
-    family: "'Tiny5', monospace",
+    family: "'Tiny5', 'Geist Mono', monospace",
     category: "mono",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');",
@@ -300,7 +300,7 @@ const FONTS = [
   },
   {
     name: "Unbounded",
-    family: "'Unbounded', sans-serif",
+    family: "'Unbounded', 'General Sans', sans-serif",
     category: "display",
     source: "Google Fonts",
     cssImport: "@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');",
@@ -308,7 +308,7 @@ const FONTS = [
   },
   {
     name: "Wistteria Sans",
-    family: "'Wistteria Sans', sans-serif",
+    family: "'Wistteria Sans', 'General Sans', sans-serif",
     category: "custom",
     source: "Custom / Local Font",
     cssImport: "@font-face { font-family: 'Wistteria Sans'; src: url('fonts/WistteriaSans.woff2') format('woff2'); }",
@@ -328,192 +328,464 @@ function showToast(text) {
 
 function initGsapHome() {
   const hero = document.getElementById("gsapHero");
-  const readout = document.getElementById("activeFontReadout");
+  const rig = document.getElementById("titleCardRig");
   if (!hero || typeof gsap === "undefined") return;
 
-  const showcaseWave = [
-    { name: "Clash Display", family: "'Clash Display', sans-serif" },
-    { name: "Melodrama", family: "'Melodrama', serif" },
-    { name: "Bricolage Grotesque", family: "'Bricolage Grotesque', sans-serif" },
-    { name: "Unbounded", family: "'Unbounded', sans-serif" },
-    { name: "Cabinet Grotesk", family: "'Cabinet Grotesk', sans-serif" },
-    { name: "Switzer", family: "'Switzer', sans-serif" }
-  ];
-
-  const words = ["Font", "Library"];
   hero.innerHTML = "";
+  const words = ["Font", "Library"];
+  const units = [];
+  const mains = [];
+  const echoGreens = [];
+  const echoCyans = [];
+  let bezierBox = null;
+  let sparkEl = null;
 
-  const cells = [];
-  const glyphs = [];
+  words.forEach((word, wIdx) => {
+    const wordEl = document.createElement("span");
+    wordEl.className = "gsap-word";
 
-  words.forEach((word) => {
-    const wordSpan = document.createElement("span");
-    wordSpan.className = "gsap-word";
+    for (let cIdx = 0; cIdx < word.length; cIdx++) {
+      const ch = word[cIdx];
+      const globalIdx = units.length;
+      const unit = document.createElement("span");
+      unit.className = "char-unit";
 
-    for (const ch of word) {
-      const cell = document.createElement("span");
-      cell.className = "char-cell";
+      const isFirstF = globalIdx === 0;
+      const bezierHtml = isFirstF
+        ? `<span class="bezier-frame" id="bezierFrame">
+             <span class="bezier-node tl"></span>
+             <span class="bezier-node tr"></span>
+             <span class="bezier-node bl"></span>
+             <span class="bezier-node br"></span>
+           </span>`
+        : "";
 
-      const glyph = document.createElement("span");
-      glyph.className = "char-glyph";
-      glyph.textContent = ch;
+      unit.innerHTML = `
+        ${bezierHtml}
+        <span class="char-echo echo-cyan" aria-hidden="true">${ch}</span>
+        <span class="char-echo echo-green" aria-hidden="true">${ch}</span>
+        <span class="char-main">${ch}</span>
+      `;
 
-      cell.appendChild(glyph);
-      wordSpan.appendChild(cell);
-
-      cells.push(cell);
-      glyphs.push(glyph);
+      wordEl.appendChild(unit);
+      units.push(unit);
+      mains.push(unit.querySelector(".char-main"));
+      echoGreens.push(unit.querySelector(".echo-green"));
+      echoCyans.push(unit.querySelector(".echo-cyan"));
     }
 
-    hero.appendChild(wordSpan);
+    hero.appendChild(wordEl);
+
+    if (wIdx === 0) {
+      sparkEl = document.createElement("span");
+      sparkEl.className = "kinetic-spark";
+      sparkEl.innerHTML = `
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 0C33.8 18.2 45.8 30.2 64 32C45.8 33.8 33.8 45.8 32 64C30.2 45.8 18.2 33.8 0 32C18.2 30.2 30.2 18.2 32 0Z" fill="#0AE448"/>
+        </svg>
+      `;
+      hero.appendChild(sparkEl);
+    }
   });
 
-  function lockCellWidths() {
-    cells.forEach((cell) => {
-      cell.style.width = "auto";
-    });
-    glyphs.forEach((g) => {
-      g.style.fontFamily = "'Switzer', sans-serif";
-      g.style.fontWeight = "700";
-    });
-    cells.forEach((cell) => {
-      const rect = cell.getBoundingClientRect();
-      cell.style.width = `${Math.ceil(rect.width)}px`;
-    });
-  }
+  bezierBox = document.getElementById("bezierFrame");
 
   let masterTl;
 
-  function runSmoothShowcase() {
+  function playTitleCardShowpiece() {
     if (masterTl) masterTl.kill();
-    lockCellWidths();
 
-    gsap.set(glyphs, {
-      fontFamily: "'Switzer', sans-serif",
-      fontWeight: 700,
-      color: "#F5F7FA",
-      y: 0,
-      rotationX: 0,
-      rotationY: 0,
-      scale: 1,
-      opacity: 1
-    });
+    gsap.set(units, { x: 0, y: 0, z: 0, rotationX: 0, rotationY: 0, rotationZ: 0, skewX: 0, scaleX: 1, scaleY: 1 });
+    gsap.set(mains, { x: 0, y: 0, scaleX: 1, scaleY: 1, rotationZ: 0, fontWeight: 800, color: "#F5F7FA", opacity: 1 });
+    gsap.set([echoGreens, echoCyans], { x: 0, y: 0, z: 0, scale: 1, opacity: 0 });
+    if (bezierBox) gsap.set(bezierBox, { opacity: 0, scale: 0.85 });
+    if (sparkEl) gsap.set(sparkEl, { scale: 0, rotation: -180, opacity: 0 });
 
-    if (readout) readout.textContent = "Switzer";
+    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
 
-    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.8 });
-
-    masterTl.fromTo(
-      glyphs,
-      {
-        y: 48,
-        rotationX: -75,
-        opacity: 0
-      },
-      {
-        y: 0,
-        rotationX: 0,
-        opacity: 1,
-        duration: 1.0,
-        stagger: { each: 0.04, from: "start" },
-        ease: "expo.out"
-      }
-    );
-
-    showcaseWave.forEach((stageFont, roundIdx) => {
-      const start = 1.3 + roundIdx * 1.15;
-
-      masterTl.add(() => {
-        if (readout) readout.textContent = stageFont.name;
-      }, start + 0.15);
-
-      masterTl.to(
-        glyphs,
+    masterTl
+      .fromTo(
+        units,
         {
-          y: -16,
-          rotationX: 70,
-          opacity: 0,
-          duration: 0.28,
-          stagger: { each: 0.032, from: "start" },
-          ease: "power2.in",
-          onComplete: function () {
-            glyphs.forEach((g) => {
-              g.style.fontFamily = stageFont.family;
-            });
-          }
-        },
-        start
-      );
-
-      masterTl.fromTo(
-        glyphs,
-        {
-          y: 16,
-          rotationX: -70,
+          z: -600,
+          y: (i) => (i % 2 === 0 ? -110 : 110),
+          rotationX: (i) => (i % 2 === 0 ? 90 : -90),
+          rotationY: -35,
           opacity: 0
         },
         {
+          z: 0,
           y: 0,
           rotationX: 0,
+          rotationY: 0,
           opacity: 1,
-          color: stageFont.name === "Switzer" ? "#F5F7FA" : "#0AE448",
-          duration: 0.52,
-          stagger: { each: 0.032, from: "start" },
+          duration: 1.25,
+          stagger: { each: 0.048, from: "center" },
+          ease: "elastic.out(1.08, 0.52)"
+        },
+        0
+      )
+      .fromTo(
+        echoGreens,
+        { opacity: 0.9, y: (i) => (i % 2 === 0 ? -42 : 42), scale: 1.22 },
+        { opacity: 0, y: 0, scale: 1, duration: 0.9, stagger: { each: 0.048, from: "center" }, ease: "power3.out" },
+        0.08
+      )
+      .fromTo(
+        echoCyans,
+        { opacity: 0.75, y: (i) => (i % 2 === 0 ? 52 : -52), scale: 1.35 },
+        { opacity: 0, y: 0, scale: 1, duration: 1.05, stagger: { each: 0.048, from: "center" }, ease: "power3.out" },
+        0.12
+      )
+      .to(
+        sparkEl,
+        { scale: 1.25, rotation: 0, opacity: 1, duration: 0.7, ease: "back.out(2.2)" },
+        0.55
+      )
+      .to(
+        sparkEl,
+        { scale: 0.9, rotation: 90, duration: 0.5, ease: "expo.out" },
+        1.25
+      )
+      .to(
+        bezierBox,
+        { opacity: 1, scale: 1, duration: 0.25, ease: "power2.out" },
+        1.2
+      )
+      .to(
+        [units[0], mains[0]],
+        {
+          scaleX: 1.36,
+          scaleY: 0.76,
+          x: -10,
+          duration: 0.38,
+          ease: "power3.inOut"
+        },
+        1.45
+      )
+      .to(
+        [units[0], mains[0]],
+        {
+          scaleX: 0.84,
+          scaleY: 1.32,
+          x: 0,
+          y: -14,
+          duration: 0.34,
+          ease: "power3.inOut"
+        },
+        1.83
+      )
+      .to(
+        [units[0], mains[0]],
+        {
+          scaleX: 1,
+          scaleY: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "elastic.out(1.3, 0.38)"
+        },
+        2.17
+      )
+      .to(
+        bezierBox,
+        { opacity: 0, scale: 1.15, duration: 0.3, ease: "power2.in" },
+        2.45
+      )
+      .to(
+        units[1],
+        {
+          rotationY: 360,
+          scale: 1.28,
+          duration: 0.9,
+          ease: "expo.inOut"
+        },
+        1.65
+      )
+      .to(
+        mains[1],
+        { color: "#0AE448", duration: 0.3, yoyo: true, repeat: 1 },
+        1.65
+      )
+      .to(
+        units[1],
+        { scale: 1, duration: 0.45, ease: "back.out(2)" },
+        2.35
+      )
+      .to(
+        [units[2], units[3]],
+        {
+          rotationX: -360,
+          z: 80,
+          duration: 0.95,
+          stagger: 0.08,
+          ease: "back.inOut(1.7)"
+        },
+        1.85
+      )
+      .to(
+        [units[2], units[3]],
+        {
+          z: 0,
+          duration: 0.4,
+          stagger: 0.08,
+          ease: "power2.out"
+        },
+        2.6
+      )
+      .to(
+        sparkEl,
+        {
+          rotation: 450,
+          scale: 1.55,
+          duration: 0.55,
           ease: "expo.out"
         },
-        start + 0.28
+        2.35
+      )
+      .to(
+        sparkEl,
+        {
+          scale: 1,
+          duration: 0.5,
+          ease: "elastic.out(1.2, 0.4)"
+        },
+        2.9
+      )
+      .to(
+        units[4],
+        {
+          y: -60,
+          rotationZ: -16,
+          duration: 0.34,
+          ease: "power2.out"
+        },
+        2.35
+      )
+      .to(
+        units[4],
+        {
+          y: 0,
+          rotationZ: 0,
+          scaleY: 0.58,
+          scaleX: 1.38,
+          duration: 0.2,
+          ease: "power4.in"
+        },
+        2.69
+      )
+      .to(
+        units[4],
+        {
+          scaleY: 1,
+          scaleX: 1,
+          duration: 0.9,
+          ease: "elastic.out(1.4, 0.35)"
+        },
+        2.89
+      )
+      .to(
+        units[5],
+        {
+          scaleY: 0.5,
+          scaleX: 1.35,
+          y: 14,
+          duration: 0.22,
+          ease: "power2.in"
+        },
+        2.55
+      )
+      .to(
+        units[5],
+        {
+          scaleY: 1.35,
+          scaleX: 0.85,
+          y: -54,
+          rotationY: 360,
+          duration: 0.55,
+          ease: "expo.out"
+        },
+        2.77
+      )
+      .to(
+        units[5],
+        {
+          scaleY: 1,
+          scaleX: 1,
+          y: 0,
+          duration: 0.85,
+          ease: "bounce.out"
+        },
+        3.32
+      )
+      .to(
+        [units[6], units[7], units[8], units[9]],
+        {
+          y: -26,
+          rotationY: 180,
+          skewX: -14,
+          duration: 0.48,
+          stagger: 0.06,
+          ease: "power3.out"
+        },
+        2.75
+      )
+      .to(
+        [units[6], units[7], units[8], units[9]],
+        {
+          y: 0,
+          rotationY: 360,
+          skewX: 0,
+          duration: 0.75,
+          stagger: 0.06,
+          ease: "elastic.out(1.15, 0.45)"
+        },
+        3.23
+      )
+      .to(
+        units[10],
+        {
+          rotationZ: -28,
+          y: -22,
+          scale: 1.24,
+          duration: 0.38,
+          ease: "back.out(2)"
+        },
+        3.05
+      )
+      .to(
+        mains[10],
+        { color: "#00E5FF", duration: 0.35, yoyo: true, repeat: 1 },
+        3.05
+      )
+      .to(
+        units[10],
+        {
+          rotationZ: 0,
+          y: 0,
+          scale: 1,
+          duration: 0.95,
+          ease: "elastic.out(1.3, 0.36)"
+        },
+        3.43
+      )
+      .to(
+        mains,
+        {
+          fontWeight: 100,
+          y: -18,
+          scaleY: 1.15,
+          color: "#0AE448",
+          duration: 0.48,
+          stagger: { each: 0.038, from: "start" },
+          ease: "sine.inOut"
+        },
+        4.15
+      )
+      .to(
+        echoGreens,
+        {
+          opacity: 0.8,
+          y: 18,
+          z: -45,
+          duration: 0.48,
+          stagger: { each: 0.038, from: "start" },
+          ease: "sine.inOut"
+        },
+        4.15
+      )
+      .to(
+        echoCyans,
+        {
+          opacity: 0.6,
+          y: 34,
+          z: -90,
+          duration: 0.48,
+          stagger: { each: 0.038, from: "start" },
+          ease: "sine.inOut"
+        },
+        4.15
+      )
+      .to(
+        mains,
+        {
+          fontWeight: 800,
+          y: 0,
+          scaleY: 1,
+          color: "#F5F7FA",
+          duration: 0.85,
+          stagger: { each: 0.038, from: "start" },
+          ease: "elastic.out(1.15, 0.45)"
+        },
+        4.63
+      )
+      .to(
+        [echoGreens, echoCyans],
+        {
+          opacity: 0,
+          y: 0,
+          z: 0,
+          duration: 0.55,
+          stagger: { each: 0.038, from: "start" },
+          ease: "power3.out"
+        },
+        4.63
       );
-    });
-
-    const finaleStart = 1.3 + showcaseWave.length * 1.15 + 0.2;
-
-    masterTl.to(
-      glyphs,
-      {
-        fontWeight: 200,
-        y: -10,
-        duration: 0.65,
-        stagger: { each: 0.04, from: "center" },
-        yoyo: true,
-        repeat: 1,
-        ease: "sine.inOut"
-      },
-      finaleStart
-    );
   }
 
   document.fonts.ready.then(() => {
-    runSmoothShowcase();
+    playTitleCardShowpiece();
   });
 
-  window.addEventListener("resize", () => {
-    lockCellWidths();
+  const rigRotX = gsap.quickTo(rig, "rotationX", { duration: 0.5, ease: "power3.out" });
+  const rigRotY = gsap.quickTo(rig, "rotationY", { duration: 0.5, ease: "power3.out" });
+
+  window.addEventListener("pointermove", (e) => {
+    const nx = (e.clientX / window.innerWidth - 0.5) * 2;
+    const ny = (e.clientY / window.innerHeight - 0.5) * 2;
+    rigRotY(nx * 12);
+    rigRotX(-ny * 10);
   });
 
-  glyphs.forEach((glyph) => {
-    glyph.addEventListener("pointerenter", () => {
-      gsap.to(glyph, {
-        y: -12,
-        color: "#0AE448",
-        duration: 0.3,
+  units.forEach((unit, idx) => {
+    unit.addEventListener("pointerenter", () => {
+      gsap.to(mains[idx], {
+        y: -22,
+        scaleY: 1.24,
+        scaleX: 0.9,
+        color: idx % 2 === 0 ? "#0AE448" : "#00E5FF",
+        duration: 0.35,
         overwrite: "auto",
-        ease: "power3.out"
+        ease: "back.out(2.2)"
+      });
+      gsap.to(echoGreens[idx], {
+        opacity: 0.85,
+        y: 12,
+        duration: 0.3,
+        overwrite: "auto"
       });
     });
 
-    glyph.addEventListener("pointerleave", () => {
-      gsap.to(glyph, {
+    unit.addEventListener("pointerleave", () => {
+      gsap.to(mains[idx], {
         y: 0,
+        scaleY: 1,
+        scaleX: 1,
         color: "#F5F7FA",
-        duration: 0.4,
+        duration: 0.65,
         overwrite: "auto",
-        ease: "power3.out"
+        ease: "elastic.out(1.2, 0.4)"
+      });
+      gsap.to(echoGreens[idx], {
+        opacity: 0,
+        y: 0,
+        duration: 0.35,
+        overwrite: "auto"
       });
     });
   });
 
   hero.addEventListener("click", () => {
-    runSmoothShowcase();
+    playTitleCardShowpiece();
   });
 }
 
@@ -529,6 +801,7 @@ function initLibraryIndex() {
   let activeCat = "all";
   let openRowElement = null;
   let typingTimers = [];
+  let rowObserver = null;
 
   function moveTabGlider(targetBtn, immediate = false) {
     if (!tabGlider || !targetBtn) return;
@@ -559,28 +832,33 @@ function initLibraryIndex() {
   function clearTypingTimers() {
     typingTimers.forEach((id) => clearTimeout(id));
     typingTimers = [];
+    if (rowObserver) {
+      rowObserver.disconnect();
+      rowObserver = null;
+    }
   }
 
-  function typeTextWithCursor(textNode, cursorNode, fullText, startDelay) {
+  function typeTextNaturally(textNode, cursorNode, fullText, initialWait) {
     let charIndex = 0;
-    const stepMs = Math.max(16, Math.min(32, Math.floor(340 / Math.max(1, fullText.length))));
 
     const startId = setTimeout(() => {
-      function step() {
+      function nextKeystroke() {
         charIndex++;
         textNode.textContent = fullText.slice(0, charIndex);
+
         if (charIndex < fullText.length) {
-          const nextId = setTimeout(step, stepMs);
-          typingTimers.push(nextId);
+          const naturalKeystrokeDelay = 82 + Math.floor(Math.random() * 48);
+          const timerId = setTimeout(nextKeystroke, naturalKeystrokeDelay);
+          typingTimers.push(timerId);
         } else {
-          const endId = setTimeout(() => {
+          const finishId = setTimeout(() => {
             cursorNode.classList.add("done");
-          }, 420);
-          typingTimers.push(endId);
+          }, 650);
+          typingTimers.push(finishId);
         }
       }
-      step();
-    }, startDelay);
+      nextKeystroke();
+    }, initialWait);
 
     typingTimers.push(startId);
   }
@@ -605,9 +883,30 @@ function initLibraryIndex() {
     listEl.innerHTML = "";
     openRowElement = null;
 
+    if (animateTypewriter && "IntersectionObserver" in window) {
+      rowObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const row = entry.target;
+              rowObserver.unobserve(row);
+              const typedTextEl = row.querySelector(".typed-text");
+              const typedCursorEl = row.querySelector(".typed-cursor");
+              const fontName = row.dataset.fontName || "";
+              const staggerOrder = Number(row.dataset.order || 0) % 5;
+              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 120 + staggerOrder * 95);
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+    }
+
     visibleFonts.forEach((font, idx) => {
       const row = document.createElement("div");
       row.className = "type-row";
+      row.dataset.fontName = font.name;
+      row.dataset.order = idx;
 
       const uploadBtnHtml = font.allowLocalUpload
         ? `<button type="button" class="studio-btn load-slot-btn"><i class="ph-bold ph-upload-simple"></i> Attach Local File</button>`
@@ -701,8 +1000,10 @@ function initLibraryIndex() {
       const typedTextEl = row.querySelector(".typed-text");
       const typedCursorEl = row.querySelector(".typed-cursor");
 
-      if (animateTypewriter) {
-        typeTextWithCursor(typedTextEl, typedCursorEl, font.name, idx * 28);
+      if (animateTypewriter && rowObserver) {
+        rowObserver.observe(row);
+      } else if (animateTypewriter) {
+        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 95);
       } else {
         typedTextEl.textContent = font.name;
         typedCursorEl.classList.add("done");
@@ -849,12 +1150,12 @@ function initLibraryIndex() {
 
           const match = FONTS.find((f) => f.name.toLowerCase() === familyName.toLowerCase());
           if (match) {
-            match.family = `'${familyName}', sans-serif`;
+            match.family = `'${familyName}', 'General Sans', sans-serif`;
             match.source = `Loaded (${file.name})`;
           } else {
             FONTS.unshift({
               name: familyName,
-              family: `'${familyName}', sans-serif`,
+              family: `'${familyName}', 'General Sans', sans-serif`,
               category: "custom",
               source: `Loaded (${file.name})`,
               cssImport: `@font-face { font-family: '${familyName}'; src: url('fonts/${file.name}'); }`,
