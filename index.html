@@ -2,132 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Type Foundry & Specimen Archive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Font Library</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,400&family=Doto:wght@400..800&family=Figtree:wght@300..800&family=Geist+Mono:wght@300..700&family=Geist:wght@300..800&family=Jost:wght@300..800&family=Nunito:wght@300..800&family=Ojuju:wght@300..800&family=Parkinsans:wght@300..800&family=Plus+Jakarta+Sans:wght@400..800&family=Poppins:wght@300..800&family=Public+Sans:wght@300..800&family=Quicksand:wght@300..700&family=Stack+Sans+Headline:wght@300..700&family=Stack+Sans+Notch:wght@300..700&family=Stack+Sans+Text:wght@300..700&family=Syne:wght@600..800&family=Tiny5&family=Unbounded:wght@300..800&display=swap" rel="stylesheet">
-
-  <!-- Fontshare Fonts -->
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@300,400,500,700,800&f[]=clash-display@400,500,600,700&f[]=clash-grotesk@300,400,500,600,700&f[]=excon@300,400,500,700&f[]=general-sans@300,400,500,600,700&f[]=melodrama@400,500,600,700&f[]=switzer@300,400,500,600,700&display=swap" rel="stylesheet">
-
-  <!-- Pretendard CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <!-- Fontshare: Switzer (Main Heading) & General Sans (All Site UI) -->
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
 </head>
-<body data-page="home">
+<body class="home-body" data-page="home">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">Type Archive</a>
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link active">Home</a>
-        <a href="fonts.html" class="nav-link">Font Directory</a>
-        <button id="themeToggle" class="theme-btn" aria-label="Toggle color theme">Dark Mode</button>
-      </nav>
-    </div>
+  <header class="minimal-header">
+    <a href="index.html" class="header-mark">Font Library</a>
+    <a href="fonts.html" class="header-nav-link">Index <span>30</span></a>
   </header>
 
-  <main>
-    <!-- Anime.js Kinetic Hero Section -->
-    <section class="hero-stage">
-      <div class="container">
-        <p class="eyebrow fade-up">Personal Curated Collection &bull; 38 Typefaces</p>
-        
-        <h1 class="kinetic-headline" id="heroHeadline">
-          <span class="line-wrap"><span class="kinetic-word" id="word1">Form,</span></span>
-          <span class="line-wrap"><span class="kinetic-word" id="word2">Rhythm &amp;</span></span>
-          <span class="line-wrap"><span class="kinetic-word accent-serif" id="word3">Voice.</span></span>
-        </h1>
+  <main class="kinetic-viewport" id="kineticViewport">
+    <div class="stage-ambient" id="stageAmbient"></div>
 
-        <!-- Live Anime.js Morphing Specimen Stage -->
-        <div class="specimen-rotator" aria-live="polite">
-          <div class="rotator-meta">
-            <span class="meta-label">Featured Typeface</span>
-            <span class="rotator-font-name" id="activeFontLabel">Clash Display</span>
-            <span class="rotator-source" id="activeFontSource">Fontshare &bull; Open License</span>
-          </div>
-          <div class="rotator-display" id="kineticStage">
-            Typography shapes perception
-          </div>
-          <div class="rotator-progress">
-            <div class="rotator-bar" id="rotatorBar"></div>
-          </div>
-        </div>
-
-        <div class="hero-actions fade-up">
-          <a href="fonts.html" class="btn-primary">Explore All 38 Fonts</a>
-          <a href="#pairing-studio" class="btn-secondary">Try Pairing Studio</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Animated Glyph Ribbon (Driven by Anime.js) -->
-    <section class="glyph-showcase">
-      <div class="container">
-        <div class="section-header">
-          <h2>Kinetic Character Study</h2>
-          <p>Hover any glyph card to inspect its structural anatomy and trigger weight interpolation.</p>
-        </div>
-        <div class="glyph-grid" id="glyphGrid">
-          <!-- Populated and animated via Anime.js in app.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Type Pairing Studio -->
-    <section id="pairing-studio" class="pairing-section">
-      <div class="container">
-        <div class="section-header">
-          <h2>Live Pairing Studio</h2>
-          <p>Test display headlines alongside body copy from your collection before copying the CSS stack.</p>
-        </div>
-
-        <div class="pairing-workbench">
-          <div class="pairing-controls">
-            <div class="control-group">
-              <label for="displaySelect">Display Headline Font</label>
-              <select id="displaySelect" class="select-input"></select>
-            </div>
-            <div class="control-group">
-              <label for="bodySelect">Body Copy Font</label>
-              <select id="bodySelect" class="select-input"></select>
-            </div>
-            <div class="control-group">
-              <button id="randomPairBtn" class="btn-secondary full-width">Shuffle Pairing</button>
-            </div>
-            <div class="control-group">
-              <button id="copyPairCssBtn" class="btn-primary full-width">Copy Pairing CSS</button>
-            </div>
-          </div>
-
-          <div class="pairing-canvas">
-            <span class="canvas-tag" id="pairMetaTag">Clash Display + General Sans</span>
-            <h3 id="pairPreviewHeading" contenteditable="true" spellcheck="false">
-              Designing for clarity across every scale and medium.
-            </h3>
-            <p id="pairPreviewBody" contenteditable="true" spellcheck="false">
-              Good typography establishes hierarchy effortlessly. When a high-contrast display face is balanced with an open, generous text grotesque, long-form reading becomes effortless while headlines retain unmistakable character. Click either text block to edit this specimen live.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <h1 class="hero-heading" id="heroHeading" aria-label="Font Library">
+      <!-- Populated & choreographed per-letter by Anime.js in app.js -->
+      Font Library
+    </h1>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>Curated Personal Type Library &bull; 38 Open &amp; Verified Typefaces</p>
-      <a href="fonts.html" class="footer-link">Open Full Font Directory &rarr;</a>
+  <footer class="minimal-dock">
+    <div class="dock-controls">
+      <button type="button" id="replayAnimBtn" class="dock-btn">Replay Sequence</button>
+      <button type="button" id="cycleModeBtn" class="dock-btn" data-mode="symphony">Mode: Full Choreography</button>
     </div>
+    <a href="fonts.html" class="dock-cta">Open Font Directory &rarr;</a>
   </footer>
 
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-
-  <!-- Anime.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
   <script src="app.js"></script>
 </body>
