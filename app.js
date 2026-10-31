@@ -1,321 +1,1411 @@
-const FONTS = [
+const FONT_CATALOGUE = [
   {
-    name: "Atkinson Hyperlegible",
-    family: "'Atkinson Hyperlegible', 'General Sans', sans-serif",
+    name: "Aktura",
+    folder: "Aktura",
+    category: "display",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: false,
+    axes: [],
+    files: [["Aktura-Regular.otf", 400, "normal"]]
+  },
+  {
+    name: "Alan Sans",
+    folder: "Alan Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Atkinson+Hyperlegible"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [["AlanSans-VariableFont_wght.ttf", "300 900", "normal"]]
+  },
+  {
+    name: "Alata",
+    folder: "Alata",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["Alata-Regular.ttf", 400, "normal"]]
+  },
+  {
+    name: "Archivo",
+    folder: "Archivo",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 400 },
+      { tag: "wdth", name: "Width", min: 62, max: 125, default: 100 }
+    ],
+    files: [
+      ["Archivo-VariableFont_wdth,wght.ttf", "100 900", "normal"],
+      ["Archivo-Italic-VariableFont_wdth,wght.ttf", "100 900", "italic"]
+    ]
+  },
+  {
+    name: "Atkinson Hyperlegible",
+    folder: "Atkinson Hyperlegible",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["AtkinsonHyperlegible-Regular.ttf", 400, "normal"],
+      ["AtkinsonHyperlegible-Italic.ttf", 400, "italic"],
+      ["AtkinsonHyperlegible-Bold.ttf", 700, "normal"],
+      ["AtkinsonHyperlegible-BoldItalic.ttf", 700, "italic"]
+    ]
+  },
+  {
+    name: "Author",
+    folder: "Author Variable",
+    category: "sans",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [
+      ["Author-Variable.ttf", "200 700", "normal"],
+      ["Author-VariableItalic.ttf", "200 700", "italic"]
+    ]
+  },
+  {
+    name: "Bonny",
+    folder: "Bonny Variable",
+    category: "serif",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 700, default: 400 }],
+    files: [["Bonny-Variable.ttf", "100 700", "normal"]]
+  },
+  {
+    name: "Borel",
+    folder: "Borel",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["Borel-Regular.ttf", 400, "normal"]]
+  },
+  {
+    name: "Boska",
+    folder: "Boska Variable",
+    category: "serif",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 400 }],
+    files: [
+      ["Boska-Variable.ttf", "200 900", "normal"],
+      ["Boska-VariableItalic.ttf", "200 900", "italic"]
+    ]
   },
   {
     name: "Bricolage Grotesque",
-    family: "'Bricolage Grotesque', 'General Sans', sans-serif",
+    folder: "Bricolage Grotesque",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 200, max: 800, default: 400 },
+      { tag: "wdth", name: "Width", min: 75, max: 100, default: 100 },
+      { tag: "opsz", name: "Optical Size", min: 12, max: 96, default: 48 }
+    ],
+    files: [["BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf", "200 800", "normal"]]
+  },
+  {
+    name: "Bricolage Grotesque 12pt Condensed",
+    folder: "Bricolage Grotesque 12pt Condensed",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["BricolageGrotesque12ptCondensed-ExtraLight.otf", 200, "normal"],
+      ["BricolageGrotesque12ptCondensed-Light.otf", 300, "normal"],
+      ["BricolageGrotesque12ptCondensed-Regular.otf", 400, "normal"],
+      ["BricolageGrotesque12ptCondensed-Medium.otf", 500, "normal"],
+      ["BricolageGrotesque12ptCondensed-SemiBold.otf", 600, "normal"],
+      ["BricolageGrotesque12ptCondensed-Bold.otf", 700, "normal"],
+      ["BricolageGrotesque12ptCondensed-ExtraBold.otf", 800, "normal"]
+    ]
+  },
+  {
+    name: "Bricolage Grotesque 96pt Condensed",
+    folder: "Bricolage Grotesque 96pt Condensed",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["BricolageGrotesque96ptCondensed-ExtraLight.otf", 200, "normal"],
+      ["BricolageGrotesque96ptCondensed-Light.otf", 300, "normal"],
+      ["BricolageGrotesque96ptCondensed-Regular.otf", 400, "normal"],
+      ["BricolageGrotesque96ptCondensed-Medium.otf", 500, "normal"],
+      ["BricolageGrotesque96ptCondensed-SemiBold.otf", 600, "normal"],
+      ["BricolageGrotesque96ptCondensed-Bold.otf", 700, "normal"],
+      ["BricolageGrotesque96ptCondensed-ExtraBold.otf", 800, "normal"]
+    ]
   },
   {
     name: "Cabinet Grotesk",
-    family: "'Cabinet Grotesk', 'General Sans', sans-serif",
+    folder: "Cabinet Grotesk Variable",
     category: "sans",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,200,300,400,500,700,800,900,1&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/cabinet-grotesk"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [["CabinetGrotesk-Variable.ttf", "100 900", "normal"]]
+  },
+  {
+    name: "Cal Sans",
+    folder: "Cal Sans",
+    category: "sans",
+    source: "Cal.com Open Foundry",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 400, max: 700, default: 600 },
+      { tag: "opsz", name: "Optical Size", min: 8, max: 45, default: 32 },
+      { tag: "GEOM", name: "Geometry", min: 0, max: 100, default: 0 },
+      { tag: "SHRP", name: "Sharpness", min: 0, max: 100, default: 0 }
+    ],
+    files: [["CalSansVF.ttf", "400 700", "normal"]]
   },
   {
     name: "Clash Display",
-    family: "'Clash Display', 'General Sans', sans-serif",
+    folder: "Clash Display Variable",
     category: "display",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,1&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/clash-display"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 500 }],
+    files: [["ClashDisplay-Variable.ttf", "200 700", "normal"]]
   },
   {
     name: "Clash Grotesk",
-    family: "'Clash Grotesk', 'General Sans', sans-serif",
+    folder: "Clash Grotesk Variable",
     category: "sans",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700,1&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/clash-grotesk"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [["ClashGrotesk-Variable.ttf", "200 700", "normal"]]
+  },
+  {
+    name: "Climate Crisis",
+    folder: "Climate Crisis",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "YEAR", name: "Year Axis", min: 1979, max: 2050, default: 1990 }],
+    files: [
+      ["ClimateCrisis-Variable.ttf", "100 900", "normal"],
+      ["ClimateCrisis-1979.otf", 900, "normal"],
+      ["ClimateCrisis-2050.otf", 100, "normal"]
+    ]
   },
   {
     name: "CM Geom",
-    family: "'CM Geom', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Custom / Local Font",
-    cssImport: "@font-face { font-family: 'CM Geom'; src: url('fonts/CMGeom.woff2') format('woff2'); }",
-    downloadUrl: "",
-    allowLocalUpload: true
+    folder: "CM Geom",
+    category: "sans",
+    source: "Cedric Müller",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["CMGeom-Regular.ttf", 400, "normal"]]
   },
   {
     name: "Coconat",
-    family: "'Coconat', 'General Sans', sans-serif",
+    folder: "Coconat",
     category: "display",
-    source: "Collletttivo Foundry",
-    cssImport: "@font-face { font-family: 'Coconat'; src: url('https://cdn.jsdelivr.net/gh/collletttivo/coconat@master/fonts/webfonts/Coconat-Regular.woff2') format('woff2'); }",
-    downloadUrl: "https://www.collletttivo.it/typefaces/coconat",
-    isCustomGroup: true
+    source: "Collletttivo",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Coconat-Regular.otf", 400, "normal"],
+      ["Coconat-Demi.otf", 600, "normal"],
+      ["Coconat-Bold.otf", 800, "normal"]
+    ]
+  },
+  {
+    name: "Coolvetica",
+    folder: "Coolvetica",
+    category: "display",
+    source: "Typodermic Fonts",
+    licenseType: "restricted",
+    licenseLabel: "Free Regular Desktop / Paid Commercial Variants",
+    variable: false,
+    axes: [],
+    files: [
+      ["coolvetica rg.otf", 400, "normal"],
+      ["coolvetica rg it.otf", 400, "italic"],
+      ["coolvetica condensed rg.otf", 300, "normal"],
+      ["coolvetica crammed rg.otf", 700, "normal"],
+      ["coolvetica compressed hv.otf", 900, "normal"]
+    ]
+  },
+  {
+    name: "Coral Pixels",
+    folder: "Coral Pixels",
+    category: "mono",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["CoralPixels-Regular.ttf", 400, "normal"]]
+  },
+  {
+    name: "Delight",
+    folder: "Delight",
+    category: "sans",
+    source: "Open Variable Foundry",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [["delight-vf.ttf", "100 900", "normal"]]
   },
   {
     name: "Departure Mono",
-    family: "'Departure Mono', 'Geist Mono', monospace",
+    folder: "Departure Mono",
     category: "mono",
     source: "Helena Zhang",
-    cssImport: "@font-face { font-family: 'Departure Mono'; src: url('https://cdn.jsdelivr.net/gh/rektdeckard/departure-mono@v1.422/DepartureMono-Regular.woff2') format('woff2'); }",
-    downloadUrl: "https://departuremono.com/",
-    isCustomGroup: true
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["DepartureMono-Regular.otf", 400, "normal"]]
   },
   {
     name: "DM Sans",
-    family: "'DM Sans', 'General Sans', sans-serif",
+    folder: "DM Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/DM+Sans"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 1000, default: 400 },
+      { tag: "opsz", name: "Optical Size", min: 9, max: 40, default: 24 }
+    ],
+    files: [
+      ["DMSans-VariableFont_opsz,wght.ttf", "100 1000", "normal"],
+      ["DMSans-Italic-VariableFont_opsz,wght.ttf", "100 1000", "italic"]
+    ]
   },
   {
     name: "Doto",
-    family: "'Doto', 'Geist Mono', monospace",
+    folder: "Doto",
     category: "mono",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Doto"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 500 },
+      { tag: "ROND", name: "Roundness", min: 0, max: 100, default: 0 }
+    ],
+    files: [["Doto-VariableFont_ROND,wght.ttf", "100 900", "normal"]]
   },
   {
     name: "DT World Tour",
-    family: "'DT World Tour', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Custom / Local Font",
-    cssImport: "@font-face { font-family: 'DT World Tour'; src: url('fonts/DTWorldTour.woff2') format('woff2'); }",
-    downloadUrl: "",
-    allowLocalUpload: true
+    folder: "DT World Tour",
+    category: "display",
+    source: "Independent Display",
+    licenseType: "open",
+    licenseLabel: "Free for Commercial Use",
+    variable: false,
+    axes: [],
+    files: [["DTWorldTour-Regular.otf", 400, "normal"]]
   },
   {
     name: "Elms Sans",
-    family: "'Elms Sans', 'General Sans', sans-serif",
+    folder: "Elms Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Elms+Sans"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["ElmsSans-VariableFont_wght.ttf", "100 900", "normal"],
+      ["ElmsSans-Italic-VariableFont_wght.ttf", "100 900", "italic"]
+    ]
+  },
+  {
+    name: "Epilogue",
+    folder: "Epilogue",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["Epilogue-VariableFont_wght.ttf", "100 900", "normal"],
+      ["Epilogue-Italic-VariableFont_wght.ttf", "100 900", "italic"]
+    ]
   },
   {
     name: "Excon",
-    family: "'Excon', 'General Sans', sans-serif",
+    folder: "Excon Variable",
     category: "sans",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=excon@100,300,400,500,700,900,1&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/excon"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [["Excon-Variable.ttf", "100 900", "normal"]]
   },
   {
-    name: "FTGG",
-    family: "'FTGG', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Custom / Local Font",
-    cssImport: "@font-face { font-family: 'FTGG'; src: url('fonts/FTGG.woff2') format('woff2'); }",
-    downloadUrl: "",
-    allowLocalUpload: true
+    name: "Faculty Glyphic",
+    folder: "Faculty Glyphic",
+    category: "serif",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["FacultyGlyphic-Regular.ttf", 400, "normal"]]
   },
   {
-    name: "Futura",
-    family: "'Futura Std', 'Futura', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Web CDN / Local",
-    cssImport: "@import url('https://fonts.cdnfonts.com/css/futura-std-4');",
-    downloadUrl: "https://fonts.cdnfonts.com/futura-std-4.font",
-    allowLocalUpload: true
+    name: "FT88",
+    folder: "FT88",
+    category: "mono",
+    source: "Velvetyne Type Foundry",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["FT88-Regular.ttf", 400, "normal"],
+      ["FT88-Italic.ttf", 400, "italic"],
+      ["FT88-Bold.ttf", 700, "normal"],
+      ["FT88-Expanded.ttf", 500, "normal"],
+      ["FT88-Gothique.ttf", 600, "normal"],
+      ["FT88-School.ttf", 300, "normal"],
+      ["FT88-Serif.ttf", 800, "normal"]
+    ]
   },
   {
     name: "Geist",
-    family: "'Geist', 'General Sans', sans-serif",
+    folder: "Geist",
     category: "sans",
     source: "Google Fonts / Vercel",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Geist"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["Geist[wght].ttf", "100 900", "normal"],
+      ["Geist-Italic[wght].ttf", "100 900", "italic"]
+    ]
   },
   {
     name: "Geist Mono",
-    family: "'Geist Mono', monospace",
+    folder: "Geist Mono",
     category: "mono",
     source: "Google Fonts / Vercel",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Geist+Mono"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["GeistMono[wght].ttf", "100 900", "normal"],
+      ["GeistMono-Italic[wght].ttf", "100 900", "italic"]
+    ]
   },
   {
     name: "Geist Pixel",
-    family: "'Geist Pixel', 'Geist Mono', monospace",
+    folder: "Geist Pixel",
     category: "mono",
     source: "Vercel",
-    cssImport: "@font-face { font-family: 'Geist Pixel'; src: url('https://cdn.jsdelivr.net/npm/geist@1.7.0/dist/fonts/geist-pixel/GeistPixel-Square.woff2') format('woff2'); }",
-    downloadUrl: "https://vercel.com/font",
-    isCustomGroup: true
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["GeistPixel-Square.otf", 400, "normal"],
+      ["GeistPixel-Circle.otf", 300, "normal"],
+      ["GeistPixel-Grid.otf", 500, "normal"],
+      ["GeistPixel-Line.otf", 700, "normal"],
+      ["GeistPixel-Triangle.otf", 800, "normal"]
+    ]
   },
   {
     name: "General Sans",
-    family: "'General Sans', sans-serif",
+    folder: "General Sans Variable",
     category: "sans",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700,1,2&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/general-sans"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [
+      ["GeneralSans-Variable.ttf", "200 700", "normal"],
+      ["GeneralSans-VariableItalic.ttf", "200 700", "italic"]
+    ]
   },
   {
-    name: "Lemon/Milk",
-    family: "'LEMON MILK', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Web CDN / Local",
-    cssImport: "@import url('https://fonts.cdnfonts.com/css/lemonmilk');",
-    downloadUrl: "https://fonts.cdnfonts.com/lemonmilk.font",
-    allowLocalUpload: true
+    name: "Geom",
+    folder: "Geom",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [
+      ["Geom-VariableFont_wght.ttf", "300 900", "normal"],
+      ["Geom-Italic-VariableFont_wght.ttf", "300 900", "italic"]
+    ]
+  },
+  {
+    name: "Handjet",
+    folder: "Handjet",
+    category: "mono",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 400 },
+      { tag: "ELGR", name: "Element Grid", min: 1, max: 2, default: 1, step: 0.1 },
+      { tag: "ELSH", name: "Element Shape", min: 0, max: 16, default: 2, step: 0.5 }
+    ],
+    files: [["Handjet-VariableFont_ELGR,ELSH,wght.ttf", "100 900", "normal"]]
+  },
+  {
+    name: "Host Grotesk",
+    folder: "Host Grotesk",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 800, default: 400 }],
+    files: [
+      ["HostGrotesk-VariableFont_wght.ttf", "300 800", "normal"],
+      ["HostGrotesk-Italic-VariableFont_wght.ttf", "300 800", "italic"]
+    ]
+  },
+  {
+    name: "Instrument Serif",
+    folder: "Instrument Serif",
+    category: "serif",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["InstrumentSerif-Regular.ttf", 400, "normal"],
+      ["InstrumentSerif-Italic.ttf", 400, "italic"]
+    ]
+  },
+  {
+    name: "Inter",
+    folder: "Inter",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 400 },
+      { tag: "opsz", name: "Optical Size", min: 14, max: 32, default: 24 }
+    ],
+    files: [["Inter-VariableFont_opsz,wght.ttf", "100 900", "normal"]]
+  },
+  {
+    name: "Jost",
+    folder: "Jost",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [["Jost-VariableFont_wght.ttf", "100 900", "normal"]]
+  },
+  {
+    name: "Kalnia Glaze",
+    folder: "Kalnia Glaze",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 700, default: 400 },
+      { tag: "wdth", name: "Width", min: 100, max: 125, default: 100 }
+    ],
+    files: [["KalniaGlaze-VariableFont_wdth,wght.ttf", "100 700", "normal"]]
+  },
+  {
+    name: "Lama Sans",
+    folder: "Lama Sans",
+    category: "sans",
+    source: "Baianat Type",
+    licenseType: "open",
+    licenseLabel: "Free for Personal & Commercial Use",
+    variable: false,
+    axes: [],
+    files: [
+      ["LamaSans-Thin.ttf", 100, "normal"],
+      ["LamaSans-ExtraLight.ttf", 200, "normal"],
+      ["LamaSans-Light.ttf", 300, "normal"],
+      ["LamaSans-Regular.ttf", 400, "normal"],
+      ["LamaSans-Medium.ttf", 500, "normal"],
+      ["LamaSans-SemiBold.ttf", 600, "normal"],
+      ["LamaSans-Bold.ttf", 700, "normal"],
+      ["LamaSans-ExtraBold.ttf", 800, "normal"],
+      ["LamaSans-Black.ttf", 900, "normal"],
+      ["LamaSans-RegularItalic.ttf", 400, "italic"],
+      ["LamaSans-BoldItalic.ttf", 700, "italic"]
+    ]
+  },
+  {
+    name: "League Spartan",
+    folder: "League Spartan",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 500 }],
+    files: [["LeagueSpartan-VariableFont_wght.ttf", "100 900", "normal"]]
+  },
+  {
+    name: "LEMON MILK",
+    folder: "LEMON MILK",
+    category: "display",
+    source: "Marsnev",
+    licenseType: "restricted",
+    licenseLabel: "Free Personal Use Only / Commercial License Required",
+    variable: false,
+    axes: [],
+    files: [
+      ["LEMONMILK-Light.otf", 300, "normal"],
+      ["LEMONMILK-LightItalic.otf", 300, "italic"],
+      ["LEMONMILK-Regular.otf", 400, "normal"],
+      ["LEMONMILK-RegularItalic.otf", 400, "italic"],
+      ["LEMONMILK-Medium.otf", 500, "normal"],
+      ["LEMONMILK-MediumItalic.otf", 500, "italic"],
+      ["LEMONMILK-Bold.otf", 700, "normal"],
+      ["LEMONMILK-BoldItalic.otf", 700, "italic"]
+    ]
+  },
+  {
+    name: "Manrope",
+    folder: "Manrope",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 800, default: 400 }],
+    files: [["Manrope-VariableFont_wght.ttf", "200 800", "normal"]]
   },
   {
     name: "Melodrama",
-    family: "'Melodrama', serif",
+    folder: "Melodrama Variable",
     category: "serif",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=melodrama@300,400,500,600,700,1&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/melodrama"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 700, default: 400 }],
+    files: [["Melodrama-Variable.ttf", "300 700", "normal"]]
+  },
+  {
+    name: "Metropolis",
+    folder: "Metropolis",
+    category: "sans",
+    source: "Chris Simpson",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL / Public Domain)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Metropolis-Thin.otf", 100, "normal"],
+      ["Metropolis-ExtraLight.otf", 200, "normal"],
+      ["Metropolis-Light.otf", 300, "normal"],
+      ["Metropolis-Regular.otf", 400, "normal"],
+      ["Metropolis-RegularItalic.otf", 400, "italic"],
+      ["Metropolis-Medium.otf", 500, "normal"],
+      ["Metropolis-SemiBold.otf", 600, "normal"],
+      ["Metropolis-Bold.otf", 700, "normal"],
+      ["Metropolis-BoldItalic.otf", 700, "italic"],
+      ["Metropolis-ExtraBold.otf", 800, "normal"],
+      ["Metropolis-Black.otf", 900, "normal"]
+    ]
+  },
+  {
+    name: "Modestic Sans",
+    folder: "Modestic Sans",
+    category: "sans",
+    source: "Independent Foundry",
+    licenseType: "restricted",
+    licenseLabel: "Free Personal Use / Commercial License Required",
+    variable: false,
+    axes: [],
+    files: [
+      ["ModesticSans-Bold-BF64a47d1515b1b.otf", 700, "normal"],
+      ["ModesticSans-BoldItalic-BF64a47d15590b5.otf", 700, "italic"]
+    ]
+  },
+  {
+    name: "Momo Trust Sans",
+    folder: "Momo Trust Sans",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 800, default: 400 }],
+    files: [["MomoTrustSans-VariableFont_wght.ttf", "200 800", "normal"]]
+  },
+  {
+    name: "Mozilla Headline",
+    folder: "Mozilla Headline",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 200, max: 700, default: 500 },
+      { tag: "wdth", name: "Width", min: 75, max: 125, default: 100 }
+    ],
+    files: [["MozillaHeadline-VariableFont_wdth,wght.ttf", "200 700", "normal"]]
+  },
+  {
+    name: "Mozilla Text",
+    folder: "Mozilla Text",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [["MozillaText-VariableFont_wght.ttf", "200 700", "normal"]]
+  },
+  {
+    name: "National Park",
+    folder: "National Park",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 800, default: 400 }],
+    files: [["NationalPark-VariableFont_wght.ttf", "200 800", "normal"]]
   },
   {
     name: "Nunito",
-    family: "'Nunito', 'General Sans', sans-serif",
+    folder: "Nunito Variable",
+    category: "sans",
+    source: "Google Fonts / Fontshare",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 1000, default: 400 }],
+    files: [
+      ["Nunito-Variable.ttf", "200 1000", "normal"],
+      ["Nunito-VariableItalic.ttf", "200 1000", "italic"]
+    ]
+  },
+  {
+    name: "Nunito Sans",
+    folder: "Nunito Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Nunito"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 200, max: 1000, default: 400 },
+      { tag: "wdth", name: "Width", min: 75, max: 125, default: 100 },
+      { tag: "opsz", name: "Optical Size", min: 6, max: 12, default: 10 }
+    ],
+    files: [
+      ["NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf", "200 1000", "normal"],
+      ["NunitoSans-Italic-VariableFont_YTLC,opsz,wdth,wght.ttf", "200 1000", "italic"]
+    ]
+  },
+  {
+    name: "Nyght Serif",
+    folder: "Nyght Serif",
+    category: "serif",
+    source: "Maksym Kobuzan",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL / Free Commercial)",
+    variable: false,
+    axes: [],
+    files: [
+      ["NyghtSerif-Light.ttf", 300, "normal"],
+      ["NyghtSerif-LightItalic.ttf", 300, "italic"],
+      ["NyghtSerif-Regular.ttf", 400, "normal"],
+      ["NyghtSerif-RegularItalic.ttf", 400, "italic"],
+      ["NyghtSerif-Medium.ttf", 500, "normal"],
+      ["NyghtSerif-MediumItalic.ttf", 500, "italic"],
+      ["NyghtSerif-Bold.ttf", 700, "normal"],
+      ["NyghtSerif-BoldItalic.ttf", 700, "italic"],
+      ["NyghtSerif-Dark.ttf", 800, "normal"],
+      ["NyghtSerif-DarkItalic.ttf", 800, "italic"]
+    ]
   },
   {
     name: "Ojuju",
-    family: "'Ojuju', 'General Sans', sans-serif",
+    folder: "Ojuju",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Ojuju:wght@200..800&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Ojuju"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 800, default: 400 }],
+    files: [["Ojuju-VariableFont_wght.ttf", "200 800", "normal"]]
+  },
+  {
+    name: "Ortica Angular",
+    folder: "Ortica Angular",
+    category: "serif",
+    source: "Collletttivo",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["OrticaAngular-Bold.otf", 700, "normal"]]
+  },
+  {
+    name: "Panchang",
+    folder: "Panchang Variable",
+    category: "display",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 800, default: 500 }],
+    files: [["Panchang-Variable.ttf", "200 800", "normal"]]
   },
   {
     name: "Parkinsans",
-    family: "'Parkinsans', 'General Sans', sans-serif",
+    folder: "Parkinsans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Parkinsans"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 800, default: 400 }],
+    files: [["Parkinsans-VariableFont_wght.ttf", "300 800", "normal"]]
+  },
+  {
+    name: "Picaflor",
+    folder: "Picaflor",
+    category: "serif",
+    source: "Ariel Martín Pérez",
+    licenseType: "open",
+    licenseLabel: "Free Open Release",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 40, max: 300, default: 120 }],
+    files: [["PicaflorGX.ttf", "40 300", "normal"]]
   },
   {
     name: "Poppins",
-    family: "'Poppins', 'General Sans', sans-serif",
+    folder: "Poppins Variable",
     category: "sans",
-    source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Poppins"
+    source: "Google Fonts / Fontshare",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["Poppins-Variable.ttf", "100 900", "normal"],
+      ["Poppins-VariableItalic.ttf", "100 900", "italic"]
+    ]
   },
   {
     name: "Pretendard",
-    family: "'Pretendard Variable', 'Pretendard', 'General Sans', sans-serif",
+    folder: "Pretendard",
     category: "sans",
-    source: "GitHub CDN",
-    cssImport: "@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');",
-    downloadUrl: "https://github.com/orioncactus/pretendard",
-    isCustomGroup: true
+    source: "OFL GitHub Archive",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Pretendard-Thin.otf", 100, "normal"],
+      ["Pretendard-ExtraLight.otf", 200, "normal"],
+      ["Pretendard-Light.otf", 300, "normal"],
+      ["Pretendard-Regular.otf", 400, "normal"],
+      ["Pretendard-Medium.otf", 500, "normal"],
+      ["Pretendard-SemiBold.otf", 600, "normal"],
+      ["Pretendard-Bold.otf", 700, "normal"],
+      ["Pretendard-ExtraBold.otf", 800, "normal"],
+      ["Pretendard-Black.otf", 900, "normal"]
+    ]
   },
   {
     name: "Product Sans",
-    family: "'Product Sans', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Web CDN / Local",
-    cssImport: "@import url('https://fonts.cdnfonts.com/css/google-sans');",
-    downloadUrl: "https://fonts.cdnfonts.com/google-sans.font",
-    allowLocalUpload: true
+    folder: "Product Sans",
+    category: "sans",
+    source: "Google Proprietary",
+    licenseType: "restricted",
+    licenseLabel: "Proprietary (Google Brand — Not Licensed for Public Use)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Product Sans Regular.ttf", 400, "normal"],
+      ["Product Sans Italic.ttf", 400, "italic"],
+      ["Product Sans Bold.ttf", 700, "normal"],
+      ["Product Sans Bold Italic.ttf", 700, "italic"]
+    ]
   },
   {
     name: "Proxima Nova",
-    family: "'Proxima Nova', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Web CDN / Local",
-    cssImport: "@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');",
-    downloadUrl: "https://fonts.cdnfonts.com/proxima-nova-2.font",
-    allowLocalUpload: true
+    folder: "Proxima Nova",
+    category: "sans",
+    source: "Mark Simonson Studio",
+    licenseType: "restricted",
+    licenseLabel: "Commercial Font (Paid License Required)",
+    variable: false,
+    axes: [],
+    files: [
+      ["proximanova_light.otf", 300, "normal"],
+      ["proximanova_regular.ttf", 400, "normal"],
+      ["proximanova_bold.otf", 700, "normal"],
+      ["proximanova_boldit.otf", 700, "italic"],
+      ["proximanova_extrabold.otf", 800, "normal"],
+      ["proximanova_black.otf", 900, "normal"],
+      ["proximanova_blackit.otf", 900, "italic"]
+    ]
   },
   {
     name: "Public Sans",
-    family: "'Public Sans', 'General Sans', sans-serif",
+    folder: "Public Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Public+Sans"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["PublicSans-VariableFont_wght.ttf", "100 900", "normal"],
+      ["PublicSans-Italic-VariableFont_wght.ttf", "100 900", "italic"]
+    ]
   },
   {
     name: "Quicksand",
-    family: "'Quicksand', 'General Sans', sans-serif",
+    folder: "Quicksand Variable",
+    category: "sans",
+    source: "Google Fonts / Fontshare",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 700, default: 400 }],
+    files: [["Quicksand-Variable.ttf", "300 700", "normal"]]
+  },
+  {
+    name: "Red Hat Display",
+    folder: "Red Hat Display Variable",
+    category: "display",
+    source: "Google Fonts / Fontshare",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 500 }],
+    files: [
+      ["RedHatDisplay-Variable.ttf", "300 900", "normal"],
+      ["RedHatDisplay-VariableItalic.ttf", "300 900", "italic"]
+    ]
+  },
+  {
+    name: "Reddit Mono",
+    folder: "Reddit Mono",
+    category: "mono",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 400 }],
+    files: [["RedditMono-VariableFont_wght.ttf", "200 900", "normal"]]
+  },
+  {
+    name: "Reddit Sans",
+    folder: "Reddit Sans",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Quicksand"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 400 }],
+    files: [
+      ["RedditSans-VariableFont_wght.ttf", "200 900", "normal"],
+      ["RedditSans-Italic-VariableFont_wght.ttf", "200 900", "italic"]
+    ]
+  },
+  {
+    name: "Reddit Sans Condensed",
+    folder: "Reddit Sans Condensed",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 400 }],
+    files: [["RedditSansCondensed-VariableFont_wght.ttf", "200 900", "normal"]]
+  },
+  {
+    name: "Rethink Sans",
+    folder: "Rethink Sans",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 400, max: 800, default: 400 }],
+    files: [
+      ["RethinkSans-VariableFont_wght.ttf", "400 800", "normal"],
+      ["RethinkSans-Italic-VariableFont_wght.ttf", "400 800", "italic"]
+    ]
+  },
+  {
+    name: "Ribes",
+    folder: "Ribes",
+    category: "serif",
+    source: "Collletttivo",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Ribes-Light.otf", 200, "normal"],
+      ["Ribes-Regular.otf", 400, "normal"],
+      ["Ribes-Black.otf", 900, "normal"]
+    ]
+  },
+  {
+    name: "Sansita Swashed",
+    folder: "Sansita Swashed",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [["SansitaSwashed-VariableFont_wght.ttf", "300 900", "normal"]]
+  },
+  {
+    name: "Satoshi",
+    folder: "Satoshi Variable",
+    category: "sans",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [
+      ["Satoshi-Variable.ttf", "300 900", "normal"],
+      ["Satoshi-VariableItalic.ttf", "300 900", "italic"]
+    ]
+  },
+  {
+    name: "Science Gothic",
+    folder: "Science Gothic",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 400 },
+      { tag: "wdth", name: "Width", min: 50, max: 200, default: 100 },
+      { tag: "CTRS", name: "Contrast", min: 0, max: 85, default: 0 },
+      { tag: "slnt", name: "Slant", min: -10, max: 0, default: 0 }
+    ],
+    files: [["ScienceGothic-VariableFont_CTRS,slnt,wdth,wght.ttf", "100 900", "normal"]]
   },
   {
     name: "Sekuya",
-    family: "'Sekuya', 'General Sans', sans-serif",
+    folder: "Sekuya",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Sekuya&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Sekuya"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["Sekuya-Regular.ttf", 400, "normal"]]
+  },
+  {
+    name: "Sharpie",
+    folder: "Sharpie Variable",
+    category: "display",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [["Sharpie-Variable.ttf", "300 900", "normal"]]
+  },
+  {
+    name: "Sinistre",
+    folder: "Sinistre",
+    category: "serif",
+    source: "Collletttivo",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 400, max: 900, default: 400 }],
+    files: [["SinistreVF.ttf", "400 900", "normal"]]
+  },
+  {
+    name: "Sora",
+    folder: "Sora Variable",
+    category: "sans",
+    source: "Google Fonts / Fontshare",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 800, default: 400 }],
+    files: [
+      ["Sora-Variable.ttf", "100 800", "normal"],
+      ["Sora-VariableItalic.ttf", "100 800", "italic"]
+    ]
+  },
+  {
+    name: "Space Grotesk",
+    folder: "Space Grotesk",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 700, default: 400 }],
+    files: [["SpaceGrotesk-VariableFont_wght.ttf", "300 700", "normal"]]
+  },
+  {
+    name: "Spline Sans",
+    folder: "Spline Sans",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 700, default: 400 }],
+    files: [["SplineSans-Variable.ttf", "300 700", "normal"]]
   },
   {
     name: "Stack Sans Headline",
-    family: "'Stack Sans Headline', 'General Sans', sans-serif",
+    folder: "Stack Sans Headline",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Headline"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 500 }],
+    files: [["StackSansHeadline-VariableFont_wght.ttf", "200 700", "normal"]]
   },
   {
     name: "Stack Sans Notch",
-    family: "'Stack Sans Notch', 'General Sans', sans-serif",
+    folder: "Stack Sans Notch",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Notch:wght@200..700&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Notch"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 500 }],
+    files: [["StackSansNotch-VariableFont_wght.ttf", "200 700", "normal"]]
   },
   {
     name: "Stack Sans Text",
-    family: "'Stack Sans Text', 'General Sans', sans-serif",
+    folder: "Stack Sans Text",
     category: "sans",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Stack+Sans+Text"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [["StackSansText-VariableFont_wght.ttf", "200 700", "normal"]]
+  },
+  {
+    name: "Supreme",
+    folder: "Supreme Variable",
+    category: "sans",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 800, default: 400 }],
+    files: [
+      ["Supreme-Variable.ttf", "100 800", "normal"],
+      ["Supreme-VariableItalic.ttf", "100 800", "italic"]
+    ]
   },
   {
     name: "Switzer",
-    family: "'Switzer', sans-serif",
+    folder: "Switzer Variable",
     category: "sans",
     source: "Fontshare",
-    cssImport: "@import url('https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&display=swap');",
-    downloadUrl: "https://www.fontshare.com/fonts/switzer"
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["Switzer-Variable.ttf", "100 900", "normal"],
+      ["Switzer-VariableItalic.ttf", "100 900", "italic"]
+    ]
+  },
+  {
+    name: "Syne",
+    folder: "Syne",
+    category: "display",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 400, max: 800, default: 600 }],
+    files: [["Syne[wght].ttf", "400 800", "normal"]]
+  },
+  {
+    name: "Synonym",
+    folder: "Synonym Variable",
+    category: "sans",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 700, default: 400 }],
+    files: [["Synonym-Variable.ttf", "200 700", "normal"]]
+  },
+  {
+    name: "TASA Explorer",
+    folder: "TASA Explorer",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 400, max: 800, default: 400 }],
+    files: [["TASAExplorer-VariableFont_wght.ttf", "400 800", "normal"]]
+  },
+  {
+    name: "TASA Orbiter",
+    folder: "TASA Orbiter",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 400, max: 800, default: 400 }],
+    files: [["TASAOrbiter-VariableFont_wght.ttf", "400 800", "normal"]]
+  },
+  {
+    name: "Technor",
+    folder: "Technor Variable",
+    category: "display",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 500 }],
+    files: [["Technor-Variable.ttf", "200 900", "normal"]]
+  },
+  {
+    name: "Telma",
+    folder: "Telma Variable",
+    category: "display",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 900, default: 400 }],
+    files: [["Telma-Variable.ttf", "300 900", "normal"]]
+  },
+  {
+    name: "Texturina",
+    folder: "Texturina",
+    category: "serif",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 100, max: 900, default: 400 },
+      { tag: "opsz", name: "Optical Size", min: 12, max: 72, default: 36 }
+    ],
+    files: [
+      ["Texturina[opsz,wght].ttf", "100 900", "normal"],
+      ["Texturina-Italic[opsz,wght].ttf", "100 900", "italic"]
+    ]
+  },
+  {
+    name: "TikTok Sans",
+    folder: "TikTok Sans",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [
+      { tag: "wght", name: "Weight", min: 300, max: 900, default: 400 },
+      { tag: "wdth", name: "Width", min: 75, max: 150, default: 100 },
+      { tag: "opsz", name: "Optical Size", min: 12, max: 36, default: 24 },
+      { tag: "slnt", name: "Slant", min: -6, max: 0, default: 0 }
+    ],
+    files: [["TikTokSans-VariableFont_opsz,slnt,wdth,wght.ttf", "300 900", "normal"]]
+  },
+  {
+    name: "Times New Roman",
+    folder: "Times New Roman",
+    category: "serif",
+    source: "Monotype System",
+    licenseType: "restricted",
+    licenseLabel: "Proprietary (Monotype System / Commercial License)",
+    variable: false,
+    axes: [],
+    files: [
+      ["Times New Roman.ttf", 400, "normal"],
+      ["Times New Roman Italic.ttf", 400, "italic"],
+      ["Times New Roman Bold.ttf", 700, "normal"],
+      ["Times New Roman Bold Italic.ttf", 700, "italic"]
+    ]
+  },
+  {
+    name: "Times Newer Roman",
+    folder: "Times Newer Roman",
+    category: "serif",
+    source: "MSCHF Open Release",
+    licenseType: "open",
+    licenseLabel: "Open Source (GNU GPLv3 + Font Exception)",
+    variable: false,
+    axes: [],
+    files: [
+      ["TimesNewerRoman-Regular.otf", 400, "normal"],
+      ["TimesNewerRoman-Italic.otf", 400, "italic"],
+      ["TimesNewerRoman-Bold.otf", 700, "normal"],
+      ["TimesNewerRoman-BoldItalic.otf", 700, "italic"]
+    ]
   },
   {
     name: "Tiny5",
-    family: "'Tiny5', 'Geist Mono', monospace",
+    folder: "Tiny5",
     category: "mono",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Tiny5"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: false,
+    axes: [],
+    files: [["Tiny5-Regular.ttf", 400, "normal"]]
+  },
+  {
+    name: "Trench Slab",
+    folder: "Trench Slab Variable",
+    category: "serif",
+    source: "Fontshare",
+    licenseType: "open",
+    licenseLabel: "Free Commercial (Fontshare)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 300, max: 700, default: 400 }],
+    files: [["TrenchSlab-Variable.ttf", "300 700", "normal"]]
   },
   {
     name: "Unbounded",
-    family: "'Unbounded', 'General Sans', sans-serif",
+    folder: "Unbounded",
     category: "display",
     source: "Google Fonts",
-    cssImport: "@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');",
-    downloadUrl: "https://fonts.google.com/specimen/Unbounded"
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 200, max: 900, default: 500 }],
+    files: [["Unbounded-VariableFont_wght.ttf", "200 900", "normal"]]
   },
   {
     name: "Wistteria Sans",
-    family: "'Wistteria Sans', 'General Sans', sans-serif",
-    category: "custom",
-    source: "Custom / Local Font",
-    cssImport: "@font-face { font-family: 'Wistteria Sans'; src: url('fonts/WistteriaSans.woff2') format('woff2'); }",
-    downloadUrl: "",
-    allowLocalUpload: true
+    folder: "Wistteria Sans",
+    category: "display",
+    source: "Faysal Type",
+    licenseType: "open",
+    licenseLabel: "Free for Personal & Commercial Use",
+    variable: false,
+    axes: [],
+    files: [["wistteriasans-regular.otf", 400, "normal"]]
+  },
+  {
+    name: "Work Sans",
+    folder: "Work Sans",
+    category: "sans",
+    source: "Google Fonts",
+    licenseType: "open",
+    licenseLabel: "Open Source (SIL OFL)",
+    variable: true,
+    axes: [{ tag: "wght", name: "Weight", min: 100, max: 900, default: 400 }],
+    files: [
+      ["WorkSans-VariableFont_wght.ttf", "100 900", "normal"],
+      ["WorkSans-Italic-VariableFont_wght.ttf", "100 900", "italic"]
+    ]
   }
 ];
+
+function injectLocalFontFaces() {
+  const rules = [];
+  FONT_CATALOGUE.forEach((font) => {
+    font.files.forEach(([filename, weight, style]) => {
+      const ext = filename.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
+      const path = `fonts/${font.folder}/${filename}`;
+      rules.push(`@font-face {
+  font-family: '${font.name}';
+  src: url("${path}") format('${ext}');
+  font-weight: ${weight};
+  font-style: ${style};
+  font-display: swap;
+}`);
+    });
+  });
+
+  const styleEl = document.createElement("style");
+  styleEl.id = "archive-local-font-faces";
+  styleEl.textContent = rules.join("\n");
+  document.head.appendChild(styleEl);
+}
+
+function buildFontFaceSnippet(font) {
+  const [firstFile, weight, style] = font.files[0];
+  const ext = firstFile.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
+  return `@font-face {\n  font-family: '${font.name}';\n  src: url('fonts/${font.folder}/${firstFile}') format('${ext}');\n  font-weight: ${weight};\n  font-style: ${style};\n}`;
+}
 
 function showToast(text) {
   const el = document.getElementById("toast");
@@ -329,463 +1419,276 @@ function showToast(text) {
 function initGsapHome() {
   const hero = document.getElementById("gsapHero");
   const rig = document.getElementById("titleCardRig");
+  const inspectorBox = document.getElementById("inspectorBox");
+  const inspectorTag = document.getElementById("inspectorTag");
+  const guides = document.querySelectorAll(".metric-guide");
+
   if (!hero || typeof gsap === "undefined") return;
 
   hero.innerHTML = "";
   const words = ["Font", "Library"];
-  const units = [];
+  const slots = [];
+  const tracks = [];
   const mains = [];
-  const echoGreens = [];
-  const echoCyans = [];
-  let bezierBox = null;
-  let sparkEl = null;
+  const wires = [];
 
-  words.forEach((word, wIdx) => {
+  words.forEach((word) => {
     const wordEl = document.createElement("span");
     wordEl.className = "gsap-word";
 
-    for (let cIdx = 0; cIdx < word.length; cIdx++) {
-      const ch = word[cIdx];
-      const globalIdx = units.length;
-      const unit = document.createElement("span");
-      unit.className = "char-unit";
+    for (let i = 0; i < word.length; i++) {
+      const ch = word[i];
+      const slot = document.createElement("span");
+      slot.className = "char-slot";
+      slot.dataset.char = ch;
 
-      const isFirstF = globalIdx === 0;
-      const bezierHtml = isFirstF
-        ? `<span class="bezier-frame" id="bezierFrame">
-             <span class="bezier-node tl"></span>
-             <span class="bezier-node tr"></span>
-             <span class="bezier-node bl"></span>
-             <span class="bezier-node br"></span>
-           </span>`
-        : "";
-
-      unit.innerHTML = `
-        ${bezierHtml}
-        <span class="char-echo echo-cyan" aria-hidden="true">${ch}</span>
-        <span class="char-echo echo-green" aria-hidden="true">${ch}</span>
-        <span class="char-main">${ch}</span>
+      slot.innerHTML = `
+        <span class="char-track">
+          <span class="char-main">${ch}</span>
+          <span class="char-wire" aria-hidden="true">${ch}</span>
+        </span>
       `;
 
-      wordEl.appendChild(unit);
-      units.push(unit);
-      mains.push(unit.querySelector(".char-main"));
-      echoGreens.push(unit.querySelector(".echo-green"));
-      echoCyans.push(unit.querySelector(".echo-cyan"));
+      wordEl.appendChild(slot);
+      slots.push(slot);
+      tracks.push(slot.querySelector(".char-track"));
+      mains.push(slot.querySelector(".char-main"));
+      wires.push(slot.querySelector(".char-wire"));
     }
 
     hero.appendChild(wordEl);
-
-    if (wIdx === 0) {
-      sparkEl = document.createElement("span");
-      sparkEl.className = "kinetic-spark";
-      sparkEl.innerHTML = `
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M32 0C33.8 18.2 45.8 30.2 64 32C45.8 33.8 33.8 45.8 32 64C30.2 45.8 18.2 33.8 0 32C18.2 30.2 30.2 18.2 32 0Z" fill="#0AE448"/>
-        </svg>
-      `;
-      hero.appendChild(sparkEl);
-    }
   });
 
-  bezierBox = document.getElementById("bezierFrame");
+  function positionInspectorOnSlot(slotIndex, labelText, immediate = false) {
+    if (!inspectorBox || !rig || !slots[slotIndex]) return;
+    const rigRect = rig.getBoundingClientRect();
+    const slotRect = slots[slotIndex].getBoundingClientRect();
+    const x = slotRect.left - rigRect.left - 4;
+    const y = slotRect.top - rigRect.top + slotRect.height * 0.08;
+    const w = slotRect.width + 8;
+    const h = slotRect.height * 0.82;
+
+    if (inspectorTag && labelText) {
+      inspectorTag.textContent = labelText;
+    }
+
+    if (immediate) {
+      gsap.set(inspectorBox, { x, y, width: w, height: h });
+    } else {
+      gsap.to(inspectorBox, {
+        x,
+        y,
+        width: w,
+        height: h,
+        duration: 0.55,
+        ease: "expo.inOut"
+      });
+    }
+  }
 
   let masterTl;
 
-  function playTitleCardShowpiece() {
+  function playCleanArchitecturalSequence() {
     if (masterTl) masterTl.kill();
 
-    gsap.set(units, { x: 0, y: 0, z: 0, rotationX: 0, rotationY: 0, rotationZ: 0, skewX: 0, scaleX: 1, scaleY: 1 });
-    gsap.set(mains, { x: 0, y: 0, scaleX: 1, scaleY: 1, rotationZ: 0, fontWeight: 800, color: "#F5F7FA", opacity: 1 });
-    gsap.set([echoGreens, echoCyans], { x: 0, y: 0, z: 0, scale: 1, opacity: 0 });
-    if (bezierBox) gsap.set(bezierBox, { opacity: 0, scale: 0.85 });
-    if (sparkEl) gsap.set(sparkEl, { scale: 0, rotation: -180, opacity: 0 });
+    gsap.set(slots, { x: 0, y: 0 });
+    gsap.set(tracks, { yPercent: 0, x: 0 });
+    gsap.set(mains, {
+      yPercent: 0,
+      x: 0,
+      y: 0,
+      fontWeight: 800,
+      color: "#F5F7FA",
+      opacity: 1
+    });
+    gsap.set(wires, { yPercent: 0 });
+    gsap.set(guides, { opacity: 0, scaleX: 0, transformOrigin: "left center" });
+    if (inspectorBox) gsap.set(inspectorBox, { opacity: 0 });
 
-    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.5 });
+    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.4 });
 
     masterTl
-      .fromTo(
-        units,
+      .to(
+        guides,
         {
-          z: -600,
-          y: (i) => (i % 2 === 0 ? -110 : 110),
-          rotationX: (i) => (i % 2 === 0 ? 90 : -90),
-          rotationY: -35,
-          opacity: 0
-        },
-        {
-          z: 0,
-          y: 0,
-          rotationX: 0,
-          rotationY: 0,
           opacity: 1,
-          duration: 1.25,
-          stagger: { each: 0.048, from: "center" },
-          ease: "elastic.out(1.08, 0.52)"
+          scaleX: 1,
+          duration: 0.7,
+          stagger: 0.08,
+          ease: "expo.out"
         },
         0
       )
       .fromTo(
-        echoGreens,
-        { opacity: 0.9, y: (i) => (i % 2 === 0 ? -42 : 42), scale: 1.22 },
-        { opacity: 0, y: 0, scale: 1, duration: 0.9, stagger: { each: 0.048, from: "center" }, ease: "power3.out" },
-        0.08
+        tracks,
+        {
+          yPercent: (i) => (i % 2 === 0 ? 110 : -110)
+        },
+        {
+          yPercent: 0,
+          duration: 1.0,
+          stagger: { each: 0.045, from: "start" },
+          ease: "expo.out"
+        },
+        0.05
       )
-      .fromTo(
-        echoCyans,
-        { opacity: 0.75, y: (i) => (i % 2 === 0 ? 52 : -52), scale: 1.35 },
-        { opacity: 0, y: 0, scale: 1, duration: 1.05, stagger: { each: 0.048, from: "center" }, ease: "power3.out" },
-        0.12
+      .add(() => {
+        positionInspectorOnSlot(0, "F • wght 800", true);
+      }, 0.95)
+      .to(
+        inspectorBox,
+        {
+          opacity: 1,
+          duration: 0.25,
+          ease: "power2.out"
+        },
+        0.98
       )
       .to(
-        sparkEl,
-        { scale: 1.25, rotation: 0, opacity: 1, duration: 0.7, ease: "back.out(2.2)" },
-        0.55
-      )
-      .to(
-        sparkEl,
-        { scale: 0.9, rotation: 90, duration: 0.5, ease: "expo.out" },
-        1.25
-      )
-      .to(
-        bezierBox,
-        { opacity: 1, scale: 1, duration: 0.25, ease: "power2.out" },
+        mains[0],
+        {
+          fontWeight: 200,
+          color: "#0AE448",
+          duration: 0.45,
+          ease: "power2.inOut",
+          onStart: () => {
+            if (inspectorTag) inspectorTag.textContent = "F • wght 200";
+          }
+        },
         1.2
       )
       .to(
-        [units[0], mains[0]],
+        mains[0],
         {
-          scaleX: 1.36,
-          scaleY: 0.76,
-          x: -10,
-          duration: 0.38,
-          ease: "power3.inOut"
+          fontWeight: 800,
+          color: "#F5F7FA",
+          duration: 0.45,
+          ease: "expo.out",
+          onStart: () => {
+            if (inspectorTag) inspectorTag.textContent = "F • wght 800";
+          }
         },
-        1.45
+        1.68
       )
+      .add(() => {
+        positionInspectorOnSlot(4, "L • slot roll", false);
+      }, 2.1)
       .to(
-        [units[0], mains[0]],
+        tracks,
         {
-          scaleX: 0.84,
-          scaleY: 1.32,
-          x: 0,
-          y: -14,
-          duration: 0.34,
-          ease: "power3.inOut"
-        },
-        1.83
-      )
-      .to(
-        [units[0], mains[0]],
-        {
-          scaleX: 1,
-          scaleY: 1,
-          y: 0,
-          duration: 0.85,
-          ease: "elastic.out(1.3, 0.38)"
-        },
-        2.17
-      )
-      .to(
-        bezierBox,
-        { opacity: 0, scale: 1.15, duration: 0.3, ease: "power2.in" },
-        2.45
-      )
-      .to(
-        units[1],
-        {
-          rotationY: 360,
-          scale: 1.28,
-          duration: 0.9,
+          yPercent: -100,
+          duration: 0.65,
+          stagger: { each: 0.038, from: "start" },
           ease: "expo.inOut"
         },
-        1.65
+        2.25
       )
       .to(
-        mains[1],
-        { color: "#0AE448", duration: 0.3, yoyo: true, repeat: 1 },
-        1.65
-      )
-      .to(
-        units[1],
-        { scale: 1, duration: 0.45, ease: "back.out(2)" },
-        2.35
-      )
-      .to(
-        [units[2], units[3]],
+        tracks,
         {
-          rotationX: -360,
-          z: 80,
-          duration: 0.95,
-          stagger: 0.08,
-          ease: "back.inOut(1.7)"
-        },
-        1.85
-      )
-      .to(
-        [units[2], units[3]],
-        {
-          z: 0,
-          duration: 0.4,
-          stagger: 0.08,
-          ease: "power2.out"
-        },
-        2.6
-      )
-      .to(
-        sparkEl,
-        {
-          rotation: 450,
-          scale: 1.55,
-          duration: 0.55,
-          ease: "expo.out"
-        },
-        2.35
-      )
-      .to(
-        sparkEl,
-        {
-          scale: 1,
-          duration: 0.5,
-          ease: "elastic.out(1.2, 0.4)"
-        },
-        2.9
-      )
-      .to(
-        units[4],
-        {
-          y: -60,
-          rotationZ: -16,
-          duration: 0.34,
-          ease: "power2.out"
-        },
-        2.35
-      )
-      .to(
-        units[4],
-        {
-          y: 0,
-          rotationZ: 0,
-          scaleY: 0.58,
-          scaleX: 1.38,
-          duration: 0.2,
-          ease: "power4.in"
-        },
-        2.69
-      )
-      .to(
-        units[4],
-        {
-          scaleY: 1,
-          scaleX: 1,
-          duration: 0.9,
-          ease: "elastic.out(1.4, 0.35)"
-        },
-        2.89
-      )
-      .to(
-        units[5],
-        {
-          scaleY: 0.5,
-          scaleX: 1.35,
-          y: 14,
-          duration: 0.22,
-          ease: "power2.in"
-        },
-        2.55
-      )
-      .to(
-        units[5],
-        {
-          scaleY: 1.35,
-          scaleX: 0.85,
-          y: -54,
-          rotationY: 360,
-          duration: 0.55,
-          ease: "expo.out"
-        },
-        2.77
-      )
-      .to(
-        units[5],
-        {
-          scaleY: 1,
-          scaleX: 1,
-          y: 0,
-          duration: 0.85,
-          ease: "bounce.out"
-        },
-        3.32
-      )
-      .to(
-        [units[6], units[7], units[8], units[9]],
-        {
-          y: -26,
-          rotationY: 180,
-          skewX: -14,
-          duration: 0.48,
-          stagger: 0.06,
-          ease: "power3.out"
-        },
-        2.75
-      )
-      .to(
-        [units[6], units[7], units[8], units[9]],
-        {
-          y: 0,
-          rotationY: 360,
-          skewX: 0,
+          yPercent: 0,
           duration: 0.75,
-          stagger: 0.06,
-          ease: "elastic.out(1.15, 0.45)"
-        },
-        3.23
-      )
-      .to(
-        units[10],
-        {
-          rotationZ: -28,
-          y: -22,
-          scale: 1.24,
-          duration: 0.38,
-          ease: "back.out(2)"
+          stagger: { each: 0.038, from: "center" },
+          ease: "expo.out"
         },
         3.05
       )
+      .add(() => {
+        positionInspectorOnSlot(10, "y • kerning +14", false);
+      }, 3.65)
       .to(
-        mains[10],
-        { color: "#00E5FF", duration: 0.35, yoyo: true, repeat: 1 },
-        3.05
-      )
-      .to(
-        units[10],
+        slots,
         {
-          rotationZ: 0,
-          y: 0,
-          scale: 1,
-          duration: 0.95,
-          ease: "elastic.out(1.3, 0.36)"
+          x: (i) => (i - 5) * 10,
+          duration: 0.55,
+          ease: "expo.out"
         },
-        3.43
+        3.85
       )
       .to(
         mains,
         {
-          fontWeight: 100,
-          y: -18,
-          scaleY: 1.15,
+          fontWeight: 200,
+          y: -14,
           color: "#0AE448",
-          duration: 0.48,
-          stagger: { each: 0.038, from: "start" },
-          ease: "sine.inOut"
+          duration: 0.45,
+          stagger: { each: 0.04, from: "start" },
+          ease: "power2.out"
         },
-        4.15
-      )
-      .to(
-        echoGreens,
-        {
-          opacity: 0.8,
-          y: 18,
-          z: -45,
-          duration: 0.48,
-          stagger: { each: 0.038, from: "start" },
-          ease: "sine.inOut"
-        },
-        4.15
-      )
-      .to(
-        echoCyans,
-        {
-          opacity: 0.6,
-          y: 34,
-          z: -90,
-          duration: 0.48,
-          stagger: { each: 0.038, from: "start" },
-          ease: "sine.inOut"
-        },
-        4.15
+        3.85
       )
       .to(
         mains,
         {
           fontWeight: 800,
           y: 0,
-          scaleY: 1,
           color: "#F5F7FA",
-          duration: 0.85,
-          stagger: { each: 0.038, from: "start" },
-          ease: "elastic.out(1.15, 0.45)"
+          duration: 0.65,
+          stagger: { each: 0.04, from: "start" },
+          ease: "expo.out"
         },
-        4.63
+        4.35
       )
       .to(
-        [echoGreens, echoCyans],
+        slots,
+        {
+          x: 0,
+          duration: 0.7,
+          ease: "expo.inOut"
+        },
+        4.45
+      )
+      .to(
+        [inspectorBox, guides],
         {
           opacity: 0,
-          y: 0,
-          z: 0,
-          duration: 0.55,
-          stagger: { each: 0.038, from: "start" },
-          ease: "power3.out"
+          duration: 0.4,
+          ease: "power2.inOut"
         },
-        4.63
+        5.1
       );
   }
 
   document.fonts.ready.then(() => {
-    playTitleCardShowpiece();
+    playCleanArchitecturalSequence();
   });
 
-  const rigRotX = gsap.quickTo(rig, "rotationX", { duration: 0.5, ease: "power3.out" });
-  const rigRotY = gsap.quickTo(rig, "rotationY", { duration: 0.5, ease: "power3.out" });
-
-  window.addEventListener("pointermove", (e) => {
-    const nx = (e.clientX / window.innerWidth - 0.5) * 2;
-    const ny = (e.clientY / window.innerHeight - 0.5) * 2;
-    rigRotY(nx * 12);
-    rigRotX(-ny * 10);
+  window.addEventListener("resize", () => {
+    if (inspectorBox && gsap.getProperty(inspectorBox, "opacity") > 0.1) {
+      positionInspectorOnSlot(0, "F • wght 800", true);
+    }
   });
 
-  units.forEach((unit, idx) => {
-    unit.addEventListener("pointerenter", () => {
+  slots.forEach((slot, idx) => {
+    slot.addEventListener("pointerenter", () => {
+      if (inspectorBox) {
+        gsap.to(inspectorBox, { opacity: 1, duration: 0.2 });
+        positionInspectorOnSlot(idx, `${slot.dataset.char} • wght 300`, false);
+      }
       gsap.to(mains[idx], {
-        y: -22,
-        scaleY: 1.24,
-        scaleX: 0.9,
-        color: idx % 2 === 0 ? "#0AE448" : "#00E5FF",
+        y: -14,
+        fontWeight: 300,
+        color: "#0AE448",
         duration: 0.35,
         overwrite: "auto",
-        ease: "back.out(2.2)"
-      });
-      gsap.to(echoGreens[idx], {
-        opacity: 0.85,
-        y: 12,
-        duration: 0.3,
-        overwrite: "auto"
+        ease: "expo.out"
       });
     });
 
-    unit.addEventListener("pointerleave", () => {
+    slot.addEventListener("pointerleave", () => {
       gsap.to(mains[idx], {
         y: 0,
-        scaleY: 1,
-        scaleX: 1,
+        fontWeight: 800,
         color: "#F5F7FA",
-        duration: 0.65,
+        duration: 0.45,
         overwrite: "auto",
-        ease: "elastic.out(1.2, 0.4)"
-      });
-      gsap.to(echoGreens[idx], {
-        opacity: 0,
-        y: 0,
-        duration: 0.35,
-        overwrite: "auto"
+        ease: "expo.out"
       });
     });
   });
 
   hero.addEventListener("click", () => {
-    playTitleCardShowpiece();
+    playCleanArchitecturalSequence();
   });
 }
 
@@ -793,12 +1696,14 @@ function initLibraryIndex() {
   const listEl = document.getElementById("typeIndexList");
   const searchInput = document.getElementById("fontSearch");
   const tabBtns = document.querySelectorAll(".tab-btn");
+  const licBtns = document.querySelectorAll(".lic-btn");
   const tabGlider = document.getElementById("tabGlider");
-  const localFileInput = document.getElementById("localFontFile");
+  const footerCountMeta = document.getElementById("footerCountMeta");
 
   if (!listEl) return;
 
   let activeCat = "all";
+  let activeLic = "all";
   let openRowElement = null;
   let typingTimers = [];
   let rowObserver = null;
@@ -847,13 +1752,13 @@ function initLibraryIndex() {
         textNode.textContent = fullText.slice(0, charIndex);
 
         if (charIndex < fullText.length) {
-          const naturalKeystrokeDelay = 82 + Math.floor(Math.random() * 48);
+          const naturalKeystrokeDelay = 80 + Math.floor(Math.random() * 45);
           const timerId = setTimeout(nextKeystroke, naturalKeystrokeDelay);
           typingTimers.push(timerId);
         } else {
           const finishId = setTimeout(() => {
             cursorNode.classList.add("done");
-          }, 650);
+          }, 600);
           typingTimers.push(finishId);
         }
       }
@@ -867,21 +1772,31 @@ function initLibraryIndex() {
     clearTypingTimers();
     const query = (searchInput.value || "").trim().toLowerCase();
 
-    const visibleFonts = FONTS.filter((font) => {
+    const visibleFonts = FONT_CATALOGUE.filter((font) => {
       const catMatch =
         activeCat === "all"
           ? true
-          : activeCat === "custom"
-          ? font.category === "custom" || Boolean(font.isCustomGroup) || Boolean(font.allowLocalUpload)
+          : activeCat === "variable"
+          ? font.variable
           : font.category === activeCat;
+
+      const licMatch =
+        activeLic === "all" ? true : font.licenseType === activeLic;
+
       const queryMatch =
         font.name.toLowerCase().includes(query) ||
-        font.source.toLowerCase().includes(query);
-      return catMatch && queryMatch;
+        font.source.toLowerCase().includes(query) ||
+        font.licenseLabel.toLowerCase().includes(query);
+
+      return catMatch && licMatch && queryMatch;
     });
 
     listEl.innerHTML = "";
     openRowElement = null;
+
+    if (footerCountMeta) {
+      footerCountMeta.textContent = `Showing ${visibleFonts.length} of ${FONT_CATALOGUE.length} Typeface Families • Local Archive`;
+    }
 
     if (animateTypewriter && "IntersectionObserver" in window) {
       rowObserver = new IntersectionObserver(
@@ -894,11 +1809,11 @@ function initLibraryIndex() {
               const typedCursorEl = row.querySelector(".typed-cursor");
               const fontName = row.dataset.fontName || "";
               const staggerOrder = Number(row.dataset.order || 0) % 5;
-              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 120 + staggerOrder * 95);
+              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 90 + staggerOrder * 85);
             }
           });
         },
-        { threshold: 0.15 }
+        { threshold: 0.12 }
       );
     }
 
@@ -908,20 +1823,47 @@ function initLibraryIndex() {
       row.dataset.fontName = font.name;
       row.dataset.order = idx;
 
-      const uploadBtnHtml = font.allowLocalUpload
-        ? `<button type="button" class="studio-btn load-slot-btn"><i class="ph-bold ph-upload-simple"></i> Attach Local File</button>`
+      const familyCss = `'${font.name}', 'General Sans', sans-serif`;
+      const primaryFile = font.files[0][0];
+      const downloadPath = `fonts/${font.folder}/${primaryFile}`;
+
+      const variableBadgeHtml = font.variable
+        ? `<span class="row-badge badge-var">Variable</span>`
         : "";
 
-      const downloadBtnHtml = font.downloadUrl
-        ? `<a href="${font.downloadUrl}" target="_blank" rel="noopener noreferrer" class="studio-btn primary-action"><i class="ph-bold ph-download-simple"></i> Download / Source</a>`
-        : "";
+      const licenseBadgeHtml =
+        font.licenseType === "open"
+          ? `<span class="row-badge badge-open">Open Source / Free</span>`
+          : `<span class="row-badge badge-restricted">Restricted License</span>`;
+
+      const extraAxesSlidersHtml = font.axes
+        .filter((ax) => ax.tag !== "wght")
+        .map(
+          (ax) => `
+          <label class="control-card">
+            <div class="control-header">
+              <span class="control-name">${ax.name} (${ax.tag})</span>
+              <span class="control-val ax-val" data-tag="${ax.tag}">${ax.default}</span>
+            </div>
+            <input type="range" class="ax-range" data-tag="${ax.tag}" min="${ax.min}" max="${ax.max}" step="${ax.step || 1}" value="${ax.default}">
+          </label>
+        `
+        )
+        .join("");
+
+      const wghtAxis = font.axes.find((a) => a.tag === "wght");
+      const minW = wghtAxis ? wghtAxis.min : 100;
+      const maxW = wghtAxis ? wghtAxis.max : 900;
+      const stepW = font.variable ? 10 : 100;
 
       row.innerHTML = `
         <button type="button" class="row-trigger" aria-expanded="false">
-          <span class="row-display-name" style="font-family: ${font.family};">
+          <span class="row-display-name" style="font-family: ${familyCss};">
             <span class="typed-text"></span><span class="typed-cursor"></span>
           </span>
           <span class="row-meta">
+            ${variableBadgeHtml}
+            ${licenseBadgeHtml}
             <span class="row-badge">${font.source}</span>
             <span class="row-toggle-icon"><i class="ph-bold ph-plus"></i></span>
           </span>
@@ -929,6 +1871,19 @@ function initLibraryIndex() {
 
         <div class="row-drawer">
           <div class="studio-panel">
+            <div class="studio-meta-strip">
+              <div class="meta-strip-left">
+                ${variableBadgeHtml}
+                ${licenseBadgeHtml}
+                <span class="row-badge">${font.source}</span>
+                <span class="row-badge">${font.files.length} ${font.files.length === 1 ? "File" : "Files"} in /fonts/${font.folder}</span>
+              </div>
+              <div class="license-detail-banner">
+                <i class="ph-bold ${font.licenseType === "open" ? "ph-check-circle" : "ph-warning-circle"}"></i>
+                <span>${font.licenseLabel}</span>
+              </div>
+            </div>
+
             <div class="specimen-stage-box">
               <div class="stage-top-bar">
                 <span class="stage-caption"><i class="ph-bold ph-pencil-simple"></i> Click specimen text below to edit live</span>
@@ -941,16 +1896,16 @@ function initLibraryIndex() {
                 </div>
               </div>
 
-              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${font.family};">The quick brown fox jumps over the lazy dog</div>
+              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${familyCss};">The quick brown fox jumps over the lazy dog</div>
             </div>
 
             <div class="controls-grid">
               <label class="control-card">
                 <div class="control-header">
-                  <span class="control-name">Weight</span>
+                  <span class="control-name">${font.variable ? "Variable Weight (wght)" : "Weight"}</span>
                   <span class="control-val w-val">400</span>
                 </div>
-                <input type="range" class="w-range" min="100" max="900" step="50" value="400">
+                <input type="range" class="w-range" min="${minW}" max="${maxW}" step="${stepW}" value="400">
               </label>
 
               <label class="control-card">
@@ -968,12 +1923,14 @@ function initLibraryIndex() {
                 </div>
                 <input type="range" class="t-range" min="-0.06" max="0.15" step="0.005" value="0">
               </label>
+
+              ${extraAxesSlidersHtml}
             </div>
 
             <div class="studio-bottom-grid">
               <div class="charset-box">
                 <span class="box-heading">Character Set</span>
-                <div class="glyph-showcase-text" style="font-family: ${font.family};">
+                <div class="glyph-showcase-text" style="font-family: ${familyCss};">
                   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
                   abcdefghijklmnopqrstuvwxyz<br>
                   0123456789 !@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;?
@@ -982,14 +1939,13 @@ function initLibraryIndex() {
 
               <div class="actions-box">
                 <div>
-                  <span class="box-heading">CSS Usage</span>
-                  <div class="code-preview" style="margin-top: 10px;">font-family: ${font.family};</div>
+                  <span class="box-heading">Local Repository Path &amp; CSS</span>
+                  <div class="code-preview" style="margin-top: 10px;">font-family: '${font.name}', sans-serif;</div>
                 </div>
                 <div class="action-buttons-row">
                   <button type="button" class="studio-btn copy-css-btn"><i class="ph-bold ph-copy"></i> Copy CSS</button>
-                  <button type="button" class="studio-btn copy-import-btn"><i class="ph-bold ph-code"></i> Copy @import</button>
-                  ${uploadBtnHtml}
-                  ${downloadBtnHtml}
+                  <button type="button" class="studio-btn copy-face-btn"><i class="ph-bold ph-code"></i> Copy @font-face</button>
+                  <a href="${downloadPath}" download="${primaryFile}" class="studio-btn primary-action"><i class="ph-bold ph-download-simple"></i> Download Font</a>
                 </div>
               </div>
             </div>
@@ -1003,7 +1959,7 @@ function initLibraryIndex() {
       if (animateTypewriter && rowObserver) {
         rowObserver.observe(row);
       } else if (animateTypewriter) {
-        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 95);
+        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 80);
       } else {
         typedTextEl.textContent = font.name;
         typedCursorEl.classList.add("done");
@@ -1019,6 +1975,25 @@ function initLibraryIndex() {
       const sVal = row.querySelector(".s-val");
       const tVal = row.querySelector(".t-val");
       const weightPills = row.querySelectorAll(".weight-pill");
+      const extraAxRanges = row.querySelectorAll(".ax-range");
+
+      function syncVariationSettings() {
+        const currentWeight = Number(wRange.value);
+        foxSpecimen.style.fontWeight = currentWeight;
+        wVal.textContent = currentWeight;
+
+        if (font.variable) {
+          const settings = [`'wght' ${currentWeight}`];
+          extraAxRanges.forEach((axInput) => {
+            const tag = axInput.dataset.tag;
+            const val = Number(axInput.value);
+            settings.push(`'${tag}' ${val}`);
+            const labelEl = row.querySelector(`.ax-val[data-tag="${tag}"]`);
+            if (labelEl) labelEl.textContent = val;
+          });
+          foxSpecimen.style.fontVariationSettings = settings.join(", ");
+        }
+      }
 
       trigger.addEventListener("click", () => {
         typedTextEl.textContent = font.name;
@@ -1051,6 +2026,7 @@ function initLibraryIndex() {
         } else {
           row.classList.add("is-open");
           trigger.setAttribute("aria-expanded", "true");
+          syncVariationSettings();
           gsap.set(drawer, { height: "auto" });
           const targetHeight = drawer.offsetHeight;
           gsap.fromTo(
@@ -1074,17 +2050,19 @@ function initLibraryIndex() {
       });
 
       wRange.addEventListener("input", () => {
-        foxSpecimen.style.fontWeight = wRange.value;
-        wVal.textContent = wRange.value;
+        syncVariationSettings();
         weightPills.forEach((p) => p.classList.toggle("active", p.dataset.w === wRange.value));
+      });
+
+      extraAxRanges.forEach((axInput) => {
+        axInput.addEventListener("input", syncVariationSettings);
       });
 
       weightPills.forEach((pill) => {
         pill.addEventListener("click", () => {
           const weight = pill.dataset.w;
           wRange.value = weight;
-          foxSpecimen.style.fontWeight = weight;
-          wVal.textContent = weight;
+          syncVariationSettings();
           weightPills.forEach((p) => p.classList.remove("active"));
           pill.classList.add("active");
         });
@@ -1101,22 +2079,14 @@ function initLibraryIndex() {
       });
 
       row.querySelector(".copy-css-btn").addEventListener("click", () => {
-        navigator.clipboard.writeText(`font-family: ${font.family};`);
+        navigator.clipboard.writeText(`font-family: '${font.name}', sans-serif;`);
         showToast(`Copied ${font.name} CSS`);
       });
 
-      row.querySelector(".copy-import-btn").addEventListener("click", () => {
-        navigator.clipboard.writeText(font.cssImport);
-        showToast(`Copied ${font.name} @import`);
+      row.querySelector(".copy-face-btn").addEventListener("click", () => {
+        navigator.clipboard.writeText(buildFontFaceSnippet(font));
+        showToast(`Copied ${font.name} @font-face`);
       });
-
-      const slotBtn = row.querySelector(".load-slot-btn");
-      if (slotBtn && localFileInput) {
-        slotBtn.addEventListener("click", () => {
-          localFileInput.dataset.slotName = font.name;
-          localFileInput.click();
-        });
-      }
 
       listEl.appendChild(row);
     });
@@ -1134,48 +2104,20 @@ function initLibraryIndex() {
     });
   });
 
-  if (localFileInput) {
-    localFileInput.addEventListener("change", async (e) => {
-      const files = Array.from(e.target.files || []);
-      const slotName = localFileInput.dataset.slotName || "";
-      delete localFileInput.dataset.slotName;
-
-      for (const file of files) {
-        try {
-          const buf = await file.arrayBuffer();
-          const familyName = slotName || file.name.replace(/\.(woff2?|ttf|otf)$/i, "");
-          const face = new FontFace(familyName, buf);
-          await face.load();
-          document.fonts.add(face);
-
-          const match = FONTS.find((f) => f.name.toLowerCase() === familyName.toLowerCase());
-          if (match) {
-            match.family = `'${familyName}', 'General Sans', sans-serif`;
-            match.source = `Loaded (${file.name})`;
-          } else {
-            FONTS.unshift({
-              name: familyName,
-              family: `'${familyName}', 'General Sans', sans-serif`,
-              category: "custom",
-              source: `Loaded (${file.name})`,
-              cssImport: `@font-face { font-family: '${familyName}'; src: url('fonts/${file.name}'); }`,
-              downloadUrl: "",
-              allowLocalUpload: true
-            });
-          }
-          showToast(`Loaded ${familyName}`);
-        } catch (err) {
-          showToast(`Could not load ${file.name}`);
-        }
-      }
+  licBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      licBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeLic = btn.dataset.lic;
       renderIndex(false);
     });
-  }
+  });
 
   renderIndex(true);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  injectLocalFontFaces();
   const page = document.body.dataset.page;
   if (page === "home") {
     initGsapHome();
