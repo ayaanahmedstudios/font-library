@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Library</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%230AE448' d='M212,56V88a12,12,0,0,1-24,0V68H140V188h20a12,12,0,0,1,0,24H96a12,12,0,0,1,0-24h20V68H68V88a12,12,0,0,1-24,0V56A12,12,0,0,1,56,44H200A12,12,0,0,1,212,56Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
   <link rel="stylesheet" href="styles.css">
@@ -34,13 +37,13 @@
 
         <div class="license-filter" id="licenseFilter">
           <button type="button" class="lic-btn active" data-lic="all">All</button>
-          <button type="button" class="lic-btn" data-lic="open">Open</button>
+          <button type="button" class="lic-btn" data-lic="open">Open / Free</button>
           <button type="button" class="lic-btn" data-lic="restricted">Restricted</button>
         </div>
 
         <div class="custom-text-field">
           <i class="ph ph-text-t"></i>
-          <input type="text" id="customHeadingInput" placeholder="Type" autocomplete="off">
+          <input type="text" id="customHeadingInput" placeholder="Type custom preview text..." autocomplete="off">
           <button type="button" id="clearCustomTextBtn" class="clear-input-btn" aria-label="Reset preview text" hidden>
             <i class="ph-bold ph-x"></i>
           </button>
@@ -48,7 +51,7 @@
 
         <div class="search-field">
           <i class="ph ph-magnifying-glass"></i>
-          <input type="search" id="fontSearch" placeholder="Search" autocomplete="off">
+          <input type="search" id="fontSearch" placeholder="Search fonts..." autocomplete="off">
         </div>
       </div>
     </div>
@@ -59,10 +62,10 @@
   </main>
 
   <div class="floating-corner-dock" id="floatingCornerDock">
-    <button type="button" class="back-top-btn" id="backToTopBtn" aria-label="Back to top" title="Back to top">
+    <button type="button" class="corner-action-btn back-top-btn" id="backToTopBtn" aria-label="Back to top" title="Back to top">
       <i class="ph-bold ph-arrow-up"></i>
     </button>
-    <button type="button" class="pair-corner-btn" id="pairDockPill" aria-expanded="false" aria-label="Open Pair Studio" title="Pair Studio">
+    <button type="button" class="corner-action-btn pair-corner-btn" id="pairDockPill" aria-expanded="false" aria-label="Open Pair Studio" title="Pair Studio">
       <i class="ph-bold ph-intersect"></i>
     </button>
   </div>
