@@ -1570,6 +1570,35 @@ function getFontAvailableWeights(font) {
   return Array.from(set).sort((a, b) => a - b);
 }
 
+function snapToAvailableWeight(font, rawWeight) {
+  const num = Number(rawWeight) || 400;
+  if (font.variable) {
+    const wAxis = font.axes.find((a) => a.tag === "wght");
+    if (!wAxis) return 400;
+    return Math.max(wAxis.min, Math.min(wAxis.max, num));
+  }
+  const weights = getFontAvailableWeights(font);
+  if (weights.length === 0) return 400;
+  return weights.reduce((prev, curr) =>
+    Math.abs(curr - num) < Math.abs(prev - num) ? curr : prev
+  );
+}
+
+function buildFullVariationSettings(font, weightValue, extraOverrides = {}) {
+  if (!font.variable) return "normal";
+  const settings = [];
+  font.axes.forEach((ax) => {
+    if (ax.tag === "wght") {
+      settings.push(`'wght' ${weightValue}`);
+    } else if (extraOverrides[ax.tag] !== undefined) {
+      settings.push(`'${ax.tag}' ${extraOverrides[ax.tag]}`);
+    } else {
+      settings.push(`'${ax.tag}' ${ax.default}`);
+    }
+  });
+  return settings.length > 0 ? settings.join(", ") : "normal";
+}
+
 function fontHasItalic(font) {
   return font.files.some(([, , style]) => style === "italic");
 }
@@ -1584,6 +1613,19 @@ function getDefaultWeight(font) {
   return weights[0] || 400;
 }
 
+function bindPlainTextPaste(element) {
+  if (!element) return;
+  element.addEventListener("paste", (e) => {
+    e.preventDefault();
+    const plain = (e.clipboardData || window.clipboardData).getData("text/plain");
+    const selection = window.getSelection();
+    if (!selection || !selection.rangeCount) return;
+    selection.deleteFromDocument();
+    selection.getRangeAt(0).insertNode(document.createTextNode(plain));
+    selection.collapseToEnd();
+  });
+}
+
 function showToast(text) {
   const el = document.getElementById("toast");
   if (!el) return;
@@ -1591,6 +1633,32 @@ function showToast(text) {
   el.classList.add("show");
   clearTimeout(window.__toastTimer);
   window.__toastTimer = setTimeout(() => el.classList.remove("show"), 2200);
+}
+
+function measureGlyphInkAscent(fontSizePx, sampleChar) {
+  const size = Math.ceil(fontSizePx * 2.4);
+  const baseLineY = Math.round(size * 0.72);
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return null;
+
+  ctx.clearRect(0, 0, size, size);
+  ctx.fillStyle = "#ffffff";
+  ctx.textBaseline = "alphabetic";
+  ctx.font = `800 ${fontSizePx}px Switzer, sans-serif`;
+  ctx.fillText(sampleChar, Math.round(size * 0.2), baseLineY);
+
+  const imgData = ctx.getImageData(0, 0, size, size).data;
+  for (let y = 0; y < baseLineY; y++) {
+    for (let x = 0; x < size; x++) {
+      if (imgData[(y * size + x) * 4 + 3] > 32) {
+        return baseLineY - y;
+      }
+    }
+  }
+  return null;
 }
 
 function initGsapHome() {
@@ -1601,7 +1669,6 @@ function initGsapHome() {
   const guideCap = document.getElementById("guideCap");
   const guideXh = document.getElementById("guideXh");
   const guideBase = document.getElementById("guideBase");
-  const guideDesc = document.getElementById("guideDesc");
 
   if (!hero || typeof gsap === "undefined") return;
 
@@ -1640,14 +1707,13 @@ function initGsapHome() {
     hero.appendChild(wordEl);
   });
 
-  function lockCharacterWidthsAndMeasureGuides() {
+  function syncGuidesAndSlotWidths() {
     slots.forEach((s) => {
       s.style.width = "auto";
     });
     mains.forEach((m) => {
       m.style.fontWeight = "800";
       m.style.fontVariationSettings = "'wght' 800";
-      m.style.transform = "translate3d(0,0,0)";
     });
     slots.forEach((s) => {
       const r = s.getBoundingClientRect();
@@ -1661,141 +1727,224 @@ function initGsapHome() {
 
     const computed = window.getComputedStyle(hero);
     const fontSizePx = parseFloat(computed.fontSize) || 100;
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
 
-    if (ctx) {
-      ctx.font = `800 ${fontSizePx}px Switzer, sans-serif`;
-      const capMetrics = ctx.measureText("F");
-      const xhMetrics = ctx.measureText("x");
-      const descMetrics = ctx.measureText("y");
+    const capAscent = measureGlyphInkAscent(fontSizePx, "F") || fontSizePx * 0.71;
+    const xhAscent = measureGlyphInkAscent(fontSizePx, "n") || fontSizePx * 0.53;
 
-      const capAscent = capMetrics.actualBoundingBoxAscent || fontSizePx * 0.72;
-      const xhAscent = xhMetrics.actualBoundingBoxAscent || fontSizePx * 0.52;
-      const descDescent = descMetrics.actualBoundingBoxDescent || fontSizePx * 0.21;
+    if (guideCap) gsap.set(guideCap, { y: Math.round(baselineY - capAscent) });
+    if (guideXh) gsap.set(guideXh, { y: Math.round(baselineY - xhAscent) });
+    if (guideBase) gsap.set(guideBase, { y: Math.round(baselineY) });
+  }
 
-      if (guideCap) gsap.set(guideCap, { y: Math.round(baselineY - capAscent) });
-      if (guideXh) gsap.set(guideXh, { y: Math.round(baselineY - xhAscent) });
-      if (guideBase) gsap.set(guideBase, { y: Math.round(baselineY) });
-      if (guideDesc) gsap.set(guideDesc, { y: Math.round(baselineY + descDescent) });
+  function moveInspectorToIndex(idx, tagLabel, immediate = false) {
+    if (!rig || !inspectorBox || !mains[idx]) return;
+    const rigRect = rig.getBoundingClientRect();
+    const mRect = mains[idx].getBoundingClientRect();
+    const x = mRect.left - rigRect.left - 5;
+    const y = mRect.top - rigRect.top - 2;
+    const w = mRect.width + 10;
+    const h = mRect.height + 4;
+
+    if (inspectorTag && tagLabel) {
+      inspectorTag.textContent = tagLabel;
+    }
+
+    if (immediate) {
+      gsap.set(inspectorBox, { x, y, width: w, height: h });
+    } else {
+      gsap.to(inspectorBox, {
+        x,
+        y,
+        width: w,
+        height: h,
+        duration: 0.55,
+        ease: "expo.inOut"
+      });
     }
   }
 
-  let activeTargetIndex = 0;
-  let hoveredIndex = -1;
-  const inspectorState = { x: 0, y: 0, w: 60, h: 80 };
+  let introTl = null;
+  let loopTl = null;
+  let isHoveringChar = false;
 
-  const tourStops = [
-    { index: 0, tag: "F · cap height" },
-    { index: 1, tag: "o · x-height" },
-    { index: 3, tag: "t · crossbar" },
-    { index: 4, tag: "L · stem 900" },
-    { index: 5, tag: "i · tittle" },
-    { index: 8, tag: "a · bowl counter" },
-    { index: 10, tag: "y · descender" }
-  ];
-  let stopPointer = 0;
+  const weightProxies = mains.map((el, i) => ({
+    i,
+    el,
+    wght: 800
+  }));
 
-  gsap.to({}, {
-    duration: 1.65,
-    repeat: -1,
-    onRepeat: () => {
-      if (hoveredIndex === -1) {
-        stopPointer = (stopPointer + 1) % tourStops.length;
-        activeTargetIndex = tourStops[stopPointer].index;
-      }
-    }
-  });
+  function applyProxyWeight(p) {
+    const w = Math.round(p.wght);
+    p.el.style.fontWeight = w;
+    p.el.style.fontVariationSettings = `'wght' ${w}`;
+  }
 
-  function startSeamlessLoop() {
-    lockCharacterWidthsAndMeasureGuides();
+  function startGroundedOngoingLoop() {
+    if (loopTl) loopTl.kill();
+    const stops = [0, 1, 4, 7, 8, 10];
+    loopTl = gsap.timeline({ repeat: -1 });
 
-    if (rig && mains[0]) {
-      const rigRect = rig.getBoundingClientRect();
-      const mRect = mains[0].getBoundingClientRect();
-      inspectorState.x = mRect.left - rigRect.left - 5;
-      inspectorState.y = mRect.top - rigRect.top - 2;
-      inspectorState.w = mRect.width + 10;
-      inspectorState.h = mRect.height + 4;
-    }
+    stops.forEach((charIdx) => {
+      const ch = slots[charIdx].dataset.char;
+      const p = weightProxies[charIdx];
 
-    gsap.ticker.add((time) => {
-      const total = mains.length;
-
-      for (let i = 0; i < total; i++) {
-        const phase = time * 2.35 - i * 0.52;
-        const wave = Math.sin(phase);
-        const secondary = Math.cos(time * 1.6 + i * 0.4);
-
-        let targetWght = Math.round(520 + wave * 370);
-        let yOffset = secondary * 9;
-
-        if (hoveredIndex === i) {
-          targetWght = 900;
-          yOffset = -12;
-        }
-
-        const m = mains[i];
-        m.style.fontWeight = targetWght;
-        m.style.fontVariationSettings = `'wght' ${targetWght}`;
-        m.style.transform = `translate3d(0, ${yOffset.toFixed(2)}px, 0)`;
-
-        const focusIdx = hoveredIndex !== -1 ? hoveredIndex : activeTargetIndex;
-        if (i === focusIdx) {
-          m.style.color = "#0AE448";
-        } else if (wave > 0.86) {
-          m.style.color = "#00E5FF";
-        } else {
-          m.style.color = "#F5F7FA";
-        }
-      }
-
-      const focusIdx = hoveredIndex !== -1 ? hoveredIndex : activeTargetIndex;
-      const targetGlyph = mains[focusIdx];
-      if (targetGlyph && rig && inspectorBox) {
-        const rigRect = rig.getBoundingClientRect();
-        const gRect = targetGlyph.getBoundingClientRect();
-
-        const destX = gRect.left - rigRect.left - 6;
-        const destY = gRect.top - rigRect.top - 2;
-        const destW = gRect.width + 12;
-        const destH = gRect.height + 4;
-
-        inspectorState.x += (destX - inspectorState.x) * 0.18;
-        inspectorState.y += (destY - inspectorState.y) * 0.18;
-        inspectorState.w += (destW - inspectorState.w) * 0.18;
-        inspectorState.h += (destH - inspectorState.h) * 0.18;
-
-        inspectorBox.style.transform = `translate3d(${inspectorState.x.toFixed(1)}px, ${inspectorState.y.toFixed(1)}px, 0)`;
-        inspectorBox.style.width = `${inspectorState.w.toFixed(1)}px`;
-        inspectorBox.style.height = `${inspectorState.h.toFixed(1)}px`;
-
-        if (inspectorTag) {
-          const liveWght = targetGlyph.style.fontWeight || "800";
-          const ch = slots[focusIdx].dataset.char;
-          inspectorTag.textContent = `${ch} · wght ${liveWght}`;
-        }
-      }
+      loopTl
+        .add(() => {
+          if (isHoveringChar) return;
+          moveInspectorToIndex(charIdx, `${ch} · wght 800`, false);
+        })
+        .to(p, {
+          wght: 220,
+          duration: 0.6,
+          ease: "power2.inOut",
+          onStart: () => {
+            if (!isHoveringChar) mains[charIdx].style.color = "#0AE448";
+          },
+          onUpdate: () => {
+            if (!isHoveringChar) {
+              applyProxyWeight(p);
+              if (inspectorTag) {
+                inspectorTag.textContent = `${ch} · wght ${Math.round(p.wght)}`;
+              }
+            }
+          }
+        }, "+=0.35")
+        .to(p, {
+          wght: 800,
+          duration: 0.65,
+          ease: "expo.out",
+          onUpdate: () => {
+            if (!isHoveringChar) {
+              applyProxyWeight(p);
+              if (inspectorTag) {
+                inspectorTag.textContent = `${ch} · wght ${Math.round(p.wght)}`;
+              }
+            }
+          },
+          onComplete: () => {
+            if (!isHoveringChar) mains[charIdx].style.color = "#F5F7FA";
+          }
+        }, "+=0.2")
+        .to({}, { duration: 0.45 });
     });
   }
 
+  function runHeroEntranceAndLoop() {
+    if (introTl) introTl.kill();
+    if (loopTl) loopTl.kill();
+
+    syncGuidesAndSlotWidths();
+
+    weightProxies.forEach((p) => {
+      p.wght = 150;
+      applyProxyWeight(p);
+    });
+
+    gsap.set([guideCap, guideXh, guideBase], { scaleX: 0, opacity: 0 });
+    gsap.set(inspectorBox, { opacity: 0 });
+    gsap.set(mains, { yPercent: 120, color: "#F5F7FA" });
+
+    introTl = gsap.timeline({
+      onComplete: () => {
+        syncGuidesAndSlotWidths();
+        startGroundedOngoingLoop();
+      }
+    });
+
+    introTl
+      .to([guideCap, guideXh, guideBase], {
+        scaleX: 1,
+        opacity: 1,
+        duration: 0.75,
+        stagger: 0.1,
+        ease: "expo.out"
+      }, 0)
+      .to(mains, {
+        yPercent: 0,
+        duration: 1.0,
+        stagger: { each: 0.045, from: "start" },
+        ease: "expo.out"
+      }, 0.12)
+      .to(weightProxies, {
+        wght: 800,
+        duration: 0.85,
+        stagger: { each: 0.04, from: "start" },
+        ease: "expo.inOut",
+        onUpdate: () => {
+          weightProxies.forEach(applyProxyWeight);
+        }
+      }, 0.55)
+      .add(() => {
+        syncGuidesAndSlotWidths();
+        moveInspectorToIndex(0, "F · wght 800", true);
+      }, 1.35)
+      .to(inspectorBox, {
+        opacity: 1,
+        duration: 0.35,
+        ease: "power2.out"
+      }, 1.38);
+  }
+
   document.fonts.ready.then(() => {
-    startSeamlessLoop();
+    runHeroEntranceAndLoop();
   });
 
   window.addEventListener("resize", () => {
-    lockCharacterWidthsAndMeasureGuides();
+    syncGuidesAndSlotWidths();
+    moveInspectorToIndex(0, "F · wght 800", true);
   });
 
   slots.forEach((slot, idx) => {
     slot.addEventListener("pointerenter", () => {
-      hoveredIndex = idx;
+      isHoveringChar = true;
+      if (loopTl) loopTl.pause();
+      mains.forEach((m, mIdx) => {
+        if (mIdx !== idx) {
+          m.style.color = "#F5F7FA";
+          weightProxies[mIdx].wght = 800;
+          applyProxyWeight(weightProxies[mIdx]);
+        }
+      });
+      const ch = slot.dataset.char;
+      mains[idx].style.color = "#0AE448";
+      moveInspectorToIndex(idx, `${ch} · wght 250`, false);
+      gsap.to(weightProxies[idx], {
+        wght: 250,
+        duration: 0.35,
+        overwrite: "auto",
+        ease: "expo.out",
+        onUpdate: () => {
+          applyProxyWeight(weightProxies[idx]);
+          if (inspectorTag) {
+            inspectorTag.textContent = `${ch} · wght ${Math.round(weightProxies[idx].wght)}`;
+          }
+        }
+      });
     });
+
     slot.addEventListener("pointerleave", () => {
-      hoveredIndex = -1;
+      const ch = slot.dataset.char;
+      gsap.to(weightProxies[idx], {
+        wght: 800,
+        duration: 0.45,
+        overwrite: "auto",
+        ease: "expo.out",
+        onUpdate: () => {
+          applyProxyWeight(weightProxies[idx]);
+          if (inspectorTag) {
+            inspectorTag.textContent = `${ch} · wght ${Math.round(weightProxies[idx].wght)}`;
+          }
+        },
+        onComplete: () => {
+          mains[idx].style.color = "#F5F7FA";
+          isHoveringChar = false;
+          if (loopTl) loopTl.resume();
+        }
+      });
     });
+
     slot.addEventListener("click", () => {
-      activeTargetIndex = idx;
+      runHeroEntranceAndLoop();
     });
   });
 }
@@ -1803,12 +1952,13 @@ function initGsapHome() {
 function initLibraryIndex() {
   const listEl = document.getElementById("typeIndexList");
   const searchInput = document.getElementById("fontSearch");
+  const customHeadingInput = document.getElementById("customHeadingInput");
+  const clearCustomTextBtn = document.getElementById("clearCustomTextBtn");
   const tabBtns = document.querySelectorAll(".tab-btn");
   const licBtns = document.querySelectorAll(".lic-btn");
   const tabGlider = document.getElementById("tabGlider");
 
   const pairDockPill = document.getElementById("pairDockPill");
-  const pairDockReadout = document.getElementById("pairDockReadout");
   const pairDrawer = document.getElementById("pairDrawer");
   const pairCloseBtn = document.getElementById("pairCloseBtn");
   const pairHeadSelect = document.getElementById("pairHeadSelect");
@@ -1829,6 +1979,7 @@ function initLibraryIndex() {
 
   let activeCat = "all";
   let activeLic = "all";
+  let customHeadingText = "";
   let openRowElement = null;
   let typingTimers = [];
   let rowObserver = null;
@@ -1868,6 +2019,9 @@ function initLibraryIndex() {
   function initPairingStudio() {
     if (!pairHeadSelect || !pairBodySelect) return;
 
+    bindPlainTextPaste(pairSpecimenHeading);
+    bindPlainTextPaste(pairSpecimenBody);
+
     FONT_CATALOGUE.forEach((f, idx) => {
       pairHeadSelect.add(new Option(f.name, idx));
       pairBodySelect.add(new Option(f.name, idx));
@@ -1878,7 +2032,7 @@ function initLibraryIndex() {
     pairHeadSelect.value = switzerIdx !== -1 ? switzerIdx : 0;
     pairBodySelect.value = genSansIdx !== -1 ? genSansIdx : 1;
 
-    function syncPairBounds(selectEl, weightInput) {
+    function syncPairBounds(selectEl, weightInput, isHeading = false) {
       const font = FONT_CATALOGUE[selectEl.value];
       if (!font) return;
       const weights = getFontAvailableWeights(font);
@@ -1886,10 +2040,15 @@ function initLibraryIndex() {
       const maxW = weights[weights.length - 1] || 400;
       weightInput.min = minW;
       weightInput.max = maxW;
-      weightInput.step = font.variable ? 10 : 100;
+      weightInput.step = font.variable ? 10 : 50;
       weightInput.disabled = minW === maxW;
-      if (Number(weightInput.value) < minW || Number(weightInput.value) > maxW) {
-        weightInput.value = getDefaultWeight(font);
+
+      const currentVal = Number(weightInput.value);
+      if (currentVal < minW || currentVal > maxW) {
+        const preferred = isHeading && weights.includes(700) ? 700 : getDefaultWeight(font);
+        weightInput.value = preferred;
+      } else {
+        weightInput.value = snapToAvailableWeight(font, currentVal);
       }
     }
 
@@ -1898,38 +2057,37 @@ function initLibraryIndex() {
       const bFont = FONT_CATALOGUE[pairBodySelect.value];
       if (!hFont || !bFont) return;
 
-      const hW = Number(pairHeadWeight.value);
-      const bW = Number(pairBodyWeight.value);
+      const hW = snapToAvailableWeight(hFont, pairHeadWeight.value);
+      const bW = snapToAvailableWeight(bFont, pairBodyWeight.value);
 
-      pairHeadWeightVal.textContent = hW;
-      pairBodyWeightVal.textContent = bW;
+      const hWeights = getFontAvailableWeights(hFont);
+      const bWeights = getFontAvailableWeights(bFont);
+
+      pairHeadWeightVal.textContent = hWeights.length <= 1 ? `${hW} (Fixed)` : hW;
+      pairBodyWeightVal.textContent = bWeights.length <= 1 ? `${bW} (Fixed)` : bW;
 
       pairSpecimenHeading.style.fontFamily = `'${hFont.name}', sans-serif`;
       pairSpecimenHeading.style.fontWeight = hW;
-      pairSpecimenHeading.style.fontVariationSettings = hFont.variable ? `'wght' ${hW}` : "normal";
+      pairSpecimenHeading.style.fontVariationSettings = buildFullVariationSettings(hFont, hW);
       pairSpecimenHeading.style.fontSize = `${pairHeadSize.value}px`;
 
       pairSpecimenBody.style.fontFamily = `'${bFont.name}', sans-serif`;
       pairSpecimenBody.style.fontWeight = bW;
-      pairSpecimenBody.style.fontVariationSettings = bFont.variable ? `'wght' ${bW}` : "normal";
+      pairSpecimenBody.style.fontVariationSettings = buildFullVariationSettings(bFont, bW);
       pairSpecimenBody.style.fontSize = `${pairBodySize.value}px`;
-
-      if (pairDockReadout) {
-        pairDockReadout.textContent = `${hFont.name} + ${bFont.name}`;
-      }
     }
 
-    syncPairBounds(pairHeadSelect, pairHeadWeight);
-    syncPairBounds(pairBodySelect, pairBodyWeight);
+    syncPairBounds(pairHeadSelect, pairHeadWeight, true);
+    syncPairBounds(pairBodySelect, pairBodyWeight, false);
     updatePairPreview();
 
     pairHeadSelect.addEventListener("change", () => {
-      syncPairBounds(pairHeadSelect, pairHeadWeight);
+      syncPairBounds(pairHeadSelect, pairHeadWeight, true);
       updatePairPreview();
     });
 
     pairBodySelect.addEventListener("change", () => {
-      syncPairBounds(pairBodySelect, pairBodyWeight);
+      syncPairBounds(pairBodySelect, pairBodyWeight, false);
       updatePairPreview();
     });
 
@@ -1941,16 +2099,16 @@ function initLibraryIndex() {
       const tempIdx = pairHeadSelect.value;
       pairHeadSelect.value = pairBodySelect.value;
       pairBodySelect.value = tempIdx;
-      syncPairBounds(pairHeadSelect, pairHeadWeight);
-      syncPairBounds(pairBodySelect, pairBodyWeight);
+      syncPairBounds(pairHeadSelect, pairHeadWeight, true);
+      syncPairBounds(pairBodySelect, pairBodyWeight, false);
       updatePairPreview();
     });
 
     pairShuffleBtn.addEventListener("click", () => {
       pairHeadSelect.value = Math.floor(Math.random() * FONT_CATALOGUE.length);
       pairBodySelect.value = Math.floor(Math.random() * FONT_CATALOGUE.length);
-      syncPairBounds(pairHeadSelect, pairHeadWeight);
-      syncPairBounds(pairBodySelect, pairBodyWeight);
+      syncPairBounds(pairHeadSelect, pairHeadWeight, true);
+      syncPairBounds(pairBodySelect, pairBodyWeight, false);
       updatePairPreview();
     });
 
@@ -1967,10 +2125,10 @@ function initLibraryIndex() {
       if (idx === -1) return;
       if (role === "heading") {
         pairHeadSelect.value = idx;
-        syncPairBounds(pairHeadSelect, pairHeadWeight);
+        syncPairBounds(pairHeadSelect, pairHeadWeight, true);
       } else {
         pairBodySelect.value = idx;
-        syncPairBounds(pairBodySelect, pairBodyWeight);
+        syncPairBounds(pairBodySelect, pairBodyWeight, false);
       }
       updatePairPreview();
       openPairDrawer();
@@ -2036,13 +2194,13 @@ function initLibraryIndex() {
         textNode.textContent = fullText.slice(0, charIndex);
 
         if (charIndex < fullText.length) {
-          const naturalKeystrokeDelay = 78 + Math.floor(Math.random() * 44);
+          const naturalKeystrokeDelay = 75 + Math.floor(Math.random() * 42);
           const timerId = setTimeout(nextKeystroke, naturalKeystrokeDelay);
           typingTimers.push(timerId);
         } else {
           const finishId = setTimeout(() => {
             cursorNode.classList.add("done");
-          }, 550);
+          }, 500);
           typingTimers.push(finishId);
         }
       }
@@ -2050,6 +2208,41 @@ function initLibraryIndex() {
     }, initialWait);
 
     typingTimers.push(startId);
+  }
+
+  function getRowHeadlineText(fontName) {
+    return customHeadingText.length > 0 ? customHeadingText : fontName;
+  }
+
+  function updateAllRowHeadingsInstantly() {
+    clearTypingTimers();
+    const rows = listEl.querySelectorAll(".type-row");
+    rows.forEach((row) => {
+      const fontName = row.dataset.fontName || "";
+      const typedTextEl = row.querySelector(".typed-text");
+      const typedCursorEl = row.querySelector(".typed-cursor");
+      if (typedTextEl) typedTextEl.textContent = getRowHeadlineText(fontName);
+      if (typedCursorEl) typedCursorEl.classList.add("done");
+    });
+  }
+
+  if (customHeadingInput) {
+    customHeadingInput.addEventListener("input", () => {
+      customHeadingText = customHeadingInput.value.trim();
+      if (clearCustomTextBtn) {
+        clearCustomTextBtn.hidden = customHeadingText.length === 0;
+      }
+      updateAllRowHeadingsInstantly();
+    });
+  }
+
+  if (clearCustomTextBtn && customHeadingInput) {
+    clearCustomTextBtn.addEventListener("click", () => {
+      customHeadingInput.value = "";
+      customHeadingText = "";
+      clearCustomTextBtn.hidden = true;
+      updateAllRowHeadingsInstantly();
+    });
   }
 
   function renderIndex(animateTypewriter = true) {
@@ -2088,8 +2281,9 @@ function initLibraryIndex() {
               const typedTextEl = row.querySelector(".typed-text");
               const typedCursorEl = row.querySelector(".typed-cursor");
               const fontName = row.dataset.fontName || "";
+              const targetHeadline = getRowHeadlineText(fontName);
               const staggerOrder = Number(row.dataset.order || 0) % 5;
-              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 80 + staggerOrder * 80);
+              typeTextNaturally(typedTextEl, typedCursorEl, targetHeadline, 75 + staggerOrder * 75);
             }
           });
         },
@@ -2185,12 +2379,15 @@ function initLibraryIndex() {
         ? `<a href="${font.sourceUrl}" target="_blank" rel="noopener noreferrer" class="studio-btn"><i class="ph-bold ph-arrow-up-right"></i> Source</a>`
         : "";
 
+      const initialVariationString = buildFullVariationSettings(font, defaultWeight);
+
       row.innerHTML = `
         <button type="button" class="row-trigger" aria-expanded="false">
-          <span class="row-display-name" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">
+          <span class="row-display-name" style="font-family: ${familyCss}; font-weight: ${defaultWeight}; font-variation-settings: ${initialVariationString};">
             <span class="typed-text"></span><span class="typed-cursor"></span>
           </span>
           <span class="row-meta">
+            <span class="row-badge">${font.name}</span>
             ${variableBadgeHtml}
             ${licenseBadgeHtml}
             <span class="row-badge">${font.source}</span>
@@ -2224,7 +2421,7 @@ function initLibraryIndex() {
                 </div>
               </div>
 
-              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">The quick brown fox jumps over the lazy dog</div>
+              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${familyCss}; font-weight: ${defaultWeight}; font-variation-settings: ${initialVariationString};">The quick brown fox jumps over the lazy dog</div>
             </div>
 
             <div class="controls-grid">
@@ -2252,7 +2449,7 @@ function initLibraryIndex() {
             <div class="studio-bottom-grid">
               <div class="charset-box">
                 <span class="box-heading">Character Set</span>
-                <div class="glyph-showcase-text" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">
+                <div class="glyph-showcase-text" style="font-family: ${familyCss}; font-weight: ${defaultWeight}; font-variation-settings: ${initialVariationString};">
                   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
                   abcdefghijklmnopqrstuvwxyz<br>
                   0123456789 !@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;?
@@ -2278,13 +2475,14 @@ function initLibraryIndex() {
 
       const typedTextEl = row.querySelector(".typed-text");
       const typedCursorEl = row.querySelector(".typed-cursor");
+      const targetHeadline = getRowHeadlineText(font.name);
 
       if (animateTypewriter && rowObserver) {
         rowObserver.observe(row);
       } else if (animateTypewriter) {
-        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 75);
+        typeTextNaturally(typedTextEl, typedCursorEl, targetHeadline, idx * 70);
       } else {
-        typedTextEl.textContent = font.name;
+        typedTextEl.textContent = targetHeadline;
         typedCursorEl.classList.add("done");
       }
 
@@ -2305,6 +2503,8 @@ function initLibraryIndex() {
       const italicTogglePill = row.querySelector(".italic-toggle-pill");
       const extraAxRanges = row.querySelectorAll(".ax-range");
 
+      bindPlainTextPaste(foxSpecimen);
+
       let currentWeight = defaultWeight;
       let isItalic = false;
 
@@ -2321,18 +2521,15 @@ function initLibraryIndex() {
         if (wVal) wVal.textContent = currentWeight;
 
         if (font.variable) {
-          const settings = [];
-          if (hasVariableWeight) {
-            settings.push(`'wght' ${currentWeight}`);
-          }
+          const extraOverrides = {};
           extraAxRanges.forEach((axInput) => {
             const tag = axInput.dataset.tag;
             const val = Number(axInput.value);
-            settings.push(`'${tag}' ${val}`);
+            extraOverrides[tag] = val;
             const labelEl = row.querySelector(`.ax-val[data-tag="${tag}"]`);
             if (labelEl) labelEl.textContent = val;
           });
-          const varString = settings.join(", ");
+          const varString = buildFullVariationSettings(font, currentWeight, extraOverrides);
           foxSpecimen.style.fontVariationSettings = varString;
           rowDisplayName.style.fontVariationSettings = varString;
           if (glyphShowcase) glyphShowcase.style.fontVariationSettings = varString;
@@ -2340,7 +2537,7 @@ function initLibraryIndex() {
       }
 
       trigger.addEventListener("click", () => {
-        typedTextEl.textContent = font.name;
+        typedTextEl.textContent = getRowHeadlineText(font.name);
         typedCursorEl.classList.add("done");
 
         const isOpen = row.classList.contains("is-open");
