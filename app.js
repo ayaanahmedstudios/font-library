@@ -193,7 +193,8 @@ const FONT_CATALOGUE = [
       { tag: "wght", name: "Weight", min: 400, max: 700, default: 600 },
       { tag: "opsz", name: "Optical Size", min: 8, max: 45, default: 32 },
       { tag: "GEOM", name: "Geometry", min: 0, max: 100, default: 0 },
-      { tag: "SHRP", name: "Sharpness", min: 0, max: 100, default: 0 }
+      { tag: "SHRP", name: "Sharpness", min: 0, max: 100, default: 0 },
+      { tag: "YTAS", name: "Ascender Height", min: 1440, max: 1600, default: 1520 }
     ],
     files: [["CalSansVF.ttf", "400 700", "normal"]]
   },
@@ -230,7 +231,7 @@ const FONT_CATALOGUE = [
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
-    axes: [{ tag: "YEAR", name: "Year Axis", min: 1979, max: 2050, default: 1990 }],
+    axes: [{ tag: "year", name: "Year Axis", min: 1979, max: 2050, default: 1990 }],
     files: [["ClimateCrisis-Variable.ttf", "100 900", "normal"]]
   },
   {
@@ -297,7 +298,7 @@ const FONT_CATALOGUE = [
     folder: "Delight",
     category: "sans",
     source: "Open Variable Foundry",
-    sourceUrl: "https://fonts.google.com/",
+    sourceUrl: "https://themeui.net/delight-typeface-free-font-for-bold-headlines-and-clean-typography/",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -353,10 +354,10 @@ const FONT_CATALOGUE = [
     name: "DT World Tour",
     folder: "DT World Tour",
     category: "display",
-    source: "Independent Display",
-    sourceUrl: "https://www.behance.net/",
+    source: "Death of Typography",
+    sourceUrl: "https://atypeofamigo.com/fonts/dt-world-tour/",
     licenseType: "open",
-    licenseLabel: "Free for Commercial Use",
+    licenseLabel: "Open Source (SIL OFL)",
     variable: false,
     axes: [],
     files: [["DTWorldTour-Regular.otf", 400, "normal"]]
@@ -644,7 +645,7 @@ const FONT_CATALOGUE = [
     folder: "LEMON MILK",
     category: "display",
     source: "Marsnev",
-    sourceUrl: "https://marsnev.com/",
+    sourceUrl: "https://www.dafont.com/lemon-milk.font",
     licenseType: "restricted",
     licenseLabel: "Free Personal Use Only / Commercial License Required",
     variable: false,
@@ -712,8 +713,8 @@ const FONT_CATALOGUE = [
     name: "Modestic Sans",
     folder: "Modestic Sans",
     category: "sans",
-    source: "Independent Foundry",
-    sourceUrl: "https://www.behance.net/",
+    source: "Aleksey Ryabov",
+    sourceUrl: "https://www.1001fonts.com/modestic-sans-font.html",
     licenseType: "restricted",
     licenseLabel: "Free Personal Use / Commercial License Required",
     variable: false,
@@ -801,7 +802,8 @@ const FONT_CATALOGUE = [
     axes: [
       { tag: "wght", name: "Weight", min: 200, max: 1000, default: 400 },
       { tag: "wdth", name: "Width", min: 75, max: 125, default: 100 },
-      { tag: "opsz", name: "Optical Size", min: 6, max: 12, default: 10 }
+      { tag: "opsz", name: "Optical Size", min: 6, max: 12, default: 10 },
+      { tag: "YTLC", name: "Lowercase Height", min: 440, max: 540, default: 500 }
     ],
     files: [
       ["NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf", "200 1000", "normal"],
@@ -932,8 +934,8 @@ const FONT_CATALOGUE = [
     name: "Product Sans",
     folder: "Product Sans",
     category: "sans",
-    source: "Google Proprietary",
-    sourceUrl: "https://fonts.google.com/",
+    source: "Google Design",
+    sourceUrl: "https://design.google/library/evolving-the-google-identity",
     licenseType: "restricted",
     licenseLabel: "Proprietary (Google Brand — Not Licensed for Public Use)",
     variable: false,
@@ -1444,7 +1446,7 @@ const FONT_CATALOGUE = [
     folder: "Wistteria Sans",
     category: "display",
     source: "Faysal Type",
-    sourceUrl: "https://www.behance.net/",
+    sourceUrl: "https://www.dafontfree.io/wistteria-sans-font/",
     licenseType: "open",
     licenseLabel: "Free for Personal & Commercial Use",
     variable: false,
@@ -1499,7 +1501,7 @@ function injectLocalFontFaces() {
         rules.push(`@font-face {
   font-family: '${variantFamily}';
   src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
-  font-weight: 100 900;
+  font-weight: 1 1000;
   font-style: normal;
   font-display: swap;
 }`);
@@ -1507,13 +1509,27 @@ function injectLocalFontFaces() {
           rules.push(`@font-face {
   font-family: '${font.name}';
   src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
-  font-weight: 100 900;
+  font-weight: 1 1000;
   font-style: normal;
   font-display: swap;
 }`);
         }
       });
-    } else if (!font.variable && font.files.length === 1) {
+    } else if (font.variable) {
+      font.files.forEach(([filename, , style]) => {
+        const ext = filename.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
+        const rawPath = `fonts/${font.folder}/${filename}`;
+        const encPath = encodeFontUrl(font.folder, filename);
+        rules.push(`@font-face {
+  font-family: '${font.name}';
+  src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
+  font-weight: 1 1000;
+  font-stretch: 50% 200%;
+  font-style: ${style};
+  font-display: swap;
+}`);
+      });
+    } else if (font.files.length === 1) {
       const [filename] = font.files[0];
       const ext = filename.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
       const rawPath = `fonts/${font.folder}/${filename}`;
@@ -1521,7 +1537,7 @@ function injectLocalFontFaces() {
       rules.push(`@font-face {
   font-family: '${font.name}';
   src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
-  font-weight: 100 900;
+  font-weight: 1 1000;
   font-style: normal;
   font-display: swap;
 }`);
@@ -1588,12 +1604,16 @@ function buildFullVariationSettings(font, weightValue, extraOverrides = {}) {
   if (!font.variable) return "normal";
   const settings = [];
   font.axes.forEach((ax) => {
-    if (ax.tag === "wght") {
-      settings.push(`'wght' ${weightValue}`);
-    } else if (extraOverrides[ax.tag] !== undefined) {
-      settings.push(`'${ax.tag}' ${extraOverrides[ax.tag]}`);
-    } else {
-      settings.push(`'${ax.tag}' ${ax.default}`);
+    const val =
+      ax.tag === "wght"
+        ? weightValue
+        : extraOverrides[ax.tag] !== undefined
+        ? extraOverrides[ax.tag]
+        : ax.default;
+    settings.push(`'${ax.tag}' ${val}`);
+    if (ax.tag.toLowerCase() === "year") {
+      const altTag = ax.tag === "year" ? "YEAR" : "year";
+      settings.push(`'${altTag}' ${val}`);
     }
   });
   return settings.length > 0 ? settings.join(", ") : "normal";
@@ -1647,7 +1667,7 @@ function measureGlyphInkAscent(fontSizePx, sampleChar) {
   ctx.clearRect(0, 0, size, size);
   ctx.fillStyle = "#ffffff";
   ctx.textBaseline = "alphabetic";
-  ctx.font = `800 ${fontSizePx}px Switzer, sans-serif`;
+  ctx.font = `700 ${fontSizePx}px "Stack Sans Headline", sans-serif`;
   ctx.fillText(sampleChar, Math.round(size * 0.2), baseLineY);
 
   const imgData = ctx.getImageData(0, 0, size, size).data;
@@ -1676,6 +1696,8 @@ function initGsapHome() {
   const words = ["Font", "Library"];
   const slots = [];
   const mains = [];
+  const ghosts = [];
+  const shutters = [];
   let baselineStrut = null;
 
   words.forEach((word, wIdx) => {
@@ -1694,13 +1716,26 @@ function initGsapHome() {
       slot.className = "char-slot";
       slot.dataset.char = ch;
 
+      const shutter = document.createElement("span");
+      shutter.className = "char-shutter";
+
+      const ghost = document.createElement("span");
+      ghost.className = "char-ghost";
+      ghost.setAttribute("aria-hidden", "true");
+      ghost.textContent = ch;
+
       const main = document.createElement("span");
       main.className = "char-main";
       main.textContent = ch;
 
+      slot.appendChild(shutter);
+      slot.appendChild(ghost);
       slot.appendChild(main);
       wordEl.appendChild(slot);
+
       slots.push(slot);
+      shutters.push(shutter);
+      ghosts.push(ghost);
       mains.push(main);
     }
 
@@ -1712,8 +1747,12 @@ function initGsapHome() {
       s.style.width = "auto";
     });
     mains.forEach((m) => {
-      m.style.fontWeight = "800";
-      m.style.fontVariationSettings = "'wght' 800";
+      m.style.fontWeight = "700";
+      m.style.fontVariationSettings = "'wght' 700";
+    });
+    ghosts.forEach((g) => {
+      g.style.fontWeight = "700";
+      g.style.fontVariationSettings = "'wght' 700";
     });
     slots.forEach((s) => {
       const r = s.getBoundingClientRect();
@@ -1777,13 +1816,18 @@ function initGsapHome() {
   const weightProxies = mains.map((el, i) => ({
     i,
     el,
-    wght: 800
+    ghost: ghosts[i],
+    wght: 700
   }));
 
   function applyProxyWeight(p) {
     const w = Math.round(p.wght);
     p.el.style.fontWeight = w;
     p.el.style.fontVariationSettings = `'wght' ${w}`;
+    if (p.ghost) {
+      p.ghost.style.fontWeight = w;
+      p.ghost.style.fontVariationSettings = `'wght' ${w}`;
+    }
   }
 
   function startGroundedOngoingLoop() {
@@ -1798,11 +1842,11 @@ function initGsapHome() {
       loopTl
         .add(() => {
           if (isHoveringChar) return;
-          moveInspectorToIndex(charIdx, `${ch} · wght 800`, false);
+          moveInspectorToIndex(charIdx, `${ch} · wght 700`, false);
         })
         .to(p, {
           wght: 220,
-          duration: 0.6,
+          duration: 0.65,
           ease: "power2.inOut",
           onStart: () => {
             if (!isHoveringChar) mains[charIdx].style.color = "#0AE448";
@@ -1817,8 +1861,8 @@ function initGsapHome() {
           }
         }, "+=0.35")
         .to(p, {
-          wght: 800,
-          duration: 0.65,
+          wght: 700,
+          duration: 0.7,
           ease: "expo.out",
           onUpdate: () => {
             if (!isHoveringChar) {
@@ -1831,7 +1875,7 @@ function initGsapHome() {
           onComplete: () => {
             if (!isHoveringChar) mains[charIdx].style.color = "#F5F7FA";
           }
-        }, "+=0.2")
+        }, "+=0.22")
         .to({}, { duration: 0.45 });
     });
   }
@@ -1843,13 +1887,37 @@ function initGsapHome() {
     syncGuidesAndSlotWidths();
 
     weightProxies.forEach((p) => {
-      p.wght = 150;
+      p.wght = 200;
       applyProxyWeight(p);
     });
 
     gsap.set([guideCap, guideXh, guideBase], { scaleX: 0, opacity: 0 });
-    gsap.set(inspectorBox, { opacity: 0 });
-    gsap.set(mains, { yPercent: 120, color: "#F5F7FA" });
+    gsap.set(shutters, { scaleY: 0, transformOrigin: "top center", opacity: 0.9 });
+    gsap.set(mains, {
+      yPercent: (i) => (i % 2 === 0 ? 115 : -115),
+      y: 0,
+      color: "#F5F7FA",
+      opacity: 1
+    });
+    gsap.set(ghosts, {
+      yPercent: (i) => (i % 2 === 0 ? 130 : -130),
+      opacity: 0.85,
+      color: (i) => (i % 2 === 0 ? "#0AE448" : "#00E5FF")
+    });
+
+    if (rig && inspectorBox && mains.length > 0) {
+      const rigRect = rig.getBoundingClientRect();
+      const firstRect = slots[0].getBoundingClientRect();
+      const lastRect = slots[slots.length - 1].getBoundingClientRect();
+      gsap.set(inspectorBox, {
+        opacity: 0,
+        x: firstRect.left - rigRect.left - 8,
+        y: firstRect.top - rigRect.top + firstRect.height * 0.14,
+        width: lastRect.right - firstRect.left + 16,
+        height: firstRect.height * 0.72
+      });
+      if (inspectorTag) inspectorTag.textContent = "Stack Sans Headline · 200–700";
+    }
 
     introTl = gsap.timeline({
       onComplete: () => {
@@ -1862,34 +1930,69 @@ function initGsapHome() {
       .to([guideCap, guideXh, guideBase], {
         scaleX: 1,
         opacity: 1,
-        duration: 0.75,
-        stagger: 0.1,
+        duration: 0.8,
+        stagger: 0.09,
         ease: "expo.out"
       }, 0)
+      .to(shutters, {
+        scaleY: 1,
+        duration: 0.28,
+        stagger: { each: 0.035, from: "center" },
+        ease: "power3.in"
+      }, 0.08)
+      .set(shutters, { transformOrigin: "bottom center" }, 0.38)
+      .to(shutters, {
+        scaleY: 0,
+        opacity: 0,
+        duration: 0.42,
+        stagger: { each: 0.035, from: "center" },
+        ease: "expo.out"
+      }, 0.38)
+      .to(ghosts, {
+        yPercent: 0,
+        opacity: 0,
+        duration: 0.95,
+        stagger: { each: 0.04, from: "center" },
+        ease: "expo.out"
+      }, 0.16)
       .to(mains, {
         yPercent: 0,
-        duration: 1.0,
-        stagger: { each: 0.045, from: "start" },
+        duration: 1.05,
+        stagger: { each: 0.04, from: "center" },
         ease: "expo.out"
-      }, 0.12)
+      }, 0.22)
+      .to(inspectorBox, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out"
+      }, 0.55)
       .to(weightProxies, {
-        wght: 800,
-        duration: 0.85,
-        stagger: { each: 0.04, from: "start" },
-        ease: "expo.inOut",
+        wght: 700,
+        duration: 0.7,
+        stagger: { each: 0.038, from: "start" },
+        ease: "power3.inOut",
         onUpdate: () => {
           weightProxies.forEach(applyProxyWeight);
         }
-      }, 0.55)
+      }, 0.75)
+      .to(mains, {
+        y: -10,
+        color: "#0AE448",
+        duration: 0.26,
+        stagger: { each: 0.035, from: "start" },
+        ease: "power2.out"
+      }, 0.85)
+      .to(mains, {
+        y: 0,
+        color: "#F5F7FA",
+        duration: 0.5,
+        stagger: { each: 0.035, from: "start" },
+        ease: "back.out(2)"
+      }, 1.11)
       .add(() => {
         syncGuidesAndSlotWidths();
-        moveInspectorToIndex(0, "F · wght 800", true);
-      }, 1.35)
-      .to(inspectorBox, {
-        opacity: 1,
-        duration: 0.35,
-        ease: "power2.out"
-      }, 1.38);
+        moveInspectorToIndex(0, "F · wght 700", false);
+      }, 1.48);
   }
 
   document.fonts.ready.then(() => {
@@ -1898,7 +2001,7 @@ function initGsapHome() {
 
   window.addEventListener("resize", () => {
     syncGuidesAndSlotWidths();
-    moveInspectorToIndex(0, "F · wght 800", true);
+    moveInspectorToIndex(0, "F · wght 700", true);
   });
 
   slots.forEach((slot, idx) => {
@@ -1908,15 +2011,15 @@ function initGsapHome() {
       mains.forEach((m, mIdx) => {
         if (mIdx !== idx) {
           m.style.color = "#F5F7FA";
-          weightProxies[mIdx].wght = 800;
+          weightProxies[mIdx].wght = 700;
           applyProxyWeight(weightProxies[mIdx]);
         }
       });
       const ch = slot.dataset.char;
       mains[idx].style.color = "#0AE448";
-      moveInspectorToIndex(idx, `${ch} · wght 250`, false);
+      moveInspectorToIndex(idx, `${ch} · wght 220`, false);
       gsap.to(weightProxies[idx], {
-        wght: 250,
+        wght: 220,
         duration: 0.35,
         overwrite: "auto",
         ease: "expo.out",
@@ -1932,7 +2035,7 @@ function initGsapHome() {
     slot.addEventListener("pointerleave", () => {
       const ch = slot.dataset.char;
       gsap.to(weightProxies[idx], {
-        wght: 800,
+        wght: 700,
         duration: 0.45,
         overwrite: "auto",
         ease: "expo.out",
@@ -1959,6 +2062,9 @@ function initGsapHome() {
 function initLibraryIndex() {
   const listEl = document.getElementById("typeIndexList");
   const headerEl = document.querySelector(".library-header");
+  const footerEl = document.getElementById("libraryFooter");
+  const floatingDock = document.getElementById("floatingCornerDock");
+  const backToTopBtn = document.getElementById("backToTopBtn");
   const searchInput = document.getElementById("fontSearch");
   const customHeadingInput = document.getElementById("customHeadingInput");
   const clearCustomTextBtn = document.getElementById("clearCustomTextBtn");
@@ -1998,8 +2104,34 @@ function initLibraryIndex() {
     allTabBtn.textContent = `All ${FONT_CATALOGUE.length}`;
   }
 
+  function updateFloatingCornerDockPosition() {
+    const currentY = window.scrollY;
+    if (backToTopBtn) {
+      backToTopBtn.classList.toggle("visible", currentY > 280);
+    }
+
+    if (floatingDock && footerEl) {
+      const footerRect = footerEl.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      if (footerRect.top < viewportH) {
+        const lift = viewportH - footerRect.top + 8;
+        floatingDock.style.transform = `translate3d(0, -${Math.round(lift)}px, 0)`;
+      } else {
+        floatingDock.style.transform = "translate3d(0, 0, 0)";
+      }
+    }
+  }
+
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   let lastScrollY = window.scrollY;
   window.addEventListener("scroll", () => {
+    updateFloatingCornerDockPosition();
+
     if (window.innerWidth > 768 || !headerEl) {
       if (headerEl) headerEl.classList.remove("header-condensed");
       return;
@@ -2041,6 +2173,7 @@ function initLibraryIndex() {
   window.addEventListener("resize", () => {
     const currentActive = document.querySelector(".tab-btn.active");
     if (currentActive) moveTabGlider(currentActive, true);
+    updateFloatingCornerDockPosition();
   });
 
   function initPairingStudio() {
@@ -2054,9 +2187,9 @@ function initLibraryIndex() {
       pairBodySelect.add(new Option(f.name, idx));
     });
 
-    const switzerIdx = FONT_CATALOGUE.findIndex((f) => f.name === "Switzer");
+    const stackHeadIdx = FONT_CATALOGUE.findIndex((f) => f.name === "Stack Sans Headline");
     const genSansIdx = FONT_CATALOGUE.findIndex((f) => f.name === "General Sans");
-    pairHeadSelect.value = switzerIdx !== -1 ? switzerIdx : 0;
+    pairHeadSelect.value = stackHeadIdx !== -1 ? stackHeadIdx : 0;
     pairBodySelect.value = genSansIdx !== -1 ? genSansIdx : 1;
 
     if (window.innerWidth <= 768) {
@@ -2337,6 +2470,7 @@ function initLibraryIndex() {
       const hasVariants = Boolean(font.variants && font.variants.length > 0);
       const wghtAxis = font.axes.find((a) => a.tag === "wght");
       const hasVariableWeight = Boolean(font.variable && wghtAxis);
+      const hasMultiWeightSlider = hasVariableWeight || availableWeights.length > 1;
 
       const familyCss = `'${font.name}', sans-serif`;
       const primaryFile = font.files[0][0];
@@ -2384,13 +2518,17 @@ function initLibraryIndex() {
         topPillsHtml += `<button type="button" class="weight-pill italic-toggle-pill" data-italic="false">Italic</button>`;
       }
 
-      const weightSliderCardHtml = hasVariableWeight
+      const minSliderW = hasVariableWeight ? wghtAxis.min : availableWeights[0] || 400;
+      const maxSliderW = hasVariableWeight ? wghtAxis.max : availableWeights[availableWeights.length - 1] || 700;
+      const stepSliderW = hasVariableWeight ? 10 : 50;
+
+      const weightSliderCardHtml = hasMultiWeightSlider
         ? `<label class="control-card">
             <div class="control-header">
-              <span class="control-name">Variable Weight (wght)</span>
+              <span class="control-name">${hasVariableWeight ? "Variable Weight (wght)" : "Weight"}</span>
               <span class="control-val w-val">${defaultWeight}</span>
             </div>
-            <input type="range" class="w-range" min="${wghtAxis.min}" max="${wghtAxis.max}" step="10" value="${defaultWeight}">
+            <input type="range" class="w-range" min="${minSliderW}" max="${maxSliderW}" step="${stepSliderW}" value="${defaultWeight}">
           </label>`
         : "";
 
@@ -2584,7 +2722,8 @@ function initLibraryIndex() {
             height: 0,
             opacity: 0,
             duration: 0.36,
-            ease: "power3.inOut"
+            ease: "power3.inOut",
+            onComplete: updateFloatingCornerDockPosition
           });
         }
 
@@ -2595,7 +2734,8 @@ function initLibraryIndex() {
             height: 0,
             opacity: 0,
             duration: 0.36,
-            ease: "power3.inOut"
+            ease: "power3.inOut",
+            onComplete: updateFloatingCornerDockPosition
           });
           openRowElement = null;
         } else {
@@ -2612,7 +2752,10 @@ function initLibraryIndex() {
               opacity: 1,
               duration: 0.46,
               ease: "expo.out",
-              onComplete: () => gsap.set(drawer, { height: "auto" })
+              onComplete: () => {
+                gsap.set(drawer, { height: "auto" });
+                updateFloatingCornerDockPosition();
+              }
             }
           );
           gsap.fromTo(
@@ -2626,7 +2769,7 @@ function initLibraryIndex() {
 
       if (wRange) {
         wRange.addEventListener("input", () => {
-          currentWeight = Number(wRange.value);
+          currentWeight = snapToAvailableWeight(font, wRange.value);
           applyTypographyState();
           wSelectPills.forEach((p) => p.classList.toggle("active", Number(p.dataset.w) === currentWeight));
         });
@@ -2657,7 +2800,7 @@ function initLibraryIndex() {
       yearPills.forEach((pill) => {
         pill.addEventListener("click", () => {
           const yr = Number(pill.dataset.year);
-          const yrInput = row.querySelector('.ax-range[data-tag="YEAR"]');
+          const yrInput = row.querySelector('.ax-range[data-tag="year"]');
           if (yrInput) yrInput.value = yr;
           yearPills.forEach((p) => p.classList.remove("active"));
           pill.classList.add("active");
@@ -2675,7 +2818,7 @@ function initLibraryIndex() {
 
       extraAxRanges.forEach((axInput) => {
         axInput.addEventListener("input", () => {
-          if (axInput.dataset.tag === "YEAR") {
+          if (axInput.dataset.tag === "year") {
             yearPills.forEach((p) => p.classList.toggle("active", Number(p.dataset.year) === Number(axInput.value)));
           }
           applyTypographyState();
@@ -2712,6 +2855,8 @@ function initLibraryIndex() {
 
       listEl.appendChild(row);
     });
+
+    updateFloatingCornerDockPosition();
   }
 
   searchInput.addEventListener("input", () => renderIndex(false));
