@@ -4,6 +4,7 @@ const FONT_CATALOGUE = [
     folder: "Aktura",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/aktura",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: false,
@@ -15,6 +16,7 @@ const FONT_CATALOGUE = [
     folder: "Alan Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Alan+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -26,6 +28,7 @@ const FONT_CATALOGUE = [
     folder: "Alata",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Alata",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -37,6 +40,7 @@ const FONT_CATALOGUE = [
     folder: "Archivo",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Archivo",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -54,6 +58,7 @@ const FONT_CATALOGUE = [
     folder: "Atkinson Hyperlegible",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Atkinson+Hyperlegible",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -70,6 +75,7 @@ const FONT_CATALOGUE = [
     folder: "Author Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/author",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -84,6 +90,7 @@ const FONT_CATALOGUE = [
     folder: "Bonny Variable",
     category: "serif",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/bonny",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -91,21 +98,11 @@ const FONT_CATALOGUE = [
     files: [["Bonny-Variable.ttf", "100 700", "normal"]]
   },
   {
-    name: "Borel",
-    folder: "Borel",
-    category: "display",
-    source: "Google Fonts",
-    licenseType: "open",
-    licenseLabel: "Open Source (SIL OFL)",
-    variable: false,
-    axes: [],
-    files: [["Borel-Regular.ttf", 400, "normal"]]
-  },
-  {
     name: "Boska",
     folder: "Boska Variable",
     category: "serif",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/boska",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -120,6 +117,7 @@ const FONT_CATALOGUE = [
     folder: "Bricolage Grotesque",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -135,6 +133,7 @@ const FONT_CATALOGUE = [
     folder: "Bricolage Grotesque 12pt Condensed",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -154,6 +153,7 @@ const FONT_CATALOGUE = [
     folder: "Bricolage Grotesque 96pt Condensed",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Bricolage+Grotesque",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -173,6 +173,7 @@ const FONT_CATALOGUE = [
     folder: "Cabinet Grotesk Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/cabinet-grotesk",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -184,6 +185,7 @@ const FONT_CATALOGUE = [
     folder: "Cal Sans",
     category: "sans",
     source: "Cal.com Open Foundry",
+    sourceUrl: "https://github.com/calcom/font",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -200,6 +202,7 @@ const FONT_CATALOGUE = [
     folder: "Clash Display Variable",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/clash-display",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -211,6 +214,7 @@ const FONT_CATALOGUE = [
     folder: "Clash Grotesk Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/clash-grotesk",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -222,21 +226,19 @@ const FONT_CATALOGUE = [
     folder: "Climate Crisis",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Climate+Crisis",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
     axes: [{ tag: "YEAR", name: "Year Axis", min: 1979, max: 2050, default: 1990 }],
-    files: [
-      ["ClimateCrisis-Variable.ttf", "100 900", "normal"],
-      ["ClimateCrisis-1979.otf", 900, "normal"],
-      ["ClimateCrisis-2050.otf", 100, "normal"]
-    ]
+    files: [["ClimateCrisis-Variable.ttf", "100 900", "normal"]]
   },
   {
     name: "CM Geom",
     folder: "CM Geom",
     category: "sans",
     source: "Cedric Müller",
+    sourceUrl: "https://www.behance.net/gallery/183582501/CM-Geom-Free-Typeface",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -248,6 +250,7 @@ const FONT_CATALOGUE = [
     folder: "Coconat",
     category: "display",
     source: "Collletttivo",
+    sourceUrl: "https://www.collletttivo.it/typefaces/coconat",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -263,23 +266,26 @@ const FONT_CATALOGUE = [
     folder: "Coolvetica",
     category: "display",
     source: "Typodermic Fonts",
+    sourceUrl: "https://typodermicfonts.com/coolvetica/",
     licenseType: "restricted",
     licenseLabel: "Free Regular Desktop / Paid Commercial Variants",
     variable: false,
     axes: [],
-    files: [
-      ["coolvetica rg.otf", 400, "normal"],
-      ["coolvetica rg it.otf", 400, "italic"],
-      ["coolvetica condensed rg.otf", 300, "normal"],
-      ["coolvetica crammed rg.otf", 700, "normal"],
-      ["coolvetica compressed hv.otf", 900, "normal"]
-    ]
+    variants: [
+      { label: "Regular", file: "coolvetica rg.otf" },
+      { label: "Italic", file: "coolvetica rg it.otf" },
+      { label: "Condensed", file: "coolvetica condensed rg.otf" },
+      { label: "Crammed", file: "coolvetica crammed rg.otf" },
+      { label: "Compressed Heavy", file: "coolvetica compressed hv.otf" }
+    ],
+    files: [["coolvetica rg.otf", 400, "normal"]]
   },
   {
     name: "Coral Pixels",
     folder: "Coral Pixels",
     category: "mono",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Coral+Pixels",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -291,6 +297,7 @@ const FONT_CATALOGUE = [
     folder: "Delight",
     category: "sans",
     source: "Open Variable Foundry",
+    sourceUrl: "https://fonts.google.com/",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -302,6 +309,7 @@ const FONT_CATALOGUE = [
     folder: "Departure Mono",
     category: "mono",
     source: "Helena Zhang",
+    sourceUrl: "https://departuremono.com/",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -313,6 +321,7 @@ const FONT_CATALOGUE = [
     folder: "DM Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/DM+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -330,6 +339,7 @@ const FONT_CATALOGUE = [
     folder: "Doto",
     category: "mono",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Doto",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -344,6 +354,7 @@ const FONT_CATALOGUE = [
     folder: "DT World Tour",
     category: "display",
     source: "Independent Display",
+    sourceUrl: "https://www.behance.net/",
     licenseType: "open",
     licenseLabel: "Free for Commercial Use",
     variable: false,
@@ -355,6 +366,7 @@ const FONT_CATALOGUE = [
     folder: "Elms Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Elms+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -369,6 +381,7 @@ const FONT_CATALOGUE = [
     folder: "Epilogue",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Epilogue",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -383,6 +396,7 @@ const FONT_CATALOGUE = [
     folder: "Excon Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/excon",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -394,6 +408,7 @@ const FONT_CATALOGUE = [
     folder: "Faculty Glyphic",
     category: "serif",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Faculty+Glyphic",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -405,25 +420,28 @@ const FONT_CATALOGUE = [
     folder: "FT88",
     category: "mono",
     source: "Velvetyne Type Foundry",
+    sourceUrl: "https://velvetyne.fr/fonts/ft88/",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
     axes: [],
-    files: [
-      ["FT88-Regular.ttf", 400, "normal"],
-      ["FT88-Italic.ttf", 400, "italic"],
-      ["FT88-Bold.ttf", 700, "normal"],
-      ["FT88-Expanded.ttf", 500, "normal"],
-      ["FT88-Gothique.ttf", 600, "normal"],
-      ["FT88-School.ttf", 300, "normal"],
-      ["FT88-Serif.ttf", 800, "normal"]
-    ]
+    variants: [
+      { label: "Regular", file: "FT88-Regular.ttf" },
+      { label: "Bold", file: "FT88-Bold.ttf" },
+      { label: "Italic", file: "FT88-Italic.ttf" },
+      { label: "Expanded", file: "FT88-Expanded.ttf" },
+      { label: "Gothique", file: "FT88-Gothique.ttf" },
+      { label: "School", file: "FT88-School.ttf" },
+      { label: "Serif", file: "FT88-Serif.ttf" }
+    ],
+    files: [["FT88-Regular.ttf", 400, "normal"]]
   },
   {
     name: "Geist",
     folder: "Geist",
     category: "sans",
     source: "Google Fonts / Vercel",
+    sourceUrl: "https://vercel.com/font",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -438,6 +456,7 @@ const FONT_CATALOGUE = [
     folder: "Geist Mono",
     category: "mono",
     source: "Google Fonts / Vercel",
+    sourceUrl: "https://vercel.com/font",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -452,23 +471,26 @@ const FONT_CATALOGUE = [
     folder: "Geist Pixel",
     category: "mono",
     source: "Vercel",
+    sourceUrl: "https://vercel.com/font",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
     axes: [],
-    files: [
-      ["GeistPixel-Square.otf", 400, "normal"],
-      ["GeistPixel-Circle.otf", 300, "normal"],
-      ["GeistPixel-Grid.otf", 500, "normal"],
-      ["GeistPixel-Line.otf", 700, "normal"],
-      ["GeistPixel-Triangle.otf", 800, "normal"]
-    ]
+    variants: [
+      { label: "Square", file: "GeistPixel-Square.otf" },
+      { label: "Circle", file: "GeistPixel-Circle.otf" },
+      { label: "Grid", file: "GeistPixel-Grid.otf" },
+      { label: "Line", file: "GeistPixel-Line.otf" },
+      { label: "Triangle", file: "GeistPixel-Triangle.otf" }
+    ],
+    files: [["GeistPixel-Square.otf", 400, "normal"]]
   },
   {
     name: "General Sans",
     folder: "General Sans Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/general-sans",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -483,6 +505,7 @@ const FONT_CATALOGUE = [
     folder: "Geom",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Geom",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -497,6 +520,7 @@ const FONT_CATALOGUE = [
     folder: "Handjet",
     category: "mono",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Handjet",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -512,6 +536,7 @@ const FONT_CATALOGUE = [
     folder: "Host Grotesk",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Host+Grotesk",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -526,6 +551,7 @@ const FONT_CATALOGUE = [
     folder: "Instrument Serif",
     category: "serif",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Instrument+Serif",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -540,6 +566,7 @@ const FONT_CATALOGUE = [
     folder: "Inter",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Inter",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -554,6 +581,7 @@ const FONT_CATALOGUE = [
     folder: "Jost",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Jost",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -565,6 +593,7 @@ const FONT_CATALOGUE = [
     folder: "Kalnia Glaze",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Kalnia+Glaze",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -579,6 +608,7 @@ const FONT_CATALOGUE = [
     folder: "Lama Sans",
     category: "sans",
     source: "Baianat Type",
+    sourceUrl: "https://www.baianat.com/books/lama-sans/",
     licenseType: "open",
     licenseLabel: "Free for Personal & Commercial Use",
     variable: false,
@@ -602,6 +632,7 @@ const FONT_CATALOGUE = [
     folder: "League Spartan",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/League+Spartan",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -613,6 +644,7 @@ const FONT_CATALOGUE = [
     folder: "LEMON MILK",
     category: "display",
     source: "Marsnev",
+    sourceUrl: "https://marsnev.com/",
     licenseType: "restricted",
     licenseLabel: "Free Personal Use Only / Commercial License Required",
     variable: false,
@@ -633,6 +665,7 @@ const FONT_CATALOGUE = [
     folder: "Manrope",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Manrope",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -644,6 +677,7 @@ const FONT_CATALOGUE = [
     folder: "Melodrama Variable",
     category: "serif",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/melodrama",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -655,6 +689,7 @@ const FONT_CATALOGUE = [
     folder: "Metropolis",
     category: "sans",
     source: "Chris Simpson",
+    sourceUrl: "https://github.com/dw5/Metropolis",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL / Public Domain)",
     variable: false,
@@ -678,6 +713,7 @@ const FONT_CATALOGUE = [
     folder: "Modestic Sans",
     category: "sans",
     source: "Independent Foundry",
+    sourceUrl: "https://www.behance.net/",
     licenseType: "restricted",
     licenseLabel: "Free Personal Use / Commercial License Required",
     variable: false,
@@ -692,6 +728,7 @@ const FONT_CATALOGUE = [
     folder: "Momo Trust Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Momo+Trust+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -703,6 +740,7 @@ const FONT_CATALOGUE = [
     folder: "Mozilla Headline",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Mozilla+Headline",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -717,6 +755,7 @@ const FONT_CATALOGUE = [
     folder: "Mozilla Text",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Mozilla+Text",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -728,6 +767,7 @@ const FONT_CATALOGUE = [
     folder: "National Park",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/National+Park",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -739,6 +779,7 @@ const FONT_CATALOGUE = [
     folder: "Nunito Variable",
     category: "sans",
     source: "Google Fonts / Fontshare",
+    sourceUrl: "https://fonts.google.com/specimen/Nunito",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -753,6 +794,7 @@ const FONT_CATALOGUE = [
     folder: "Nunito Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Nunito+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -771,6 +813,7 @@ const FONT_CATALOGUE = [
     folder: "Nyght Serif",
     category: "serif",
     source: "Maksym Kobuzan",
+    sourceUrl: "https://nyghtserif.com/",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL / Free Commercial)",
     variable: false,
@@ -793,6 +836,7 @@ const FONT_CATALOGUE = [
     folder: "Ojuju",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Ojuju",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -804,6 +848,7 @@ const FONT_CATALOGUE = [
     folder: "Ortica Angular",
     category: "serif",
     source: "Collletttivo",
+    sourceUrl: "https://www.collletttivo.it/typefaces/ortica",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -815,6 +860,7 @@ const FONT_CATALOGUE = [
     folder: "Panchang Variable",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/panchang",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -826,6 +872,7 @@ const FONT_CATALOGUE = [
     folder: "Parkinsans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Parkinsans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -837,8 +884,9 @@ const FONT_CATALOGUE = [
     folder: "Picaflor",
     category: "serif",
     source: "Ariel Martín Pérez",
+    sourceUrl: "https://www.tunera.xyz/typefaces/picaflor/",
     licenseType: "open",
-    licenseLabel: "Free Open Release",
+    licenseLabel: "Open Source (SIL OFL)",
     variable: true,
     axes: [{ tag: "wght", name: "Weight", min: 40, max: 300, default: 120 }],
     files: [["PicaflorGX.ttf", "40 300", "normal"]]
@@ -848,6 +896,7 @@ const FONT_CATALOGUE = [
     folder: "Poppins Variable",
     category: "sans",
     source: "Google Fonts / Fontshare",
+    sourceUrl: "https://fonts.google.com/specimen/Poppins",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -862,6 +911,7 @@ const FONT_CATALOGUE = [
     folder: "Pretendard",
     category: "sans",
     source: "OFL GitHub Archive",
+    sourceUrl: "https://github.com/orioncactus/pretendard",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -883,6 +933,7 @@ const FONT_CATALOGUE = [
     folder: "Product Sans",
     category: "sans",
     source: "Google Proprietary",
+    sourceUrl: "https://fonts.google.com/",
     licenseType: "restricted",
     licenseLabel: "Proprietary (Google Brand — Not Licensed for Public Use)",
     variable: false,
@@ -899,6 +950,7 @@ const FONT_CATALOGUE = [
     folder: "Proxima Nova",
     category: "sans",
     source: "Mark Simonson Studio",
+    sourceUrl: "https://www.marksimonson.com/fonts/view/proxima-nova",
     licenseType: "restricted",
     licenseLabel: "Commercial Font (Paid License Required)",
     variable: false,
@@ -918,6 +970,7 @@ const FONT_CATALOGUE = [
     folder: "Public Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Public+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -932,6 +985,7 @@ const FONT_CATALOGUE = [
     folder: "Quicksand Variable",
     category: "sans",
     source: "Google Fonts / Fontshare",
+    sourceUrl: "https://fonts.google.com/specimen/Quicksand",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -943,6 +997,7 @@ const FONT_CATALOGUE = [
     folder: "Red Hat Display Variable",
     category: "display",
     source: "Google Fonts / Fontshare",
+    sourceUrl: "https://fonts.google.com/specimen/Red+Hat+Display",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -957,6 +1012,7 @@ const FONT_CATALOGUE = [
     folder: "Reddit Mono",
     category: "mono",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Reddit+Mono",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -968,6 +1024,7 @@ const FONT_CATALOGUE = [
     folder: "Reddit Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Reddit+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -982,6 +1039,7 @@ const FONT_CATALOGUE = [
     folder: "Reddit Sans Condensed",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Reddit+Sans+Condensed",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -993,6 +1051,7 @@ const FONT_CATALOGUE = [
     folder: "Rethink Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Rethink+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1007,6 +1066,7 @@ const FONT_CATALOGUE = [
     folder: "Ribes",
     category: "serif",
     source: "Collletttivo",
+    sourceUrl: "https://www.collletttivo.it/typefaces/ribes",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -1022,6 +1082,7 @@ const FONT_CATALOGUE = [
     folder: "Sansita Swashed",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Sansita+Swashed",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1033,6 +1094,7 @@ const FONT_CATALOGUE = [
     folder: "Satoshi Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/satoshi",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1047,6 +1109,7 @@ const FONT_CATALOGUE = [
     folder: "Science Gothic",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Science+Gothic",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1063,6 +1126,7 @@ const FONT_CATALOGUE = [
     folder: "Sekuya",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Sekuya",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -1074,6 +1138,7 @@ const FONT_CATALOGUE = [
     folder: "Sharpie Variable",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/sharpie",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1085,6 +1150,7 @@ const FONT_CATALOGUE = [
     folder: "Sinistre",
     category: "serif",
     source: "Collletttivo",
+    sourceUrl: "https://www.collletttivo.it/typefaces/sinistre",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1096,6 +1162,7 @@ const FONT_CATALOGUE = [
     folder: "Sora Variable",
     category: "sans",
     source: "Google Fonts / Fontshare",
+    sourceUrl: "https://fonts.google.com/specimen/Sora",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1110,6 +1177,7 @@ const FONT_CATALOGUE = [
     folder: "Space Grotesk",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Space+Grotesk",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1121,6 +1189,7 @@ const FONT_CATALOGUE = [
     folder: "Spline Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Spline+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1132,6 +1201,7 @@ const FONT_CATALOGUE = [
     folder: "Stack Sans Headline",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Stack+Sans+Headline",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1143,6 +1213,7 @@ const FONT_CATALOGUE = [
     folder: "Stack Sans Notch",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Stack+Sans+Notch",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1154,6 +1225,7 @@ const FONT_CATALOGUE = [
     folder: "Stack Sans Text",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Stack+Sans+Text",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1165,6 +1237,7 @@ const FONT_CATALOGUE = [
     folder: "Supreme Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/supreme",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1179,6 +1252,7 @@ const FONT_CATALOGUE = [
     folder: "Switzer Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/switzer",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1193,6 +1267,7 @@ const FONT_CATALOGUE = [
     folder: "Syne",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Syne",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1204,6 +1279,7 @@ const FONT_CATALOGUE = [
     folder: "Synonym Variable",
     category: "sans",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/synonym",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1215,6 +1291,7 @@ const FONT_CATALOGUE = [
     folder: "TASA Explorer",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/TASA+Explorer",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1226,6 +1303,7 @@ const FONT_CATALOGUE = [
     folder: "TASA Orbiter",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/TASA+Orbiter",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1237,6 +1315,7 @@ const FONT_CATALOGUE = [
     folder: "Technor Variable",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/technor",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1248,6 +1327,7 @@ const FONT_CATALOGUE = [
     folder: "Telma Variable",
     category: "display",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/telma",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1259,6 +1339,7 @@ const FONT_CATALOGUE = [
     folder: "Texturina",
     category: "serif",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Texturina",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1276,6 +1357,7 @@ const FONT_CATALOGUE = [
     folder: "TikTok Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/TikTok+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1292,6 +1374,7 @@ const FONT_CATALOGUE = [
     folder: "Times New Roman",
     category: "serif",
     source: "Monotype System",
+    sourceUrl: "https://www.monotype.com/fonts/times-new-roman",
     licenseType: "restricted",
     licenseLabel: "Proprietary (Monotype System / Commercial License)",
     variable: false,
@@ -1308,6 +1391,7 @@ const FONT_CATALOGUE = [
     folder: "Times Newer Roman",
     category: "serif",
     source: "MSCHF Open Release",
+    sourceUrl: "https://timesnewerroman.com/",
     licenseType: "open",
     licenseLabel: "Open Source (GNU GPLv3 + Font Exception)",
     variable: false,
@@ -1324,6 +1408,7 @@ const FONT_CATALOGUE = [
     folder: "Tiny5",
     category: "mono",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Tiny5",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: false,
@@ -1335,6 +1420,7 @@ const FONT_CATALOGUE = [
     folder: "Trench Slab Variable",
     category: "serif",
     source: "Fontshare",
+    sourceUrl: "https://www.fontshare.com/fonts/trench-slab",
     licenseType: "open",
     licenseLabel: "Free Commercial (Fontshare)",
     variable: true,
@@ -1346,6 +1432,7 @@ const FONT_CATALOGUE = [
     folder: "Unbounded",
     category: "display",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Unbounded",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1357,6 +1444,7 @@ const FONT_CATALOGUE = [
     folder: "Wistteria Sans",
     category: "display",
     source: "Faysal Type",
+    sourceUrl: "https://www.behance.net/",
     licenseType: "open",
     licenseLabel: "Free for Personal & Commercial Use",
     variable: false,
@@ -1368,6 +1456,7 @@ const FONT_CATALOGUE = [
     folder: "Work Sans",
     category: "sans",
     source: "Google Fonts",
+    sourceUrl: "https://fonts.google.com/specimen/Work+Sans",
     licenseType: "open",
     licenseLabel: "Open Source (SIL OFL)",
     variable: true,
@@ -1379,20 +1468,77 @@ const FONT_CATALOGUE = [
   }
 ];
 
+const WEIGHT_LABELS = {
+  100: "Thin 100",
+  200: "ExtraLight 200",
+  300: "Light 300",
+  400: "Regular 400",
+  500: "Medium 500",
+  600: "SemiBold 600",
+  700: "Bold 700",
+  800: "ExtraBold 800",
+  900: "Black 900"
+};
+
+function encodeFontUrl(folder, filename) {
+  const safeFolder = folder.split("/").map(encodeURIComponent).join("/");
+  const safeFile = encodeURIComponent(filename);
+  return `fonts/${safeFolder}/${safeFile}`;
+}
+
 function injectLocalFontFaces() {
   const rules = [];
+
   FONT_CATALOGUE.forEach((font) => {
-    font.files.forEach(([filename, weight, style]) => {
+    if (font.variants && font.variants.length > 0) {
+      font.variants.forEach((v, idx) => {
+        const ext = v.file.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
+        const rawPath = `fonts/${font.folder}/${v.file}`;
+        const encPath = encodeFontUrl(font.folder, v.file);
+        const variantFamily = `${font.name}__${v.label}`;
+        rules.push(`@font-face {
+  font-family: '${variantFamily}';
+  src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}`);
+        if (idx === 0) {
+          rules.push(`@font-face {
+  font-family: '${font.name}';
+  src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}`);
+        }
+      });
+    } else if (!font.variable && font.files.length === 1) {
+      const [filename] = font.files[0];
       const ext = filename.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
-      const path = `fonts/${font.folder}/${filename}`;
+      const rawPath = `fonts/${font.folder}/${filename}`;
+      const encPath = encodeFontUrl(font.folder, filename);
       rules.push(`@font-face {
   font-family: '${font.name}';
-  src: url("${path}") format('${ext}');
+  src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}`);
+    } else {
+      font.files.forEach(([filename, weight, style]) => {
+        const ext = filename.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
+        const rawPath = `fonts/${font.folder}/${filename}`;
+        const encPath = encodeFontUrl(font.folder, filename);
+        rules.push(`@font-face {
+  font-family: '${font.name}';
+  src: url("${encPath}") format('${ext}'), url("${rawPath}") format('${ext}');
   font-weight: ${weight};
   font-style: ${style};
   font-display: swap;
 }`);
-    });
+      });
+    }
   });
 
   const styleEl = document.createElement("style");
@@ -1405,6 +1551,37 @@ function buildFontFaceSnippet(font) {
   const [firstFile, weight, style] = font.files[0];
   const ext = firstFile.toLowerCase().endsWith(".otf") ? "opentype" : "truetype";
   return `@font-face {\n  font-family: '${font.name}';\n  src: url('fonts/${font.folder}/${firstFile}') format('${ext}');\n  font-weight: ${weight};\n  font-style: ${style};\n}`;
+}
+
+function getFontAvailableWeights(font) {
+  if (font.variable) {
+    const wAxis = font.axes.find((a) => a.tag === "wght");
+    if (!wAxis) return [400];
+    if (wAxis.max <= 300) {
+      return [40, 80, 120, 200, 300].filter((w) => w >= wAxis.min && w <= wAxis.max);
+    }
+    const std = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+    return std.filter((w) => w >= wAxis.min && w <= wAxis.max);
+  }
+  const set = new Set();
+  font.files.forEach(([, w]) => {
+    if (typeof w === "number") set.add(w);
+  });
+  return Array.from(set).sort((a, b) => a - b);
+}
+
+function fontHasItalic(font) {
+  return font.files.some(([, , style]) => style === "italic");
+}
+
+function getDefaultWeight(font) {
+  if (font.variable) {
+    const wAxis = font.axes.find((a) => a.tag === "wght");
+    return wAxis ? wAxis.default : 400;
+  }
+  const weights = getFontAvailableWeights(font);
+  if (weights.includes(400)) return 400;
+  return weights[0] || 400;
 }
 
 function showToast(text) {
@@ -1421,20 +1598,28 @@ function initGsapHome() {
   const rig = document.getElementById("titleCardRig");
   const inspectorBox = document.getElementById("inspectorBox");
   const inspectorTag = document.getElementById("inspectorTag");
-  const guides = document.querySelectorAll(".metric-guide");
+  const guideCap = document.getElementById("guideCap");
+  const guideXh = document.getElementById("guideXh");
+  const guideBase = document.getElementById("guideBase");
+  const guideDesc = document.getElementById("guideDesc");
 
   if (!hero || typeof gsap === "undefined") return;
 
   hero.innerHTML = "";
   const words = ["Font", "Library"];
   const slots = [];
-  const tracks = [];
   const mains = [];
-  const wires = [];
+  let baselineStrut = null;
 
-  words.forEach((word) => {
+  words.forEach((word, wIdx) => {
     const wordEl = document.createElement("span");
     wordEl.className = "gsap-word";
+
+    if (wIdx === 0) {
+      baselineStrut = document.createElement("span");
+      baselineStrut.className = "baseline-strut";
+      wordEl.appendChild(baselineStrut);
+    }
 
     for (let i = 0; i < word.length; i++) {
       const ch = word[i];
@@ -1442,253 +1627,176 @@ function initGsapHome() {
       slot.className = "char-slot";
       slot.dataset.char = ch;
 
-      slot.innerHTML = `
-        <span class="char-track">
-          <span class="char-main">${ch}</span>
-          <span class="char-wire" aria-hidden="true">${ch}</span>
-        </span>
-      `;
+      const main = document.createElement("span");
+      main.className = "char-main";
+      main.textContent = ch;
 
+      slot.appendChild(main);
       wordEl.appendChild(slot);
       slots.push(slot);
-      tracks.push(slot.querySelector(".char-track"));
-      mains.push(slot.querySelector(".char-main"));
-      wires.push(slot.querySelector(".char-wire"));
+      mains.push(main);
     }
 
     hero.appendChild(wordEl);
   });
 
-  function positionInspectorOnSlot(slotIndex, labelText, immediate = false) {
-    if (!inspectorBox || !rig || !slots[slotIndex]) return;
+  function lockCharacterWidthsAndMeasureGuides() {
+    slots.forEach((s) => {
+      s.style.width = "auto";
+    });
+    mains.forEach((m) => {
+      m.style.fontWeight = "800";
+      m.style.fontVariationSettings = "'wght' 800";
+      m.style.transform = "translate3d(0,0,0)";
+    });
+    slots.forEach((s) => {
+      const r = s.getBoundingClientRect();
+      s.style.width = `${Math.ceil(r.width + 2)}px`;
+    });
+
+    if (!rig || !baselineStrut) return;
     const rigRect = rig.getBoundingClientRect();
-    const slotRect = slots[slotIndex].getBoundingClientRect();
-    const x = slotRect.left - rigRect.left - 4;
-    const y = slotRect.top - rigRect.top + slotRect.height * 0.08;
-    const w = slotRect.width + 8;
-    const h = slotRect.height * 0.82;
+    const strutRect = baselineStrut.getBoundingClientRect();
+    const baselineY = strutRect.top - rigRect.top;
 
-    if (inspectorTag && labelText) {
-      inspectorTag.textContent = labelText;
-    }
+    const computed = window.getComputedStyle(hero);
+    const fontSizePx = parseFloat(computed.fontSize) || 100;
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
 
-    if (immediate) {
-      gsap.set(inspectorBox, { x, y, width: w, height: h });
-    } else {
-      gsap.to(inspectorBox, {
-        x,
-        y,
-        width: w,
-        height: h,
-        duration: 0.55,
-        ease: "expo.inOut"
-      });
+    if (ctx) {
+      ctx.font = `800 ${fontSizePx}px Switzer, sans-serif`;
+      const capMetrics = ctx.measureText("F");
+      const xhMetrics = ctx.measureText("x");
+      const descMetrics = ctx.measureText("y");
+
+      const capAscent = capMetrics.actualBoundingBoxAscent || fontSizePx * 0.72;
+      const xhAscent = xhMetrics.actualBoundingBoxAscent || fontSizePx * 0.52;
+      const descDescent = descMetrics.actualBoundingBoxDescent || fontSizePx * 0.21;
+
+      if (guideCap) gsap.set(guideCap, { y: Math.round(baselineY - capAscent) });
+      if (guideXh) gsap.set(guideXh, { y: Math.round(baselineY - xhAscent) });
+      if (guideBase) gsap.set(guideBase, { y: Math.round(baselineY) });
+      if (guideDesc) gsap.set(guideDesc, { y: Math.round(baselineY + descDescent) });
     }
   }
 
-  let masterTl;
+  let activeTargetIndex = 0;
+  let hoveredIndex = -1;
+  const inspectorState = { x: 0, y: 0, w: 60, h: 80 };
 
-  function playCleanArchitecturalSequence() {
-    if (masterTl) masterTl.kill();
+  const tourStops = [
+    { index: 0, tag: "F · cap height" },
+    { index: 1, tag: "o · x-height" },
+    { index: 3, tag: "t · crossbar" },
+    { index: 4, tag: "L · stem 900" },
+    { index: 5, tag: "i · tittle" },
+    { index: 8, tag: "a · bowl counter" },
+    { index: 10, tag: "y · descender" }
+  ];
+  let stopPointer = 0;
 
-    gsap.set(slots, { x: 0, y: 0 });
-    gsap.set(tracks, { yPercent: 0, x: 0 });
-    gsap.set(mains, {
-      yPercent: 0,
-      x: 0,
-      y: 0,
-      fontWeight: 800,
-      color: "#F5F7FA",
-      opacity: 1
+  gsap.to({}, {
+    duration: 1.65,
+    repeat: -1,
+    onRepeat: () => {
+      if (hoveredIndex === -1) {
+        stopPointer = (stopPointer + 1) % tourStops.length;
+        activeTargetIndex = tourStops[stopPointer].index;
+      }
+    }
+  });
+
+  function startSeamlessLoop() {
+    lockCharacterWidthsAndMeasureGuides();
+
+    if (rig && mains[0]) {
+      const rigRect = rig.getBoundingClientRect();
+      const mRect = mains[0].getBoundingClientRect();
+      inspectorState.x = mRect.left - rigRect.left - 5;
+      inspectorState.y = mRect.top - rigRect.top - 2;
+      inspectorState.w = mRect.width + 10;
+      inspectorState.h = mRect.height + 4;
+    }
+
+    gsap.ticker.add((time) => {
+      const total = mains.length;
+
+      for (let i = 0; i < total; i++) {
+        const phase = time * 2.35 - i * 0.52;
+        const wave = Math.sin(phase);
+        const secondary = Math.cos(time * 1.6 + i * 0.4);
+
+        let targetWght = Math.round(520 + wave * 370);
+        let yOffset = secondary * 9;
+
+        if (hoveredIndex === i) {
+          targetWght = 900;
+          yOffset = -12;
+        }
+
+        const m = mains[i];
+        m.style.fontWeight = targetWght;
+        m.style.fontVariationSettings = `'wght' ${targetWght}`;
+        m.style.transform = `translate3d(0, ${yOffset.toFixed(2)}px, 0)`;
+
+        const focusIdx = hoveredIndex !== -1 ? hoveredIndex : activeTargetIndex;
+        if (i === focusIdx) {
+          m.style.color = "#0AE448";
+        } else if (wave > 0.86) {
+          m.style.color = "#00E5FF";
+        } else {
+          m.style.color = "#F5F7FA";
+        }
+      }
+
+      const focusIdx = hoveredIndex !== -1 ? hoveredIndex : activeTargetIndex;
+      const targetGlyph = mains[focusIdx];
+      if (targetGlyph && rig && inspectorBox) {
+        const rigRect = rig.getBoundingClientRect();
+        const gRect = targetGlyph.getBoundingClientRect();
+
+        const destX = gRect.left - rigRect.left - 6;
+        const destY = gRect.top - rigRect.top - 2;
+        const destW = gRect.width + 12;
+        const destH = gRect.height + 4;
+
+        inspectorState.x += (destX - inspectorState.x) * 0.18;
+        inspectorState.y += (destY - inspectorState.y) * 0.18;
+        inspectorState.w += (destW - inspectorState.w) * 0.18;
+        inspectorState.h += (destH - inspectorState.h) * 0.18;
+
+        inspectorBox.style.transform = `translate3d(${inspectorState.x.toFixed(1)}px, ${inspectorState.y.toFixed(1)}px, 0)`;
+        inspectorBox.style.width = `${inspectorState.w.toFixed(1)}px`;
+        inspectorBox.style.height = `${inspectorState.h.toFixed(1)}px`;
+
+        if (inspectorTag) {
+          const liveWght = targetGlyph.style.fontWeight || "800";
+          const ch = slots[focusIdx].dataset.char;
+          inspectorTag.textContent = `${ch} · wght ${liveWght}`;
+        }
+      }
     });
-    gsap.set(wires, { yPercent: 0 });
-    gsap.set(guides, { opacity: 0, scaleX: 0, transformOrigin: "left center" });
-    if (inspectorBox) gsap.set(inspectorBox, { opacity: 0 });
-
-    masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1.4 });
-
-    masterTl
-      .to(
-        guides,
-        {
-          opacity: 1,
-          scaleX: 1,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: "expo.out"
-        },
-        0
-      )
-      .fromTo(
-        tracks,
-        {
-          yPercent: (i) => (i % 2 === 0 ? 110 : -110)
-        },
-        {
-          yPercent: 0,
-          duration: 1.0,
-          stagger: { each: 0.045, from: "start" },
-          ease: "expo.out"
-        },
-        0.05
-      )
-      .add(() => {
-        positionInspectorOnSlot(0, "F • wght 800", true);
-      }, 0.95)
-      .to(
-        inspectorBox,
-        {
-          opacity: 1,
-          duration: 0.25,
-          ease: "power2.out"
-        },
-        0.98
-      )
-      .to(
-        mains[0],
-        {
-          fontWeight: 200,
-          color: "#0AE448",
-          duration: 0.45,
-          ease: "power2.inOut",
-          onStart: () => {
-            if (inspectorTag) inspectorTag.textContent = "F • wght 200";
-          }
-        },
-        1.2
-      )
-      .to(
-        mains[0],
-        {
-          fontWeight: 800,
-          color: "#F5F7FA",
-          duration: 0.45,
-          ease: "expo.out",
-          onStart: () => {
-            if (inspectorTag) inspectorTag.textContent = "F • wght 800";
-          }
-        },
-        1.68
-      )
-      .add(() => {
-        positionInspectorOnSlot(4, "L • slot roll", false);
-      }, 2.1)
-      .to(
-        tracks,
-        {
-          yPercent: -100,
-          duration: 0.65,
-          stagger: { each: 0.038, from: "start" },
-          ease: "expo.inOut"
-        },
-        2.25
-      )
-      .to(
-        tracks,
-        {
-          yPercent: 0,
-          duration: 0.75,
-          stagger: { each: 0.038, from: "center" },
-          ease: "expo.out"
-        },
-        3.05
-      )
-      .add(() => {
-        positionInspectorOnSlot(10, "y • kerning +14", false);
-      }, 3.65)
-      .to(
-        slots,
-        {
-          x: (i) => (i - 5) * 10,
-          duration: 0.55,
-          ease: "expo.out"
-        },
-        3.85
-      )
-      .to(
-        mains,
-        {
-          fontWeight: 200,
-          y: -14,
-          color: "#0AE448",
-          duration: 0.45,
-          stagger: { each: 0.04, from: "start" },
-          ease: "power2.out"
-        },
-        3.85
-      )
-      .to(
-        mains,
-        {
-          fontWeight: 800,
-          y: 0,
-          color: "#F5F7FA",
-          duration: 0.65,
-          stagger: { each: 0.04, from: "start" },
-          ease: "expo.out"
-        },
-        4.35
-      )
-      .to(
-        slots,
-        {
-          x: 0,
-          duration: 0.7,
-          ease: "expo.inOut"
-        },
-        4.45
-      )
-      .to(
-        [inspectorBox, guides],
-        {
-          opacity: 0,
-          duration: 0.4,
-          ease: "power2.inOut"
-        },
-        5.1
-      );
   }
 
   document.fonts.ready.then(() => {
-    playCleanArchitecturalSequence();
+    startSeamlessLoop();
   });
 
   window.addEventListener("resize", () => {
-    if (inspectorBox && gsap.getProperty(inspectorBox, "opacity") > 0.1) {
-      positionInspectorOnSlot(0, "F • wght 800", true);
-    }
+    lockCharacterWidthsAndMeasureGuides();
   });
 
   slots.forEach((slot, idx) => {
     slot.addEventListener("pointerenter", () => {
-      if (inspectorBox) {
-        gsap.to(inspectorBox, { opacity: 1, duration: 0.2 });
-        positionInspectorOnSlot(idx, `${slot.dataset.char} • wght 300`, false);
-      }
-      gsap.to(mains[idx], {
-        y: -14,
-        fontWeight: 300,
-        color: "#0AE448",
-        duration: 0.35,
-        overwrite: "auto",
-        ease: "expo.out"
-      });
+      hoveredIndex = idx;
     });
-
     slot.addEventListener("pointerleave", () => {
-      gsap.to(mains[idx], {
-        y: 0,
-        fontWeight: 800,
-        color: "#F5F7FA",
-        duration: 0.45,
-        overwrite: "auto",
-        ease: "expo.out"
-      });
+      hoveredIndex = -1;
     });
-  });
-
-  hero.addEventListener("click", () => {
-    playCleanArchitecturalSequence();
+    slot.addEventListener("click", () => {
+      activeTargetIndex = idx;
+    });
   });
 }
 
@@ -1698,7 +1806,24 @@ function initLibraryIndex() {
   const tabBtns = document.querySelectorAll(".tab-btn");
   const licBtns = document.querySelectorAll(".lic-btn");
   const tabGlider = document.getElementById("tabGlider");
-  const footerCountMeta = document.getElementById("footerCountMeta");
+
+  const pairDockPill = document.getElementById("pairDockPill");
+  const pairDockReadout = document.getElementById("pairDockReadout");
+  const pairDrawer = document.getElementById("pairDrawer");
+  const pairCloseBtn = document.getElementById("pairCloseBtn");
+  const pairHeadSelect = document.getElementById("pairHeadSelect");
+  const pairBodySelect = document.getElementById("pairBodySelect");
+  const pairHeadWeight = document.getElementById("pairHeadWeight");
+  const pairHeadSize = document.getElementById("pairHeadSize");
+  const pairBodyWeight = document.getElementById("pairBodyWeight");
+  const pairBodySize = document.getElementById("pairBodySize");
+  const pairHeadWeightVal = document.getElementById("pairHeadWeightVal");
+  const pairBodyWeightVal = document.getElementById("pairBodyWeightVal");
+  const pairSpecimenHeading = document.getElementById("pairSpecimenHeading");
+  const pairSpecimenBody = document.getElementById("pairSpecimenBody");
+  const pairSwapBtn = document.getElementById("pairSwapBtn");
+  const pairShuffleBtn = document.getElementById("pairShuffleBtn");
+  const pairCopyCssBtn = document.getElementById("pairCopyCssBtn");
 
   if (!listEl) return;
 
@@ -1707,6 +1832,12 @@ function initLibraryIndex() {
   let openRowElement = null;
   let typingTimers = [];
   let rowObserver = null;
+  let pairDrawerOpen = false;
+
+  const allTabBtn = document.querySelector('.tab-btn[data-cat="all"]');
+  if (allTabBtn) {
+    allTabBtn.textContent = `All ${FONT_CATALOGUE.length}`;
+  }
 
   function moveTabGlider(targetBtn, immediate = false) {
     if (!tabGlider || !targetBtn) return;
@@ -1734,6 +1865,159 @@ function initLibraryIndex() {
     if (currentActive) moveTabGlider(currentActive, true);
   });
 
+  function initPairingStudio() {
+    if (!pairHeadSelect || !pairBodySelect) return;
+
+    FONT_CATALOGUE.forEach((f, idx) => {
+      pairHeadSelect.add(new Option(f.name, idx));
+      pairBodySelect.add(new Option(f.name, idx));
+    });
+
+    const switzerIdx = FONT_CATALOGUE.findIndex((f) => f.name === "Switzer");
+    const genSansIdx = FONT_CATALOGUE.findIndex((f) => f.name === "General Sans");
+    pairHeadSelect.value = switzerIdx !== -1 ? switzerIdx : 0;
+    pairBodySelect.value = genSansIdx !== -1 ? genSansIdx : 1;
+
+    function syncPairBounds(selectEl, weightInput) {
+      const font = FONT_CATALOGUE[selectEl.value];
+      if (!font) return;
+      const weights = getFontAvailableWeights(font);
+      const minW = weights[0] || 400;
+      const maxW = weights[weights.length - 1] || 400;
+      weightInput.min = minW;
+      weightInput.max = maxW;
+      weightInput.step = font.variable ? 10 : 100;
+      weightInput.disabled = minW === maxW;
+      if (Number(weightInput.value) < minW || Number(weightInput.value) > maxW) {
+        weightInput.value = getDefaultWeight(font);
+      }
+    }
+
+    function updatePairPreview() {
+      const hFont = FONT_CATALOGUE[pairHeadSelect.value];
+      const bFont = FONT_CATALOGUE[pairBodySelect.value];
+      if (!hFont || !bFont) return;
+
+      const hW = Number(pairHeadWeight.value);
+      const bW = Number(pairBodyWeight.value);
+
+      pairHeadWeightVal.textContent = hW;
+      pairBodyWeightVal.textContent = bW;
+
+      pairSpecimenHeading.style.fontFamily = `'${hFont.name}', sans-serif`;
+      pairSpecimenHeading.style.fontWeight = hW;
+      pairSpecimenHeading.style.fontVariationSettings = hFont.variable ? `'wght' ${hW}` : "normal";
+      pairSpecimenHeading.style.fontSize = `${pairHeadSize.value}px`;
+
+      pairSpecimenBody.style.fontFamily = `'${bFont.name}', sans-serif`;
+      pairSpecimenBody.style.fontWeight = bW;
+      pairSpecimenBody.style.fontVariationSettings = bFont.variable ? `'wght' ${bW}` : "normal";
+      pairSpecimenBody.style.fontSize = `${pairBodySize.value}px`;
+
+      if (pairDockReadout) {
+        pairDockReadout.textContent = `${hFont.name} + ${bFont.name}`;
+      }
+    }
+
+    syncPairBounds(pairHeadSelect, pairHeadWeight);
+    syncPairBounds(pairBodySelect, pairBodyWeight);
+    updatePairPreview();
+
+    pairHeadSelect.addEventListener("change", () => {
+      syncPairBounds(pairHeadSelect, pairHeadWeight);
+      updatePairPreview();
+    });
+
+    pairBodySelect.addEventListener("change", () => {
+      syncPairBounds(pairBodySelect, pairBodyWeight);
+      updatePairPreview();
+    });
+
+    [pairHeadWeight, pairHeadSize, pairBodyWeight, pairBodySize].forEach((inp) => {
+      inp.addEventListener("input", updatePairPreview);
+    });
+
+    pairSwapBtn.addEventListener("click", () => {
+      const tempIdx = pairHeadSelect.value;
+      pairHeadSelect.value = pairBodySelect.value;
+      pairBodySelect.value = tempIdx;
+      syncPairBounds(pairHeadSelect, pairHeadWeight);
+      syncPairBounds(pairBodySelect, pairBodyWeight);
+      updatePairPreview();
+    });
+
+    pairShuffleBtn.addEventListener("click", () => {
+      pairHeadSelect.value = Math.floor(Math.random() * FONT_CATALOGUE.length);
+      pairBodySelect.value = Math.floor(Math.random() * FONT_CATALOGUE.length);
+      syncPairBounds(pairHeadSelect, pairHeadWeight);
+      syncPairBounds(pairBodySelect, pairBodyWeight);
+      updatePairPreview();
+    });
+
+    pairCopyCssBtn.addEventListener("click", () => {
+      const hFont = FONT_CATALOGUE[pairHeadSelect.value];
+      const bFont = FONT_CATALOGUE[pairBodySelect.value];
+      const css = `--font-heading: '${hFont.name}', sans-serif;\n--font-body: '${bFont.name}', sans-serif;`;
+      navigator.clipboard.writeText(css);
+      showToast(`Copied ${hFont.name} + ${bFont.name} CSS`);
+    });
+
+    window.__setPairFont = (role, fontName) => {
+      const idx = FONT_CATALOGUE.findIndex((f) => f.name === fontName);
+      if (idx === -1) return;
+      if (role === "heading") {
+        pairHeadSelect.value = idx;
+        syncPairBounds(pairHeadSelect, pairHeadWeight);
+      } else {
+        pairBodySelect.value = idx;
+        syncPairBounds(pairBodySelect, pairBodyWeight);
+      }
+      updatePairPreview();
+      openPairDrawer();
+    };
+  }
+
+  function openPairDrawer() {
+    if (!pairDrawer) return;
+    pairDrawerOpen = true;
+    pairDrawer.style.visibility = "visible";
+    pairDrawer.setAttribute("aria-hidden", "false");
+    if (pairDockPill) pairDockPill.setAttribute("aria-expanded", "true");
+    gsap.to(pairDrawer, {
+      y: "0%",
+      duration: 0.48,
+      ease: "expo.out"
+    });
+  }
+
+  function closePairDrawer() {
+    if (!pairDrawer) return;
+    pairDrawerOpen = false;
+    pairDrawer.setAttribute("aria-hidden", "true");
+    if (pairDockPill) pairDockPill.setAttribute("aria-expanded", "false");
+    gsap.to(pairDrawer, {
+      y: "105%",
+      duration: 0.38,
+      ease: "power3.inOut",
+      onComplete: () => {
+        if (!pairDrawerOpen) pairDrawer.style.visibility = "hidden";
+      }
+    });
+  }
+
+  if (pairDockPill) {
+    pairDockPill.addEventListener("click", () => {
+      if (pairDrawerOpen) closePairDrawer();
+      else openPairDrawer();
+    });
+  }
+
+  if (pairCloseBtn) {
+    pairCloseBtn.addEventListener("click", closePairDrawer);
+  }
+
+  initPairingStudio();
+
   function clearTypingTimers() {
     typingTimers.forEach((id) => clearTimeout(id));
     typingTimers = [];
@@ -1752,13 +2036,13 @@ function initLibraryIndex() {
         textNode.textContent = fullText.slice(0, charIndex);
 
         if (charIndex < fullText.length) {
-          const naturalKeystrokeDelay = 80 + Math.floor(Math.random() * 45);
+          const naturalKeystrokeDelay = 78 + Math.floor(Math.random() * 44);
           const timerId = setTimeout(nextKeystroke, naturalKeystrokeDelay);
           typingTimers.push(timerId);
         } else {
           const finishId = setTimeout(() => {
             cursorNode.classList.add("done");
-          }, 600);
+          }, 550);
           typingTimers.push(finishId);
         }
       }
@@ -1794,10 +2078,6 @@ function initLibraryIndex() {
     listEl.innerHTML = "";
     openRowElement = null;
 
-    if (footerCountMeta) {
-      footerCountMeta.textContent = `Showing ${visibleFonts.length} of ${FONT_CATALOGUE.length} Typeface Families • Local Archive`;
-    }
-
     if (animateTypewriter && "IntersectionObserver" in window) {
       rowObserver = new IntersectionObserver(
         (entries) => {
@@ -1809,11 +2089,11 @@ function initLibraryIndex() {
               const typedCursorEl = row.querySelector(".typed-cursor");
               const fontName = row.dataset.fontName || "";
               const staggerOrder = Number(row.dataset.order || 0) % 5;
-              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 90 + staggerOrder * 85);
+              typeTextNaturally(typedTextEl, typedCursorEl, fontName, 80 + staggerOrder * 80);
             }
           });
         },
-        { threshold: 0.12 }
+        { threshold: 0.1 }
       );
     }
 
@@ -1823,7 +2103,14 @@ function initLibraryIndex() {
       row.dataset.fontName = font.name;
       row.dataset.order = idx;
 
-      const familyCss = `'${font.name}', 'General Sans', sans-serif`;
+      const defaultWeight = getDefaultWeight(font);
+      const availableWeights = getFontAvailableWeights(font);
+      const hasItal = fontHasItalic(font);
+      const hasVariants = Boolean(font.variants && font.variants.length > 0);
+      const wghtAxis = font.axes.find((a) => a.tag === "wght");
+      const hasVariableWeight = Boolean(font.variable && wghtAxis);
+
+      const familyCss = `'${font.name}', sans-serif`;
       const primaryFile = font.files[0][0];
       const downloadPath = `fonts/${font.folder}/${primaryFile}`;
 
@@ -1834,7 +2121,50 @@ function initLibraryIndex() {
       const licenseBadgeHtml =
         font.licenseType === "open"
           ? `<span class="row-badge badge-open">Open Source / Free</span>`
-          : `<span class="row-badge badge-restricted">Restricted License</span>`;
+          : `<span class="row-badge badge-restricted">Restricted</span>`;
+
+      let topPillsHtml = "";
+
+      if (hasVariants) {
+        topPillsHtml = font.variants
+          .map(
+            (v, vIdx) =>
+              `<button type="button" class="weight-pill variant-pill ${vIdx === 0 ? "active" : ""}" data-variant="${v.label}">${v.label}</button>`
+          )
+          .join("");
+      } else if (font.name === "Climate Crisis") {
+        topPillsHtml = [1979, 1990, 2010, 2030, 2050]
+          .map(
+            (yr) =>
+              `<button type="button" class="weight-pill year-pill ${yr === 1990 ? "active" : ""}" data-year="${yr}">${yr}</button>`
+          )
+          .join("");
+      } else if (availableWeights.length > 1) {
+        topPillsHtml = availableWeights
+          .map((w) => {
+            const label = WEIGHT_LABELS[w] || `Wght ${w}`;
+            return `<button type="button" class="weight-pill w-select-pill ${w === defaultWeight ? "active" : ""}" data-w="${w}">${label}</button>`;
+          })
+          .join("");
+      } else {
+        const singleW = availableWeights[0] || 400;
+        const singleLabel = WEIGHT_LABELS[singleW] || `Regular ${singleW}`;
+        topPillsHtml = `<span class="weight-pill static-only-badge">Single Weight · ${singleLabel}</span>`;
+      }
+
+      if (hasItal) {
+        topPillsHtml += `<button type="button" class="weight-pill italic-toggle-pill" data-italic="false">Italic</button>`;
+      }
+
+      const weightSliderCardHtml = hasVariableWeight
+        ? `<label class="control-card">
+            <div class="control-header">
+              <span class="control-name">Variable Weight (wght)</span>
+              <span class="control-val w-val">${defaultWeight}</span>
+            </div>
+            <input type="range" class="w-range" min="${wghtAxis.min}" max="${wghtAxis.max}" step="10" value="${defaultWeight}">
+          </label>`
+        : "";
 
       const extraAxesSlidersHtml = font.axes
         .filter((ax) => ax.tag !== "wght")
@@ -1851,14 +2181,13 @@ function initLibraryIndex() {
         )
         .join("");
 
-      const wghtAxis = font.axes.find((a) => a.tag === "wght");
-      const minW = wghtAxis ? wghtAxis.min : 100;
-      const maxW = wghtAxis ? wghtAxis.max : 900;
-      const stepW = font.variable ? 10 : 100;
+      const sourceBtnHtml = font.sourceUrl
+        ? `<a href="${font.sourceUrl}" target="_blank" rel="noopener noreferrer" class="studio-btn"><i class="ph-bold ph-arrow-up-right"></i> Source</a>`
+        : "";
 
       row.innerHTML = `
         <button type="button" class="row-trigger" aria-expanded="false">
-          <span class="row-display-name" style="font-family: ${familyCss};">
+          <span class="row-display-name" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">
             <span class="typed-text"></span><span class="typed-cursor"></span>
           </span>
           <span class="row-meta">
@@ -1876,41 +2205,34 @@ function initLibraryIndex() {
                 ${variableBadgeHtml}
                 ${licenseBadgeHtml}
                 <span class="row-badge">${font.source}</span>
-                <span class="row-badge">${font.files.length} ${font.files.length === 1 ? "File" : "Files"} in /fonts/${font.folder}</span>
+                <div class="license-detail-banner">
+                  <i class="ph-bold ${font.licenseType === "open" ? "ph-check-circle" : "ph-warning-circle"}"></i>
+                  <span>${font.licenseLabel}</span>
+                </div>
               </div>
-              <div class="license-detail-banner">
-                <i class="ph-bold ${font.licenseType === "open" ? "ph-check-circle" : "ph-warning-circle"}"></i>
-                <span>${font.licenseLabel}</span>
+              <div class="meta-strip-right">
+                <button type="button" class="pair-assign-btn set-head-btn"><i class="ph-bold ph-text-h"></i> Set Heading</button>
+                <button type="button" class="pair-assign-btn set-body-btn"><i class="ph-bold ph-article"></i> Set Body</button>
               </div>
             </div>
 
             <div class="specimen-stage-box">
               <div class="stage-top-bar">
-                <span class="stage-caption"><i class="ph-bold ph-pencil-simple"></i> Click specimen text below to edit live</span>
+                <span class="stage-caption"><i class="ph-bold ph-pencil-simple"></i> Click specimen text to edit live</span>
                 <div class="weight-pills">
-                  <button type="button" class="weight-pill" data-w="300">Light 300</button>
-                  <button type="button" class="weight-pill active" data-w="400">Regular 400</button>
-                  <button type="button" class="weight-pill" data-w="500">Medium 500</button>
-                  <button type="button" class="weight-pill" data-w="700">Bold 700</button>
-                  <button type="button" class="weight-pill" data-w="800">Heavy 800</button>
+                  ${topPillsHtml}
                 </div>
               </div>
 
-              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${familyCss};">The quick brown fox jumps over the lazy dog</div>
+              <div class="fox-specimen" contenteditable="true" spellcheck="false" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">The quick brown fox jumps over the lazy dog</div>
             </div>
 
             <div class="controls-grid">
-              <label class="control-card">
-                <div class="control-header">
-                  <span class="control-name">${font.variable ? "Variable Weight (wght)" : "Weight"}</span>
-                  <span class="control-val w-val">400</span>
-                </div>
-                <input type="range" class="w-range" min="${minW}" max="${maxW}" step="${stepW}" value="400">
-              </label>
+              ${weightSliderCardHtml}
 
               <label class="control-card">
                 <div class="control-header">
-                  <span class="control-name">Font Size</span>
+                  <span class="control-name">Preview Size</span>
                   <span class="control-val s-val">48px</span>
                 </div>
                 <input type="range" class="s-range" min="20" max="110" value="48">
@@ -1930,7 +2252,7 @@ function initLibraryIndex() {
             <div class="studio-bottom-grid">
               <div class="charset-box">
                 <span class="box-heading">Character Set</span>
-                <div class="glyph-showcase-text" style="font-family: ${familyCss};">
+                <div class="glyph-showcase-text" style="font-family: ${familyCss}; font-weight: ${defaultWeight};">
                   ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
                   abcdefghijklmnopqrstuvwxyz<br>
                   0123456789 !@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;?
@@ -1939,13 +2261,14 @@ function initLibraryIndex() {
 
               <div class="actions-box">
                 <div>
-                  <span class="box-heading">Local Repository Path &amp; CSS</span>
+                  <span class="box-heading">CSS Usage</span>
                   <div class="code-preview" style="margin-top: 10px;">font-family: '${font.name}', sans-serif;</div>
                 </div>
                 <div class="action-buttons-row">
                   <button type="button" class="studio-btn copy-css-btn"><i class="ph-bold ph-copy"></i> Copy CSS</button>
                   <button type="button" class="studio-btn copy-face-btn"><i class="ph-bold ph-code"></i> Copy @font-face</button>
-                  <a href="${downloadPath}" download="${primaryFile}" class="studio-btn primary-action"><i class="ph-bold ph-download-simple"></i> Download Font</a>
+                  ${sourceBtnHtml}
+                  <a href="${downloadPath}" download="${primaryFile}" class="studio-btn primary-action"><i class="ph-bold ph-download-simple"></i> Download</a>
                 </div>
               </div>
             </div>
@@ -1959,31 +2282,49 @@ function initLibraryIndex() {
       if (animateTypewriter && rowObserver) {
         rowObserver.observe(row);
       } else if (animateTypewriter) {
-        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 80);
+        typeTextNaturally(typedTextEl, typedCursorEl, font.name, idx * 75);
       } else {
         typedTextEl.textContent = font.name;
         typedCursorEl.classList.add("done");
       }
 
       const trigger = row.querySelector(".row-trigger");
+      const rowDisplayName = row.querySelector(".row-display-name");
       const drawer = row.querySelector(".row-drawer");
       const foxSpecimen = row.querySelector(".fox-specimen");
+      const glyphShowcase = row.querySelector(".glyph-showcase-text");
       const wRange = row.querySelector(".w-range");
       const sRange = row.querySelector(".s-range");
       const tRange = row.querySelector(".t-range");
       const wVal = row.querySelector(".w-val");
       const sVal = row.querySelector(".s-val");
       const tVal = row.querySelector(".t-val");
-      const weightPills = row.querySelectorAll(".weight-pill");
+      const wSelectPills = row.querySelectorAll(".w-select-pill");
+      const variantPills = row.querySelectorAll(".variant-pill");
+      const yearPills = row.querySelectorAll(".year-pill");
+      const italicTogglePill = row.querySelector(".italic-toggle-pill");
       const extraAxRanges = row.querySelectorAll(".ax-range");
 
-      function syncVariationSettings() {
-        const currentWeight = Number(wRange.value);
+      let currentWeight = defaultWeight;
+      let isItalic = false;
+
+      function applyTypographyState() {
+        const fontStyleVal = isItalic ? "italic" : "normal";
         foxSpecimen.style.fontWeight = currentWeight;
-        wVal.textContent = currentWeight;
+        foxSpecimen.style.fontStyle = fontStyleVal;
+        rowDisplayName.style.fontWeight = currentWeight;
+        rowDisplayName.style.fontStyle = fontStyleVal;
+        if (glyphShowcase) {
+          glyphShowcase.style.fontWeight = currentWeight;
+          glyphShowcase.style.fontStyle = fontStyleVal;
+        }
+        if (wVal) wVal.textContent = currentWeight;
 
         if (font.variable) {
-          const settings = [`'wght' ${currentWeight}`];
+          const settings = [];
+          if (hasVariableWeight) {
+            settings.push(`'wght' ${currentWeight}`);
+          }
           extraAxRanges.forEach((axInput) => {
             const tag = axInput.dataset.tag;
             const val = Number(axInput.value);
@@ -1991,7 +2332,10 @@ function initLibraryIndex() {
             const labelEl = row.querySelector(`.ax-val[data-tag="${tag}"]`);
             if (labelEl) labelEl.textContent = val;
           });
-          foxSpecimen.style.fontVariationSettings = settings.join(", ");
+          const varString = settings.join(", ");
+          foxSpecimen.style.fontVariationSettings = varString;
+          rowDisplayName.style.fontVariationSettings = varString;
+          if (glyphShowcase) glyphShowcase.style.fontVariationSettings = varString;
         }
       }
 
@@ -2026,7 +2370,7 @@ function initLibraryIndex() {
         } else {
           row.classList.add("is-open");
           trigger.setAttribute("aria-expanded", "true");
-          syncVariationSettings();
+          applyTypographyState();
           gsap.set(drawer, { height: "auto" });
           const targetHeight = drawer.offsetHeight;
           gsap.fromTo(
@@ -2049,22 +2393,61 @@ function initLibraryIndex() {
         }
       });
 
-      wRange.addEventListener("input", () => {
-        syncVariationSettings();
-        weightPills.forEach((p) => p.classList.toggle("active", p.dataset.w === wRange.value));
+      if (wRange) {
+        wRange.addEventListener("input", () => {
+          currentWeight = Number(wRange.value);
+          applyTypographyState();
+          wSelectPills.forEach((p) => p.classList.toggle("active", Number(p.dataset.w) === currentWeight));
+        });
+      }
+
+      wSelectPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          currentWeight = Number(pill.dataset.w);
+          if (wRange) wRange.value = currentWeight;
+          wSelectPills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          applyTypographyState();
+        });
       });
+
+      variantPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const variantLabel = pill.dataset.variant;
+          const variantFam = `'${font.name}__${variantLabel}', sans-serif`;
+          foxSpecimen.style.fontFamily = variantFam;
+          rowDisplayName.style.fontFamily = variantFam;
+          if (glyphShowcase) glyphShowcase.style.fontFamily = variantFam;
+          variantPills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+        });
+      });
+
+      yearPills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          const yr = Number(pill.dataset.year);
+          const yrInput = row.querySelector('.ax-range[data-tag="YEAR"]');
+          if (yrInput) yrInput.value = yr;
+          yearPills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          applyTypographyState();
+        });
+      });
+
+      if (italicTogglePill) {
+        italicTogglePill.addEventListener("click", () => {
+          isItalic = !isItalic;
+          italicTogglePill.classList.toggle("active", isItalic);
+          applyTypographyState();
+        });
+      }
 
       extraAxRanges.forEach((axInput) => {
-        axInput.addEventListener("input", syncVariationSettings);
-      });
-
-      weightPills.forEach((pill) => {
-        pill.addEventListener("click", () => {
-          const weight = pill.dataset.w;
-          wRange.value = weight;
-          syncVariationSettings();
-          weightPills.forEach((p) => p.classList.remove("active"));
-          pill.classList.add("active");
+        axInput.addEventListener("input", () => {
+          if (axInput.dataset.tag === "YEAR") {
+            yearPills.forEach((p) => p.classList.toggle("active", Number(p.dataset.year) === Number(axInput.value)));
+          }
+          applyTypographyState();
         });
       });
 
@@ -2076,6 +2459,14 @@ function initLibraryIndex() {
       tRange.addEventListener("input", () => {
         foxSpecimen.style.letterSpacing = `${tRange.value}em`;
         tVal.textContent = `${tRange.value}em`;
+      });
+
+      row.querySelector(".set-head-btn").addEventListener("click", () => {
+        if (window.__setPairFont) window.__setPairFont("heading", font.name);
+      });
+
+      row.querySelector(".set-body-btn").addEventListener("click", () => {
+        if (window.__setPairFont) window.__setPairFont("body", font.name);
       });
 
       row.querySelector(".copy-css-btn").addEventListener("click", () => {
