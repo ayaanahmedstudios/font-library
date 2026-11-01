@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Library</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath fill='%230AE448' d='M212,56V88a12,12,0,0,1-24,0V68H140V188h20a12,12,0,0,1,0,24H96a12,12,0,0,1,0-24h20V68H68V88a12,12,0,0,1-24,0V56A12,12,0,0,1,56,44H200A12,12,0,0,1,212,56Z'/%3E%3C/svg%3E">
-
-  <link rel="preconnect" href="https://api.fontshare.com">
-  <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700,800,900,1,2&f[]=general-sans@200,300,400,500,600,700,1,2&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css">
   <link rel="stylesheet" href="styles.css">
@@ -42,9 +38,17 @@
           <button type="button" class="lic-btn" data-lic="restricted">Restricted</button>
         </div>
 
+        <div class="custom-text-field">
+          <i class="ph ph-text-t"></i>
+          <input type="text" id="customHeadingInput" placeholder="Type custom preview text..." autocomplete="off">
+          <button type="button" id="clearCustomTextBtn" class="clear-input-btn" aria-label="Reset preview text" hidden>
+            <i class="ph-bold ph-x"></i>
+          </button>
+        </div>
+
         <div class="search-field">
           <i class="ph ph-magnifying-glass"></i>
-          <input type="search" id="fontSearch" placeholder="Search typefaces..." autocomplete="off">
+          <input type="search" id="fontSearch" placeholder="Search fonts..." autocomplete="off">
         </div>
       </div>
     </div>
@@ -54,13 +58,9 @@
     <div id="typeIndexList" class="type-index-list"></div>
   </main>
 
-  <div class="pair-dock-wrap">
-    <button type="button" class="pair-dock-pill" id="pairDockPill" aria-expanded="false">
-      <span class="pair-dock-tag"><i class="ph-bold ph-intersect"></i> Pair Studio</span>
-      <span class="pair-dock-readout" id="pairDockReadout">Switzer + General Sans</span>
-      <i class="ph-bold ph-caret-up pair-dock-caret"></i>
-    </button>
-  </div>
+  <button type="button" class="pair-corner-btn" id="pairDockPill" aria-expanded="false" aria-label="Open Pair Studio" title="Pair Studio">
+    <i class="ph-bold ph-intersect"></i>
+  </button>
 
   <aside class="pair-drawer" id="pairDrawer" aria-hidden="true">
     <div class="pair-drawer-inner">
@@ -88,7 +88,7 @@
             <div class="pair-sliders-row">
               <label class="pair-mini-slider">
                 <span>Weight</span>
-                <input type="range" id="pairHeadWeight" min="100" max="900" step="50" value="700">
+                <input type="range" id="pairHeadWeight" min="100" max="900" step="10" value="700">
               </label>
               <label class="pair-mini-slider">
                 <span>Size</span>
@@ -106,7 +106,7 @@
             <div class="pair-sliders-row">
               <label class="pair-mini-slider">
                 <span>Weight</span>
-                <input type="range" id="pairBodyWeight" min="100" max="900" step="50" value="400">
+                <input type="range" id="pairBodyWeight" min="100" max="900" step="10" value="400">
               </label>
               <label class="pair-mini-slider">
                 <span>Size</span>
