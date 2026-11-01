@@ -20,7 +20,7 @@
       <div class="brand-group">
         <a href="index.html" class="brand-link">Font Library</a>
         <span class="brand-sep"></span>
-        <a href="https://www.instagram.com/bluetigerincstudios/" target="_blank" rel="noopener noreferrer" class="signature-link" aria-label="Ayaan Ahmed Instagram">
+        <a href="index.html" class="signature-link" aria-label="Back to Home">
           <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-header">
         </a>
       </div>
@@ -28,7 +28,7 @@
       <div class="header-tools">
         <div class="category-tabs" id="categoryTabs">
           <span class="tab-glider" id="tabGlider"></span>
-          <button type="button" class="tab-btn active" data-cat="all">All 102</button>
+          <button type="button" class="tab-btn active" data-cat="all">All 100</button>
           <button type="button" class="tab-btn" data-cat="variable">Variable</button>
           <button type="button" class="tab-btn" data-cat="sans">Sans</button>
           <button type="button" class="tab-btn" data-cat="display">Display</button>
@@ -37,14 +37,14 @@
         </div>
 
         <div class="license-filter" id="licenseFilter">
-          <button type="button" class="lic-btn active" data-lic="all">All Licenses</button>
-          <button type="button" class="lic-btn" data-lic="open">Open Source / Free</button>
+          <button type="button" class="lic-btn active" data-lic="all">All</button>
+          <button type="button" class="lic-btn" data-lic="open">Open / Free</button>
           <button type="button" class="lic-btn" data-lic="restricted">Restricted</button>
         </div>
 
         <div class="search-field">
           <i class="ph ph-magnifying-glass"></i>
-          <input type="search" id="fontSearch" placeholder="Search 102 typefaces..." autocomplete="off">
+          <input type="search" id="fontSearch" placeholder="Search typefaces..." autocomplete="off">
         </div>
       </div>
     </div>
@@ -54,12 +54,86 @@
     <div id="typeIndexList" class="type-index-list"></div>
   </main>
 
+  <div class="pair-dock-wrap">
+    <button type="button" class="pair-dock-pill" id="pairDockPill" aria-expanded="false">
+      <span class="pair-dock-tag"><i class="ph-bold ph-intersect"></i> Pair Studio</span>
+      <span class="pair-dock-readout" id="pairDockReadout">Switzer + General Sans</span>
+      <i class="ph-bold ph-caret-up pair-dock-caret"></i>
+    </button>
+  </div>
+
+  <aside class="pair-drawer" id="pairDrawer" aria-hidden="true">
+    <div class="pair-drawer-inner">
+      <div class="pair-drawer-header">
+        <div class="pair-drawer-title">
+          <i class="ph-bold ph-intersect"></i>
+          <span>Heading &amp; Body Pairing Studio</span>
+        </div>
+        <div class="pair-drawer-actions">
+          <button type="button" class="studio-btn" id="pairSwapBtn"><i class="ph-bold ph-arrows-down-up"></i> Swap</button>
+          <button type="button" class="studio-btn" id="pairShuffleBtn"><i class="ph-bold ph-shuffle"></i> Shuffle</button>
+          <button type="button" class="studio-btn primary-action" id="pairCopyCssBtn"><i class="ph-bold ph-copy"></i> Copy Pair CSS</button>
+          <button type="button" class="pair-close-btn" id="pairCloseBtn" aria-label="Close Pairing Studio"><i class="ph-bold ph-x"></i></button>
+        </div>
+      </div>
+
+      <div class="pair-workbench">
+        <div class="pair-controls-col">
+          <div class="pair-role-card">
+            <div class="pair-role-top">
+              <span class="pair-role-label">Heading Typeface</span>
+              <span class="pair-role-weight" id="pairHeadWeightVal">700</span>
+            </div>
+            <select id="pairHeadSelect" class="pair-select"></select>
+            <div class="pair-sliders-row">
+              <label class="pair-mini-slider">
+                <span>Weight</span>
+                <input type="range" id="pairHeadWeight" min="100" max="900" step="50" value="700">
+              </label>
+              <label class="pair-mini-slider">
+                <span>Size</span>
+                <input type="range" id="pairHeadSize" min="24" max="72" value="44">
+              </label>
+            </div>
+          </div>
+
+          <div class="pair-role-card">
+            <div class="pair-role-top">
+              <span class="pair-role-label">Body Typeface</span>
+              <span class="pair-role-weight" id="pairBodyWeightVal">400</span>
+            </div>
+            <select id="pairBodySelect" class="pair-select"></select>
+            <div class="pair-sliders-row">
+              <label class="pair-mini-slider">
+                <span>Weight</span>
+                <input type="range" id="pairBodyWeight" min="100" max="900" step="50" value="400">
+              </label>
+              <label class="pair-mini-slider">
+                <span>Size</span>
+                <input type="range" id="pairBodySize" min="14" max="26" value="18">
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="pair-canvas-col">
+          <div class="pair-specimen-heading" id="pairSpecimenHeading" contenteditable="true" spellcheck="false">
+            Typographic rhythm begins with contrast and proportion.
+          </div>
+          <div class="pair-specimen-body" id="pairSpecimenBody" contenteditable="true" spellcheck="false">
+            When an expressive display or geometric headline face is paired with a balanced text workhorse, hierarchy emerges naturally. Click either the heading or this paragraph to edit the live specimen and test how both typefaces converse across scales.
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
   <footer class="library-footer">
     <div class="footer-inner">
-      <a href="https://www.instagram.com/bluetigerincstudios/" target="_blank" rel="noopener noreferrer" class="signature-link">
+      <a href="https://www.instagram.com/bluetigerincstudios/" target="_blank" rel="noopener noreferrer" class="signature-link" aria-label="Ayaan Ahmed Instagram">
         <img src="https://res.cloudinary.com/ayaanahmed/image/upload/v1769144180/ayaan-ahmed-logo_pqauyp.svg" alt="Ayaan Ahmed" class="personal-logo-footer">
       </a>
-      <span class="footer-meta" id="footerCountMeta">102 Typeface Families &bull; Local Archive</span>
+      <span class="footer-meta">Designed by Ayaan Ahmed</span>
     </div>
   </footer>
 
